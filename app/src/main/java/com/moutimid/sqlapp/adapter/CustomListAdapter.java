@@ -61,7 +61,6 @@ public class CustomListAdapter extends BaseAdapter {
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 dbHelper.deleteData(data.getName(), data.getAddress(),data.getDetails(), data.getImage());
                 dataList.remove(position);
                 notifyDataSetChanged();

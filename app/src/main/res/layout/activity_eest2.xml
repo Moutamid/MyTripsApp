@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activities.ExploreActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#4472C4">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:onClick="BackPress"
+                android:src="@drawable/back_arrow"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:layout_toRightOf="@+id/icon"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingTop="4dp"
+                android:text="Ile aux Cerfs Beach"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:id="@+id/menu"
+                android:layout_width="24dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginEnd="20dp"
+                android:onClick="menu"
+                android:src="@drawable/menu"
+                app:tint="@color/white" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/playfair_display_regular"
+                android:text="East"
+                android:textColor="@color/black"
+                android:textSize="29dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ile_aux_cerfs_mauritius_1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/add"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toLeftOf="@+id/map"
+                        android:src="@drawable/baseline_add_circle_outline_24"
+                        app:tint="#000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/add"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toLeftOf="@+id/map"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Add"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/map"
+                        android:layout_width="64dp"
+                        android:layout_height="24dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/map_location"
+                        app:tint="#000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/map"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="Map it"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="22dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="On the eastern coast of Mauritius, just south of Trou d’Eau Douce, lies a pair of islands known collectively as Ile aux Cerfs. Ile aux Cerfs is a genuine paradise spanning 87 hectares. It is particularly appealing to water sports enthusiasts andis one of the most stunning beaches in Mauritius."
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="22dp"
+                android:fontFamily="@font/poppins_bold"
+                android:justificationMode="inter_word"
+                android:text="What to Explore and Experience on Ile aux Cerfs"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ile_aux_cerfs_7_1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
+Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
+
+"
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ile_aux_cerfs_5_1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="While many visitors come to the Ile aux Cerfs for leisurely water activities, true sun worshippers find their sanctuary here, especially given the limited shelter on the beach. The overarching advice is to liberally apply sunscreen, preferably opting for products that are environmentally friendly.\nIt's worth noting that most visitors tend to remain in close proximity to the pier, where the shuttle from Pointe Maurice drops them off. If you wish to evade the crowds, particularly on weekends, consider strolling a bit farther along the coast. Numerous other nearby beaches offer equally tranquil surroundings."
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="22dp"
+                android:fontFamily="@font/poppins_bold"
+                android:justificationMode="inter_word"
+                android:text="How to Reach Ile aux Cerfs"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ile_aux_cerfs_7" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="Access to the island is granted to the public from 9:00 a.m. to 6:00 p.m. Starting from the village of Trou-d’Eau Douce, a shuttle embarks every half hour from the pier at Pointe Maurice to the Masala pier on Ile aux Cerfs, at 9:30 a.m.
+An alternative approach is by catamaran, with numerous providers offering scenic journeys to the island, sometimes incorporating detours to or from the waterfalls in the nature reserve of Grande Rivière Sud Est.
+"
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="22dp"
+                android:fontFamily="@font/poppins_bold"
+                android:justificationMode="inter_word"
+                android:text="Optimal Time to Explore the Island"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ile_aux_cerfs_6" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="The island tends to attract a considerable influx of day trippers during weekends. If your stay in Mauritius extends to at least a week, it is advisable to plan your visit on a weekday. While October and November are considered the prime months to experience Ile aux Cerfs, the period from June to November also offers a delightful visit."
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="22dp"
+                android:fontFamily="@font/poppins_bold"
+                android:justificationMode="inter_word"
+                android:text="Accommodation"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="Noteworthy among the accommodations on Ile aux Cerfs is the opulent 5-star Shangri-La’s Le Touessrok Resort &amp; Spa. While not budget-friendly, it provides an exceptional setting for grand celebrations. "
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="Ile aux Cerfshas several dining establishments, including a charming beachside restaurant. Additionally, two bars are available for visitors seeking refreshing beverages or cocktails at reasonable prices. An alternative is to bring ample food and drinks to suit your preferences."
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="22dp"
+                android:fontFamily="@font/poppins_bold"
+                android:justificationMode="inter_word"
+                android:text="Culinary Offerings"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:scaleType="fitXY"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/ile_aux_cerfs_3" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="Ile aux Cerfshas several dining establishments, including a charming beachside restaurant. Additionally, two bars are available for visitors seeking refreshing beverages or cocktails at reasonable prices. An alternative is to bring ample food and drinks to suit your preferences."
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

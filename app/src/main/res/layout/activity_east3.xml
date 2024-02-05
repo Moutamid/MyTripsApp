@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activities.ExploreActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#4472C4">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:onClick="BackPress"
+                android:src="@drawable/back_arrow"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22dp"
+                android:layout_toRightOf="@+id/icon"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingTop="4dp"
+                android:text="Poste Lafayette Beach"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:id="@+id/menu"
+                android:layout_width="24dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginEnd="20dp"
+                android:onClick="menu"
+                android:src="@drawable/menu"
+                app:tint="@color/white" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/playfair_display_regular"
+                android:text="East"
+                android:textColor="@color/black"
+                android:textSize="29dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/poste_lafayette_1" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/add"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toLeftOf="@+id/map"
+                    android:src="@drawable/baseline_add_circle_outline_24"
+                    app:tint="#000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/add"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toLeftOf="@+id/map"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Add"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/map"
+                    android:layout_width="64dp"
+                    android:layout_height="24dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/map_location"
+                    app:tint="#000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/map"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Map it"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+</LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="22dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="This unspoiled beach, often overlooked due to its turbulent sea, offers a rare opportunity to embrace tranquility and serenity. With its authentically rustic and untouched nature, this charming locale continually captivates nature enthusiasts. The preserved green habitat is a sanctuary for massive coral reefs, fostering rich marine biodiversity and mangroves."
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/poste_lafayette_2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="Those seeking a peaceful picnic will be pleased that the southern part of the beach provides a serene retreat. Additionally, the southern beach serves as an ideal starting point for a trek leading north of Poste Lafayette, offering picturesque green landscapes along the rocky trail."
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/poste_lafayette_3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="Picnicking in the shelter of the trees is a delightful option in certain areas where the sea displays stormy waves due to the proximity of the reefs to the lagoons. Enthusiasts of kite surfing and windsurfing will find this place ideal since Poste Lafayette is consistently exposed to the trade winds throughout the year. "
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/poste_lafayette_4" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/poppins_regular"
+                android:justificationMode="inter_word"
+                android:text="While the sea may be too challenging for a Sunday swim, the shore or shallow waters provide opportunities for sunbathing while children can revel in building sandcastles.\nrestaurants, including establishments like Jalsa Beach Hotel &amp; Spa, Radisson Blu Poste Lafayette Resort &amp; Spa, and the esteemed Hôtel Constance Le Prince Maurice.\nTo cater to the discerning tourist, gourmet restaurants have thrived alongside small traditional eateries. La Maison D’Été, specializing in Italian cuisine with seafood and fish menus, is a must-visit in Poste Lafayette. Another favored dining spot, Seabell, offers a menu featuring typical Mauritian dishes, complemented by a nearby mini market owned by the Seabell owners."
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="12dp" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
