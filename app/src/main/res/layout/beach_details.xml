@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".activities.ExploreActivity">
+    tools:context=".activities.Explore.ExploreActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,12 +29,12 @@
                 app:tint="@color/white" />
 
             <TextView
-                android:id="@+id/text1"
+                android:id="@+id/beach_header"
+                android:layout_toRightOf="@id/main_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="22dp"
-                android:layout_toRightOf="@+id/icon"
                 android:fontFamily="@font/poppins_bold"
                 android:paddingTop="4dp"
                 android:text="Ile aux Cerfs Beach"
@@ -54,16 +54,20 @@
                 app:tint="@color/white" />
         </RelativeLayout>
 
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/beach_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
                 android:fontFamily="@font/playfair_display_regular"
@@ -71,15 +75,15 @@
                 android:textColor="@color/black"
                 android:textSize="29dp" />
 
-            <ImageView
-                android:id="@+id/main_image"
+                <ImageView
+                    android:id="@+id/main_image"
 
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_marginLeft="22dp"
-                android:layout_marginRight="22dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ile_aux_cerfs_mauritius_1" />
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ile_aux_cerfs_mauritius_1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -101,6 +105,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_toLeftOf="@+id/map"
                         android:src="@drawable/baseline_add_circle_outline_24"
+                        android:visibility="gone"
                         app:tint="#000" />
 
                     <TextView
@@ -112,7 +117,8 @@
                         android:layout_toLeftOf="@+id/map"
                         android:fontFamily="@font/poppins_regular"
                         android:text="Add"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -129,6 +135,7 @@
                         android:layout_height="24dp"
                         android:layout_centerHorizontal="true"
                         android:src="@drawable/map_location"
+                        android:visibility="gone"
                         app:tint="#000" />
 
                     <TextView
@@ -141,52 +148,184 @@
                         android:fontFamily="@font/poppins_regular"
                         android:text="Map it"
                         android:textColor="@color/black"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        android:visibility="gone" />
                 </LinearLayout>
 
             </LinearLayout>
 
             <TextView
+                android:id="@+id/text1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
-                android:layout_marginTop="3dp"
                 android:layout_marginRight="22dp"
                 android:fontFamily="@font/poppins_regular"
                 android:justificationMode="inter_word"
-                android:text="On the eastern coast of Mauritius, just south of Trou d’Eau Douce, lies a pair of islands known collectively as Ile aux Cerfs. Ile aux Cerfs is a genuine paradise spanning 87 hectares. It is particularly appealing to water sports enthusiasts andis one of the most stunning beaches in Mauritius."
                 android:textAlignment="inherit"
                 android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_bold"
-                android:justificationMode="inter_word"
                 android:text="What to Explore and Experience on Ile aux Cerfs"
-                android:textColor="@color/black"
                 android:textIsSelectable="true"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:visibility="gone" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="230dp"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ile_aux_cerfs_7_1" />
+                <TextView
+                    android:id="@+id/title1"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:justificationMode="inter_word"
+                    android:text="What to Explore and Experience on Ile aux Cerfs"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/image1"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ile_aux_cerfs_7_1"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/text2"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:justificationMode="inter_word"
+                    android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
+Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
+
+"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/title2"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:justificationMode="inter_word"
+                    android:text="What to Explore and Experience on Ile aux Cerfs"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/text3"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:justificationMode="inter_word"
+                    android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
+Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
+
+"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/image2"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ile_aux_cerfs_5_1"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/text4"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:justificationMode="inter_word"
+                    android:text="While many visitors come to the Ile aux Cerfs for leisurely water activities, true sun worshippers find their sanctuary here, especially given the limited shelter on the beach. The overarching advice is to liberally apply sunscreen, preferably opting for products that are environmentally friendly.\nIt's worth noting that most visitors tend to remain in close proximity to the pier, where the shuttle from Pointe Maurice drops them off. If you wish to evade the crowds, particularly on weekends, consider strolling a bit farther along the coast. Numerous other nearby beaches offer equally tranquil surroundings."
+                    android:textAlignment="inherit"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/title3"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:justificationMode="inter_word"
+                    android:text="What to Explore and Experience on Ile aux Cerfs"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/text5"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:justificationMode="inter_word"
+                    android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
+Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand."
+                    android:textAlignment="inherit"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/title4"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:justificationMode="inter_word"
+                    android:text="What to Explore and Experience on Ile aux Cerfs"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
 
             <TextView
+                android:id="@+id/text6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginRight="22dp"
                 android:fontFamily="@font/poppins_regular"
                 android:justificationMode="inter_word"
@@ -197,303 +336,217 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                 android:textAlignment="inherit"
                 android:textColor="@color/black"
                 android:textIsSelectable="true"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:visibility="gone" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_bold"
-                android:justificationMode="inter_word"
-                android:text="What to Explore and Experience on Ile aux Cerfs"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                <TextView
+                    android:id="@+id/title5"
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_regular"
-                android:justificationMode="inter_word"
-                android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:justificationMode="inter_word"
+                    android:text="What to Explore and Experience on Ile aux Cerfs"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/text7"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:justificationMode="inter_word"
+                    android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
 Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
 
 "
-                android:textAlignment="inherit"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                    android:textAlignment="inherit"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="230dp"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ile_aux_cerfs_5_1" />
+                <TextView
+                    android:id="@+id/title6"
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/poppins_regular"
-                android:justificationMode="inter_word"
-                android:text="While many visitors come to the Ile aux Cerfs for leisurely water activities, true sun worshippers find their sanctuary here, especially given the limited shelter on the beach. The overarching advice is to liberally apply sunscreen, preferably opting for products that are environmentally friendly.\nIt's worth noting that most visitors tend to remain in close proximity to the pier, where the shuttle from Pointe Maurice drops them off. If you wish to evade the crowds, particularly on weekends, consider strolling a bit farther along the coast. Numerous other nearby beaches offer equally tranquil surroundings."
-                android:textAlignment="inherit"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:justificationMode="inter_word"
+                    android:text="What to Explore and Experience on Ile aux Cerfs"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_bold"
-                android:justificationMode="inter_word"
-                android:text="What to Explore and Experience on Ile aux Cerfs"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                <TextView
+                    android:id="@+id/text8"
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_regular"
-                android:justificationMode="inter_word"
-                android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:justificationMode="inter_word"
+                    android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
+Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
+"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/title7"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:justificationMode="inter_word"
+                    android:text="How to Reach Ile aux Cerfs"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/image3"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ile_aux_cerfs_7"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/text9"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:justificationMode="inter_word"
+                    android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
 Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
 
 "
-                android:textAlignment="inherit"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                    android:textAlignment="inherit"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_bold"
-                android:justificationMode="inter_word"
-                android:text="What to Explore and Experience on Ile aux Cerfs"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                <TextView
+                    android:id="@+id/title8"
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_regular"
-                android:justificationMode="inter_word"
-                android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:justificationMode="inter_word"
+                    android:text="What to Explore and Experience on Ile aux Cerfs"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/text10"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:justificationMode="inter_word"
+                    android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
 Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
 
 "
-                android:textAlignment="inherit"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                    android:textAlignment="inherit"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_bold"
-                android:justificationMode="inter_word"
-                android:text="What to Explore and Experience on Ile aux Cerfs"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                <ImageView
+                    android:id="@+id/image4"
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_regular"
-                android:justificationMode="inter_word"
-                android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
-Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ile_aux_cerfs_6"
+                    android:visibility="gone" />
 
-"
-                android:textAlignment="inherit"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                <TextView
+                    android:id="@+id/text11"
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_bold"
-                android:justificationMode="inter_word"
-                android:text="What to Explore and Experience on Ile aux Cerfs"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:justificationMode="inter_word"
+                    android:text="The island tends to attract a considerable influx of day trippers during weekends. If your stay in Mauritius extends to at least a week, it is advisable to plan your visit on a weekday. While October and November are considered the prime months to experience Ile aux Cerfs, the period from June to November also offers a delightful visit."
+                    android:textAlignment="inherit"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_regular"
-                android:justificationMode="inter_word"
-                android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
-Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
+                <ImageView
+                    android:id="@+id/image5"
 
-"
-                android:textAlignment="inherit"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ile_aux_cerfs_6"
+                    android:visibility="gone" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_bold"
-                android:justificationMode="inter_word"
-                android:text="How to Reach Ile aux Cerfs"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                <TextView
+                    android:id="@+id/text12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="230dp"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ile_aux_cerfs_7" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_regular"
-                android:justificationMode="inter_word"
-                android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
-Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
-
-"
-                android:textAlignment="inherit"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_bold"
-                android:justificationMode="inter_word"
-                android:text="What to Explore and Experience on Ile aux Cerfs"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_regular"
-                android:justificationMode="inter_word"
-                android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
-Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
-
-"
-                android:textAlignment="inherit"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="230dp"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ile_aux_cerfs_6" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:layout_marginBottom="3dp"
-                android:fontFamily="@font/poppins_regular"
-                android:justificationMode="inter_word"
-                android:text="The island tends to attract a considerable influx of day trippers during weekends. If your stay in Mauritius extends to at least a week, it is advisable to plan your visit on a weekday. While October and November are considered the prime months to experience Ile aux Cerfs, the period from June to November also offers a delightful visit."
-                android:textAlignment="inherit"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="230dp"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ile_aux_cerfs_6" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="22dp"
-                android:layout_marginBottom="3dp"
-                android:fontFamily="@font/poppins_regular"
-                android:justificationMode="inter_word"
-                android:text="The island tends to attract a considerable influx of day trippers during weekends. If your stay in Mauritius extends to at least a week, it is advisable to plan your visit on a weekday. While October and November are considered the prime months to experience Ile aux Cerfs, the period from June to November also offers a delightful visit."
-                android:textAlignment="inherit"
-                android:textColor="@color/black"
-                android:textIsSelectable="true"
-                android:textSize="12dp" />
+                    android:layout_marginRight="22dp"
+                    android:layout_marginBottom="3dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:justificationMode="inter_word"
+                    android:text="The island tends to attract a considerable influx of day trippers during weekends. If your stay in Mauritius extends to at least a week, it is advisable to plan your visit on a weekday. While October and November are considered the prime months to experience Ile aux Cerfs, the period from June to November also offers a delightful visit."
+                    android:textAlignment="inherit"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
 
 
-        </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
 
 
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>

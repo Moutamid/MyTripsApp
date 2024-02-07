@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/white"
 
-    tools:context=".activities.ExploreActivity">
+    tools:context=".activities.Explore.ExploreActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -57,6 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:layout_weight="1"
+                    android:onClick="east"
                     android:background="@drawable/img_bg"
                     android:orientation="vertical">
 
@@ -84,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:layout_weight="1"
+                    android:onClick="west"
                     android:background="@drawable/img_bg"
                     android:orientation="vertical">
 
@@ -117,6 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:layout_weight="1"
+                    android:onClick="north"
                     android:background="@drawable/img_bg"
                     android:orientation="vertical">
 
@@ -144,6 +147,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:layout_weight="1"
+                    android:onClick="south"
                     android:background="@drawable/img_bg"
                     android:orientation="vertical">
 
@@ -176,6 +180,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
+                    android:onClick="central"
+
                     android:layout_weight="1"
                     android:background="@drawable/img_bg"
                     android:orientation="vertical">
@@ -183,9 +189,11 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
-    android:scaleType="fitXY"
+                        android:onClick="central"
+                        android:scaleType="fitXY"
+
                         android:padding="1dp"
-                                           android:src="@drawable/trou_aux_cerfs_1" />
+                        android:src="@drawable/trou_aux_cerfs_1" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -265,6 +273,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:layout_weight="1"
+                    android:onClick="tourship_map"
                     android:background="@drawable/img_bg"
                     android:orientation="vertical">
 

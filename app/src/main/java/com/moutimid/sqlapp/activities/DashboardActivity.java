@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.moutimid.sqlapp.R;
+import com.moutimid.sqlapp.activities.Explore.ExploreActivity;
 
 public class DashboardActivity extends AppCompatActivity {
 

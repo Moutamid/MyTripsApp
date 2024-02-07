@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.PopupMenu;
 
 import com.moutimid.sqlapp.R;
-import com.moutimid.sqlapp.activities.Beaches.BeachesinEastActivity;
 import com.moutimid.sqlapp.activities.DashboardActivity;
 
 public class East3Activity extends AppCompatActivity {
