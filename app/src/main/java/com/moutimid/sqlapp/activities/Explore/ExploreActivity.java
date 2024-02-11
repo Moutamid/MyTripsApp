@@ -112,6 +112,7 @@ public class ExploreActivity extends AppCompatActivity {
         Intent intent = new Intent(ExploreActivity.this, ExploreDetailsActivity.class);
         intent.putExtra("itemHeader", "Central");
         intent.putExtra("itemName1", itemName1);
+
         intent.putExtra("itemImages", itemImages);
         startActivity(intent);
     }

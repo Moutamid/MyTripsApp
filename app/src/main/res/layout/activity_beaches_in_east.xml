@@ -98,7 +98,7 @@
             android:fontFamily="@font/poppins_regular"
             android:justificationMode="inter_word"
             android:text="Mauritius is surrounded by the warm, turquoise waters of the Indian Ocean, and is home to a variety of beaches that cater to different tastes.
-\n\nBelow is a guide to the beaches in Mauritius on each coastline to help you choose where to stay.
+\nBelow is a guide to the beaches in Mauritius on each coastline to help you choose where to stay.
 "
             android:textAlignment="inherit"
             android:textColor="@color/black"

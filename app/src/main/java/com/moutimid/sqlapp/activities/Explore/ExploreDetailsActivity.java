@@ -33,7 +33,7 @@ public class ExploreDetailsActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.listView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         recyclerView.setLayoutManager(gridLayoutManager);
-        ExploreAdapter exploreAdapter = new ExploreAdapter(this, itemName, itemImages);
+        ExploreAdapter exploreAdapter = new ExploreAdapter(this, itemName, itemImages, itemHeader);
         recyclerView.setAdapter(exploreAdapter);
     }
 

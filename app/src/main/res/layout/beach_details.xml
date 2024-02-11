@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
     tools:context=".activities.Explore.ExploreActivity">
@@ -56,7 +56,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -192,6 +192,7 @@
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
                     android:scaleType="fitXY"
+                    android:layout_marginBottom="3dp"
                     android:src="@drawable/ile_aux_cerfs_7_1"
                     android:visibility="gone" />
 
@@ -255,6 +256,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
                     android:scaleType="fitXY"
+                    android:layout_marginBottom="3dp"
                     android:src="@drawable/ile_aux_cerfs_5_1"
                     android:visibility="gone" />
 
@@ -429,6 +431,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
                     android:scaleType="fitXY"
+                    android:layout_marginBottom="3dp"
                     android:src="@drawable/ile_aux_cerfs_7"
                     android:visibility="gone" />
 
@@ -493,6 +496,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
                     android:scaleType="fitXY"
+                    android:layout_marginBottom="3dp"
                     android:src="@drawable/ile_aux_cerfs_6"
                     android:visibility="gone" />
 
@@ -503,7 +507,6 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
-                    android:layout_marginBottom="3dp"
                     android:fontFamily="@font/poppins_regular"
                     android:justificationMode="inter_word"
                     android:text="The island tends to attract a considerable influx of day trippers during weekends. If your stay in Mauritius extends to at least a week, it is advisable to plan your visit on a weekday. While October and November are considered the prime months to experience Ile aux Cerfs, the period from June to November also offers a delightful visit."
@@ -520,6 +523,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:layout_height="230dp"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
+                    android:layout_marginBottom="3dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/ile_aux_cerfs_6"
                     android:visibility="gone" />

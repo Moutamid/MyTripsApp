@@ -28,6 +28,7 @@ public class BeachesTypeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_beaches_in_east);
         title = findViewById(R.id.title);
         heading = findViewById(R.id.heading);
+
         Intent intent = getIntent();
         String itemHeader = intent.getStringExtra("itemHeader");
         String itemTitle = intent.getStringExtra("itemTitle");

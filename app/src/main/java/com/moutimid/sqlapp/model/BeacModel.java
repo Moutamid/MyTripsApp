@@ -1,7 +1,8 @@
 package com.moutimid.sqlapp.model;
 
 public class BeacModel {
-   public int main_image;
+ public String title;
+ public int main_image;
     public String text1, title1;
     public int image1;
     public String text2, title2, text3;
