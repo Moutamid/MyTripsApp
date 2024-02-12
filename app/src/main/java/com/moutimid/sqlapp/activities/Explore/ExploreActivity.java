@@ -92,7 +92,7 @@ public class ExploreActivity extends AppCompatActivity {
                 R.drawable.mahebourg, R.drawable.mahebourg_museum_2,
                 R.drawable.ile_aux_fouquets, R.drawable.ile_aux_aigrettes_1};
         Intent intent = new Intent(ExploreActivity.this, ExploreDetailsActivity.class);
-        intent.putExtra("itemHeader", "North");
+        intent.putExtra("itemHeader", "South");
         intent.putExtra("itemName1", itemName1);
         intent.putExtra("itemImages", itemImages);
         startActivity(intent);

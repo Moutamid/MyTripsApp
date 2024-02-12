@@ -77,12 +77,13 @@
 
                 <ImageView
                     android:id="@+id/main_image"
-
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
                     android:scaleType="fitXY"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="3dp"
                     android:src="@drawable/ile_aux_cerfs_mauritius_1" />
 
             <LinearLayout
@@ -104,8 +105,9 @@
                         android:layout_height="24dp"
                         android:layout_marginEnd="10dp"
                         android:layout_toLeftOf="@+id/map"
-                        android:src="@drawable/baseline_add_circle_outline_24"
-                        android:visibility="gone"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="3dp"
+                        android:src="@drawable/add"
                         app:tint="#000" />
 
                     <TextView
@@ -117,8 +119,7 @@
                         android:layout_toLeftOf="@+id/map"
                         android:fontFamily="@font/poppins_regular"
                         android:text="Add"
-                        android:textSize="12dp"
-                        android:visibility="gone" />
+                        android:textSize="12dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -135,7 +136,8 @@
                         android:layout_height="24dp"
                         android:layout_centerHorizontal="true"
                         android:src="@drawable/map_location"
-                        android:visibility="gone"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="3dp"
                         app:tint="#000" />
 
                     <TextView
@@ -148,8 +150,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:text="Map it"
                         android:textColor="@color/black"
-                        android:textSize="12dp"
-                        android:visibility="gone" />
+                        android:textSize="12dp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -187,12 +188,13 @@
                 <ImageView
                     android:id="@+id/image1"
 
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="230dp"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
                     android:scaleType="fitXY"
-                    android:layout_marginBottom="3dp"
                     android:src="@drawable/ile_aux_cerfs_7_1"
                     android:visibility="gone" />
 
@@ -255,8 +257,10 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:layout_height="230dp"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
-                    android:scaleType="fitXY"
+
                     android:layout_marginBottom="3dp"
+                    android:layout_marginTop="2dp"
+                    android:scaleType="fitXY"
                     android:src="@drawable/ile_aux_cerfs_5_1"
                     android:visibility="gone" />
 
@@ -426,12 +430,13 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                 <ImageView
                     android:id="@+id/image3"
 
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="230dp"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
                     android:scaleType="fitXY"
-                    android:layout_marginBottom="3dp"
                     android:src="@drawable/ile_aux_cerfs_7"
                     android:visibility="gone" />
 
@@ -491,12 +496,13 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                 <ImageView
                     android:id="@+id/image4"
 
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="230dp"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
                     android:scaleType="fitXY"
-                    android:layout_marginBottom="3dp"
                     android:src="@drawable/ile_aux_cerfs_6"
                     android:visibility="gone" />
 
@@ -519,11 +525,12 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                 <ImageView
                     android:id="@+id/image5"
 
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="230dp"
                     android:layout_marginLeft="22dp"
                     android:layout_marginRight="22dp"
-                    android:layout_marginBottom="3dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/ile_aux_cerfs_6"
                     android:visibility="gone" />

@@ -83,7 +83,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"
             android:layout_toLeftOf="@+id/map"
-            android:src="@drawable/baseline_add_circle_outline_24"
+            android:src="@drawable/add"
             app:tint="#5c79ff" />
 
         <ImageView

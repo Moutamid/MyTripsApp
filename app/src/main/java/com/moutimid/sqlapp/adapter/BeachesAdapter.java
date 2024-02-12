@@ -88,7 +88,7 @@ public class BeachesAdapter extends BaseAdapter {
                         model.text1 = "Located on the west coast of Mauritius, Flic enFlac has emerged as the second most popular tourist area in the country, following Grand Baie.<br>" +
                                 "Unlike the faster-paced development in the north, the west coast, including beautiful villages like Flic enFlac, has transformed from small fishing communities into charming towns, earning a reputation as a premier holiday destination.<br>" +
                                 "Over the past two centuries, Flic enFlac has evolved from a humble fishing village into a prominent tourist hub. Today, it stands as a sought-after destination, attracting both international tourists and local Mauritians";
-                        model.title1 = " ";
+                        model.title1 = "";
 
                         model.image1 = R.drawable.flic_en_flac_1; // Set the value for image1
 
@@ -103,30 +103,30 @@ public class BeachesAdapter extends BaseAdapter {
 
                         model.image2 = R.drawable.map_location; // Set the value for image2
 
-                        model.text4 = " ";
-                        model.title3 = " ";
-                        model.text5 = " ";
-                        model.title4 = " ";
-                        model.text6 = " ";
-                        model.title5 = " ";
-                        model.text7 = " ";
-                        model.title6 = " ";
-                        model.text8 = " ";
-                        model.title7 = " ";
+                        model.text4 = "";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
 
                         model.image3 = R.drawable.map_location;
 
-                        model.text9 = " ";
-                        model.title8 = " ";
-                        model.text10 = " ";
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
 
                         model.image4 = R.drawable.map_location;
 
-                        model.text11 = " ";
+                        model.text11 = "";
 
                         model.image5 = R.drawable.map_location;
 
-                        model.text12 = " ";
+                        model.text12 = "";
                         Stash.put("model", model);
                         intent = new Intent(context, BeachDetails.class);
                         context.startActivity(intent);
@@ -137,40 +137,40 @@ public class BeachesAdapter extends BaseAdapter {
 
                         model.text1 = "The shoreline is adorned with pristine, snow-white sand, featuring a gentle slope and shallow waters. The ocean remains tranquil, displaying a captivating turquoise hue, although intermittent strong currents can be experienced. La Preneuse Beach boasts a spacious and expansive setting, providing ample room for all vacationers. The panoramic view from the coast reveals the towering Mount Le Morne against the backdrop of the turquoise lagoon.<br>" +
                                 "Situated on the west coast of Mauritius, the beach offers a range of hotels catering to different comfort levels for tourists. Cafes, stores, and souvenir shops offering diverse goods are conveniently located near the shoreline. A notable attraction is the Martello Tower, erected by the British in the 1830s as a defense against the French fleet. It now serves as a museum housing information about the region's history and the initial planters. The renowned Black River, a freshwater river, flows along the beach. Yachts and boats gracefully navigate the open sea, providing opportunities for sea excursions.";
-                        model.title1 = " ";
+                        model.title1 = "";
 
                         model.image1 = R.drawable.map_location; // Set the value for image1
 
-                        model.text2 = " ";
-                        model.title2 = " ";
-                        model.text3 = " ";
+                        model.text2 = "";
+                        model.title2 = "";
+                        model.text3 = "";
 
                         model.image2 = R.drawable.map_location; // Set the value for image2
 
-                        model.text4 = " ";
-                        model.title3 = " ";
-                        model.text5 = " ";
-                        model.title4 = " ";
-                        model.text6 = " ";
-                        model.title5 = " ";
-                        model.text7 = " ";
-                        model.title6 = " ";
-                        model.text8 = " ";
-                        model.title7 = " ";
+                        model.text4 = "";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
 
                         model.image3 = R.drawable.map_location;
 
-                        model.text9 = " ";
-                        model.title8 = " ";
-                        model.text10 = " ";
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
 
                         model.image4 = R.drawable.map_location;
 
-                        model.text11 = " ";
+                        model.text11 = "";
 
                         model.image5 = R.drawable.map_location;
 
-                        model.text12 = " ";
+                        model.text12 = "";
                         Stash.put("model", model);
                         intent = new Intent(context, BeachDetails.class);
                         context.startActivity(intent);
@@ -180,41 +180,41 @@ public class BeachesAdapter extends BaseAdapter {
                         model.main_image = R.drawable.le_morne_beach_2; // Set the value for main_image
 
                         model.text1 = "Nestled on a peninsula along the western coast of Mauritius, at the base of the UNESCO-listed Morne Brabant mountain, lies Le Morne Beach. Easily accessible from the coastal road, this public beach boasts miles of pristine white sand and is adorned with majestic casuarina trees, all against the backdrop of the crystal-clear waters providing excellent visibility for scuba diving.";
-                        model.title1 = " ";
+                        model.title1 = "";
 
                         model.image1 = R.drawable.kite_surfing; // Set the value for image1
 
                         model.text2 = "Renowned as one of the premier kite-surfing spots in Mauritius, and often regarded as one of the best in the world, Le Morne Beach offers a breathtaking setting with its iconic mountain in the background. The beach is a favorite among windsurfers and kite surfers, as the conditions for these water sports are ideal throughout much of the year. The annual Kiteival, attracting international participants, is among the many competitions hosted at this spectacular location.<br>" +
                                 "While Le Morne Beach remains a delightful spot for swimming, it can get quite busy on weekends and holidays. Nudism is prohibited, although topless sunbathing is accepted. For a more tranquil experience, the best times to visit the beach are early in the morning from 8:00 to 11:00 or in the afternoon from 13:00 to 17:00.<br> ";
-                        model.title2 = " ";
-                        model.text3 = " ";
+                        model.title2 = "";
+                        model.text3 = "";
 
                         model.image2 = R.drawable.paddle_boarding; // Set the value for image2
 
                         model.text4 = "An array of activities awaits beachgoers, including pedalo rides, windsurfing, kite surfing, scuba diving, stand-up paddleboarding, and kayaking, ensuring there's something for everyone to enjoy at Le Morne Beach. ";
-                        model.title3 = " ";
-                        model.text5 = " ";
-                        model.title4 = " ";
-                        model.text6 = " ";
-                        model.title5 = " ";
-                        model.text7 = " ";
-                        model.title6 = " ";
-                        model.text8 = " ";
-                        model.title7 = " ";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
 
                         model.image3 = R.drawable.map_location;
 
-                        model.text9 = " ";
-                        model.title8 = " ";
-                        model.text10 = " ";
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
 
                         model.image4 = R.drawable.map_location;
 
-                        model.text11 = " ";
+                        model.text11 = "";
 
                         model.image5 = R.drawable.map_location;
 
-                        model.text12 = " ";
+                        model.text12 = "";
                         Stash.put("model", model);
                         intent = new Intent(context, BeachDetails.class);
                         context.startActivity(intent);
@@ -225,38 +225,38 @@ public class BeachesAdapter extends BaseAdapter {
                         model.main_image = R.drawable.la_preneuse_4; // Set the value for main_image
                         model.text1 = "The shoreline is adorned with pristine, snow-white sand, featuring a gentle slope and shallow waters. The ocean remains tranquil, displaying a captivating turquoise hue, although intermittent strong currents can be experienced. La Preneuse Beach boasts a spacious and expansive setting, providing ample room for all vacationers. The panoramic view from the coast reveals the towering Mount Le Morne against the backdrop of the turquoise lagoon.<br>" +
                                 "Situated on the west coast of Mauritius, the beach offers a range of hotels catering to different comfort levels for tourists. Cafes, stores, and souvenir shops offering diverse goods are conveniently located near the shoreline. A notable attraction is the Martello Tower, erected by the British in the 1830s as a defense against the French fleet. It now serves as a museum housing information about the region's history and the initial planters. The renowned Black River, a freshwater river, flows along the beach. Yachts and boats gracefully navigate the open sea, providing opportunities for sea excursions.";
-                        model.title1 = " ";
+                        model.title1 = "";
                         model.image1 = R.drawable.map_location; // Set the value for image1
-                        model.text2 = " ";
-                        model.title2 = " ";
-                        model.text3 = " ";
+                        model.text2 = "";
+                        model.title2 = "";
+                        model.text3 = "";
 
                         model.image2 = R.drawable.map_location; // Set the value for image2
 
-                        model.text4 = " ";
-                        model.title3 = " ";
-                        model.text5 = " ";
-                        model.title4 = " ";
-                        model.text6 = " ";
-                        model.title5 = " ";
-                        model.text7 = " ";
-                        model.title6 = " ";
-                        model.text8 = " ";
-                        model.title7 = " ";
+                        model.text4 = "";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
 
                         model.image3 = R.drawable.map_location;
 
-                        model.text9 = " ";
-                        model.title8 = " ";
-                        model.text10 = " ";
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
 
                         model.image4 = R.drawable.map_location;
 
-                        model.text11 = " ";
+                        model.text11 = "";
 
                         model.image5 = R.drawable.map_location;
 
-                        model.text12 = " ";
+                        model.text12 = "";
                         Stash.put("model", model);
                         intent = new Intent(context, BeachDetails.class);
                         context.startActivity(intent);
@@ -310,40 +310,40 @@ public class BeachesAdapter extends BaseAdapter {
 //
 //        model.text1 = "The shoreline is adorned with pristine, snow-white sand, featuring a gentle slope and shallow waters. The ocean remains tranquil, displaying a captivating turquoise hue, although intermittent strong currents can be experienced. La Preneuse Beach boasts a spacious and expansive setting, providing ample room for all vacationers. The panoramic view from the coast reveals the towering Mount Le Morne against the backdrop of the turquoise lagoon.<br>" +
 //                "Situated on the west coast of Mauritius, the beach offers a range of hotels catering to different comfort levels for tourists. Cafes, stores, and souvenir shops offering diverse goods are conveniently located near the shoreline. A notable attraction is the Martello Tower, erected by the British in the 1830s as a defense against the French fleet. It now serves as a museum housing information about the region's history and the initial planters. The renowned Black River, a freshwater river, flows along the beach. Yachts and boats gracefully navigate the open sea, providing opportunities for sea excursions.";
-//        model.title1 = " ";
+//        model.title1 = "";
 //
 //        model.image1 = R.drawable.map_location; // Set the value for image1
 //
-//        model.text2 = " ";
-//        model.title2 = " ";
-//        model.text3 = " ";
+//        model.text2 = "";
+//        model.title2 = "";
+//        model.text3 = "";
 //
 //        model.image2 = R.drawable.map_location; // Set the value for image2
 //
-//        model.text4 = " ";
-//        model.title3 = " ";
-//        model.text5 = " ";
-//        model.title4 = " ";
-//        model.text6 = " ";
-//        model.title5 = " ";
-//        model.text7 = " ";
-//        model.title6 = " ";
-//        model.text8 = " ";
-//        model.title7 = " ";
+//        model.text4 = "";
+//        model.title3 = "";
+//        model.text5 = "";
+//        model.title4 = "";
+//        model.text6 = "";
+//        model.title5 = "";
+//        model.text7 = "";
+//        model.title6 = "";
+//        model.text8 = "";
+//        model.title7 = "";
 //
 //        model.image3 = R.drawable.map_location;
 //
-//        model.text9 = " ";
-//        model.title8 = " ";
-//        model.text10 = " ";
+//        model.text9 = "";
+//        model.title8 = "";
+//        model.text10 = "";
 //
 //        model.image4 = R.drawable.map_location;
 //
-//        model.text11 = " ";
+//        model.text11 = "";
 //
 //        model.image5 = R.drawable.map_location;
 //
-//        model.text12 = " ";
+//        model.text12 = "";
 //        Stash.put("model", model);
 //        intent = new Intent(context, BeachDetails.class);
 //        context.startActivity(intent);

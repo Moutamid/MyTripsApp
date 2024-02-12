@@ -61,7 +61,7 @@
         android:layout_margin="10dp"
         android:scaleType="fitXY"
         android:visibility="gone"
-        android:src="@drawable/baseline_add_circle_outline_24" />
+        android:src="@drawable/add" />
 
     <ImageView
         android:id="@+id/delete"

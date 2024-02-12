@@ -16,9 +16,6 @@
         android:theme="@style/Theme.SQLApp"
         tools:targetApi="31">
         <activity
-            android:name=".activities.Beaches.BeachDetails"
-            android:exported="false" />
-        <activity
             android:name=".activities.TourshipActivity"
             android:exported="false" />
         <activity
