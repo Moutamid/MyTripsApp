@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.fxn.stash.Stash;
 import com.moutimid.sqlapp.R;
 import com.moutimid.sqlapp.activities.DashboardActivity;
 import com.moutimid.sqlapp.adapter.ExploreAdapter;
@@ -29,9 +30,11 @@ public class ExploreDetailsActivity extends AppCompatActivity {
         String itemHeader = intent.getStringExtra("itemHeader");
         itemName = intent.getStringArrayExtra("itemName1");
         itemImages = intent.getIntArrayExtra("itemImages");
+        Stash.put("type", itemHeader);
+
         title.setText(itemHeader);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.listView);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);
         ExploreAdapter exploreAdapter = new ExploreAdapter(this, itemName, itemImages, itemHeader);
         recyclerView.setAdapter(exploreAdapter);

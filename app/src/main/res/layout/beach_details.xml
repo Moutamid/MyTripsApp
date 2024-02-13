@@ -68,12 +68,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:layout_margin="20dp"
-                android:fontFamily="@font/playfair_display_regular"
-                android:text="East"
-                android:textColor="@color/black"
-                android:textSize="29dp" />
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:fontFamily="@font/playfair_display_regular"
+                    android:text="East"
+                    android:textColor="#000"
+                    android:textSize="29dp" />
 
                 <ImageView
                     android:id="@+id/main_image"
@@ -96,18 +96,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_margin="15dp"
+                    android:layout_margin="5dp"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/add"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
                         android:layout_marginEnd="10dp"
                         android:layout_toLeftOf="@+id/map"
                         android:layout_marginTop="2dp"
                         android:layout_marginBottom="3dp"
                         android:src="@drawable/add"
+
                         app:tint="#000" />
 
                     <TextView
@@ -119,21 +121,30 @@
                         android:layout_toLeftOf="@+id/map"
                         android:fontFamily="@font/poppins_regular"
                         android:text="Add"
+                        android:textColor="#000"
                         android:textSize="12dp" />
                 </LinearLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="12dp"
+
+                    android:background="#D9D9D9" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
 
-                    android:layout_margin="15dp"
+                    android:layout_margin="5dp"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/map"
                         android:layout_width="64dp"
-                        android:layout_height="24dp"
+                        android:layout_height="20dp"
                         android:layout_centerHorizontal="true"
                         android:src="@drawable/map_location"
                         android:layout_marginTop="2dp"
@@ -149,26 +160,34 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/poppins_regular"
                         android:text="Map it"
-                        android:textColor="@color/black"
+                        android:textColor="#000"
                         android:textSize="12dp" />
                 </LinearLayout>
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/text1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
-                android:layout_marginRight="22dp"
-                android:fontFamily="@font/poppins_regular"
-                android:justificationMode="inter_word"
-                android:textAlignment="inherit"
-                android:textColor="@color/black"
-                android:text="What to Explore and Experience on Ile aux Cerfs"
-                android:textIsSelectable="true"
-                android:textSize="12dp"
-                android:visibility="gone" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="#D9D9D9" />
+
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginRight="22dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:justificationMode="inter_word"
+                    android:text="What to Explore and Experience on Ile aux Cerfs"
+                    android:textAlignment="inherit"
+                    android:textColor="#75706b"
+                    android:textIsSelectable="true"
+                    android:textSize="12dp"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/title1"
@@ -180,7 +199,7 @@
                     android:fontFamily="@font/poppins_bold"
                     android:justificationMode="inter_word"
                     android:text="What to Explore and Experience on Ile aux Cerfs"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -212,7 +231,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
 
 "
                     android:textAlignment="inherit"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -227,7 +246,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:fontFamily="@font/poppins_bold"
                     android:justificationMode="inter_word"
                     android:text="What to Explore and Experience on Ile aux Cerfs"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -242,11 +261,9 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:fontFamily="@font/poppins_regular"
                     android:justificationMode="inter_word"
                     android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
-Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
-
-"
+Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand."
                     android:textAlignment="inherit"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -275,7 +292,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:justificationMode="inter_word"
                     android:text="While many visitors come to the Ile aux Cerfs for leisurely water activities, true sun worshippers find their sanctuary here, especially given the limited shelter on the beach. The overarching advice is to liberally apply sunscreen, preferably opting for products that are environmentally friendly.\nIt's worth noting that most visitors tend to remain in close proximity to the pier, where the shuttle from Pointe Maurice drops them off. If you wish to evade the crowds, particularly on weekends, consider strolling a bit farther along the coast. Numerous other nearby beaches offer equally tranquil surroundings."
                     android:textAlignment="inherit"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -290,7 +307,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:fontFamily="@font/poppins_bold"
                     android:justificationMode="inter_word"
                     android:text="What to Explore and Experience on Ile aux Cerfs"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -307,7 +324,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:text="The island is celebrated for its picturesque turquoise lagoon, perfectly suited for an extensive array of water sports. Among the activities available, whether undertaken solo or with a companion, is parasailing—an endeavor worth adding to your bucket list, particularly for the breathtaking vistas of the lagoon.
 Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand."
                     android:textAlignment="inherit"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -322,7 +339,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:fontFamily="@font/poppins_bold"
                     android:justificationMode="inter_word"
                     android:text="What to Explore and Experience on Ile aux Cerfs"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -340,7 +357,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
 
 "
                 android:textAlignment="inherit"
-                android:textColor="@color/black"
+                android:textColor="#75706b"
                 android:textIsSelectable="true"
                 android:textSize="12dp"
                 android:visibility="gone" />
@@ -355,7 +372,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:fontFamily="@font/poppins_bold"
                     android:justificationMode="inter_word"
                     android:text="What to Explore and Experience on Ile aux Cerfs"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -374,7 +391,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
 
 "
                     android:textAlignment="inherit"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -389,7 +406,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:fontFamily="@font/poppins_bold"
                     android:justificationMode="inter_word"
                     android:text="What to Explore and Experience on Ile aux Cerfs"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -407,7 +424,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
 Other activities include speedboat rides, water skiing, and paddleboarding. Snorkeling is also an option, although, you'll need to take a boat to a location where there is coral as the water near the beach is shallow and consists predominantly of sand.
 "
                     android:textAlignment="inherit"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -422,7 +439,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:fontFamily="@font/poppins_bold"
                     android:justificationMode="inter_word"
                     android:text="How to Reach Ile aux Cerfs"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -454,7 +471,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
 
 "
                     android:textAlignment="inherit"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -469,7 +486,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:fontFamily="@font/poppins_bold"
                     android:justificationMode="inter_word"
                     android:text="What to Explore and Experience on Ile aux Cerfs"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -488,7 +505,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
 
 "
                     android:textAlignment="inherit"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -517,7 +534,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:justificationMode="inter_word"
                     android:text="The island tends to attract a considerable influx of day trippers during weekends. If your stay in Mauritius extends to at least a week, it is advisable to plan your visit on a weekday. While October and November are considered the prime months to experience Ile aux Cerfs, the period from June to November also offers a delightful visit."
                     android:textAlignment="inherit"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />
@@ -547,7 +564,7 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                     android:justificationMode="inter_word"
                     android:text="The island tends to attract a considerable influx of day trippers during weekends. If your stay in Mauritius extends to at least a week, it is advisable to plan your visit on a weekday. While October and November are considered the prime months to experience Ile aux Cerfs, the period from June to November also offers a delightful visit."
                     android:textAlignment="inherit"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textIsSelectable="true"
                     android:textSize="12dp"
                     android:visibility="gone" />

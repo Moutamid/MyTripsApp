@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -56,20 +57,50 @@ public class BeachDetails extends AppCompatActivity {
         TextView text10 = findViewById(R.id.text10);
         TextView text11 = findViewById(R.id.text11);
         TextView text12 = findViewById(R.id.text12);
+
+        add.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: // User touches the icon
+                        add.setAlpha(0.5f); // Set transparency to 50%
+                        return true;
+                    case MotionEvent.ACTION_UP: // User releases the touch
+                        add.setAlpha(1f); // Set transparency back to 0%
+                        return true;
+                }
+                return false;
+            }
+        });
+        map.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: // User touches the icon
+                        map.setAlpha(0.5f); // Set transparency to 50%
+                        return true;
+                    case MotionEvent.ACTION_UP: // User releases the touch
+                        map.setAlpha(1f); // Set transparency back to 0%
+                        return true;
+                }
+                return false;
+            }
+        });
         BeacModel model = (BeacModel) Stash.getObject("model", BeacModel.class);
         beach_header.setText(Html.fromHtml(model.title));
-// Set text or image and adjust visibility for the views
+        beach_type.setText(Stash.getString("type"));
+        mainImage.setImageResource(model.main_image);
         if (!model.text1.isEmpty()) {
             text1.setText(Html.fromHtml(model.text1));
-            text1.setVisibility(View.VISIBLE); // Set visibility to VISIBLE explicitly
-        } else {
+            text1.setVisibility(View.VISIBLE);
+            } else {
             text1.setVisibility(View.GONE);
         }
 
         if (!model.title1.isEmpty()) {
             title1.setText(Html.fromHtml(model.title1));
-            title1.setVisibility(View.VISIBLE); // Set visibility to VISIBLE explicitly
-        } else {
+            title1.setVisibility(View.VISIBLE);
+                  } else {
 
             title1.setVisibility(View.GONE);
 
@@ -77,8 +108,8 @@ public class BeachDetails extends AppCompatActivity {
 
         if (model.image1 != R.drawable.map_location) {
             image1.setImageResource(model.image1);
-            image1.setVisibility(View.VISIBLE); // Set visibility to VISIBLE explicitly
-        } else {
+            image1.setVisibility(View.VISIBLE);
+              } else {
             image1.setVisibility(View.GONE);
         }
 

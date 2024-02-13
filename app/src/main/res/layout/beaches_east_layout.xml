@@ -75,8 +75,8 @@
 
         <ImageView
             android:id="@+id/add"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
 
             android:layout_alignParentBottom="true"
             android:layout_marginTop="20dp"
@@ -88,8 +88,8 @@
 
         <ImageView
             android:id="@+id/map"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
 
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"

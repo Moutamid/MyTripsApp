@@ -27,26 +27,26 @@ public class TourshipActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tourship);
 
         imageView = findViewById(R.id.image_view);
-        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
+//        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
     }
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        scaleGestureDetector.onTouchEvent(event);
-        return true;
-    }
-
-    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
-        @Override
-        public boolean onScale(ScaleGestureDetector detector) {
-            scale *= detector.getScaleFactor();
-            scale = Math.max(0.1f, Math.min(scale, 10.0f)); // limit scale factor
-
-            matrix.setScale(scale, scale);
-            imageView.setImageMatrix(matrix);
-            return true;
-        }
-    }
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        scaleGestureDetector.onTouchEvent(event);
+//        return true;
+//    }
+//
+//    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+//        @Override
+//        public boolean onScale(ScaleGestureDetector detector) {
+//            scale *= detector.getScaleFactor();
+//            scale = Math.max(0.1f, Math.min(scale, 10.0f)); // limit scale factor
+//
+//            matrix.setScale(scale, scale);
+//            imageView.setImageMatrix(matrix);
+//            return true;
+//        }
+//    }
 
     public void BackPress(View view) {
         onBackPressed();

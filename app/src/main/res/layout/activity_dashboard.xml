@@ -65,7 +65,7 @@
                         android:gravity="center"
                         android:text="Explore"
 
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="13dp" />
                 </LinearLayout>
 
@@ -93,7 +93,7 @@
                         android:gravity="center"
                         android:text="My Trips"
 
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="13dp" />
                 </LinearLayout>
 
@@ -121,7 +121,7 @@
                         android:gravity="center"
                         android:text="Itineraries"
 
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="13dp" />
                 </LinearLayout>
 
@@ -157,7 +157,7 @@
                         android:gravity="center"
                         android:text="Trips Tips"
 
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="13dp" />
                 </LinearLayout>
 
@@ -185,7 +185,7 @@
                         android:gravity="center"
                         android:text="Eat"
 
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="13dp" />
                 </LinearLayout>
 
@@ -213,7 +213,7 @@
                         android:gravity="center"
                         android:text="Stay"
 
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="13dp" />
                 </LinearLayout>
 
@@ -251,7 +251,7 @@
                         android:gravity="center"
                         android:text="Activities"
 
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="13dp" />
                 </LinearLayout>
 
@@ -279,7 +279,7 @@
                         android:gravity="center"
                         android:text="Tours"
 
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="13dp" />
                 </LinearLayout>
 
@@ -307,7 +307,7 @@
                         android:gravity="center"
                         android:text="Contact Us"
 
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="13dp" />
                 </LinearLayout>
 
@@ -344,7 +344,7 @@
                         android:gravity="center"
                         android:text="Tutorials"
 
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="13dp" />
                 </LinearLayout>
 
@@ -372,7 +372,7 @@
                         android:gravity="center"
                         android:text="App info"
 
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="13dp" />
                 </LinearLayout>
 
@@ -399,7 +399,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="My Account"
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="13dp" />
                 </LinearLayout>
 

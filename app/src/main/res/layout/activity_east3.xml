@@ -68,7 +68,7 @@
                 android:layout_margin="20dp"
                 android:fontFamily="@font/playfair_display_regular"
                 android:text="East"
-                android:textColor="@color/black"
+                android:textColor="#75706b"
                 android:textSize="29dp" />
 
             <ImageView
@@ -137,7 +137,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:text="Map it"
                     android:layout_gravity="center"
-                    android:textColor="@color/black"
+                    android:textColor="#75706b"
                     android:textSize="12dp" />
             </LinearLayout>
 
@@ -153,7 +153,7 @@
                 android:justificationMode="inter_word"
                 android:text="This unspoiled beach, often overlooked due to its turbulent sea, offers a rare opportunity to embrace tranquility and serenity. With its authentically rustic and untouched nature, this charming locale continually captivates nature enthusiasts. The preserved green habitat is a sanctuary for massive coral reefs, fostering rich marine biodiversity and mangroves."
                 android:textAlignment="inherit"
-                android:textColor="@color/black"
+                android:textColor="#75706b"
                 android:textIsSelectable="true"
                 android:textSize="12dp" />
 
@@ -178,7 +178,7 @@
                 android:justificationMode="inter_word"
                 android:text="Those seeking a peaceful picnic will be pleased that the southern part of the beach provides a serene retreat. Additionally, the southern beach serves as an ideal starting point for a trek leading north of Poste Lafayette, offering picturesque green landscapes along the rocky trail."
                 android:textAlignment="inherit"
-                android:textColor="@color/black"
+                android:textColor="#75706b"
                 android:textIsSelectable="true"
                 android:textSize="12dp" />
 
@@ -202,7 +202,7 @@
                 android:justificationMode="inter_word"
                 android:text="Picnicking in the shelter of the trees is a delightful option in certain areas where the sea displays stormy waves due to the proximity of the reefs to the lagoons. Enthusiasts of kite surfing and windsurfing will find this place ideal since Poste Lafayette is consistently exposed to the trade winds throughout the year. "
                 android:textAlignment="inherit"
-                android:textColor="@color/black"
+                android:textColor="#75706b"
                 android:textIsSelectable="true"
                 android:textSize="12dp" />
 
@@ -227,7 +227,7 @@
                 android:justificationMode="inter_word"
                 android:text="While the sea may be too challenging for a Sunday swim, the shore or shallow waters provide opportunities for sunbathing while children can revel in building sandcastles.\nrestaurants, including establishments like Jalsa Beach Hotel &amp; Spa, Radisson Blu Poste Lafayette Resort &amp; Spa, and the esteemed Hôtel Constance Le Prince Maurice.\nTo cater to the discerning tourist, gourmet restaurants have thrived alongside small traditional eateries. La Maison D’Été, specializing in Italian cuisine with seafood and fish menus, is a must-visit in Poste Lafayette. Another favored dining spot, Seabell, offers a menu featuring typical Mauritian dishes, complemented by a nearby mini market owned by the Seabell owners."
                 android:textAlignment="inherit"
-                android:textColor="@color/black"
+                android:textColor="#75706b"
                 android:textIsSelectable="true"
                 android:textSize="12dp" />
 

@@ -76,7 +76,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="East"
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -104,7 +104,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="West"
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -138,7 +138,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="North"
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -166,7 +166,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="South"
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -203,7 +203,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="Central"
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -231,7 +231,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="Beaches"
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -264,7 +264,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="About Mauritius"
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -292,7 +292,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="Tourist Map"
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="14dp" />
                 </LinearLayout>
 

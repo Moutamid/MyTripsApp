@@ -3,7 +3,10 @@
 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="12dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="12dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginEnd="12dp"
     android:layout_weight="1"
     android:background="@drawable/img_bg"
     android:orientation="vertical">
@@ -11,21 +14,73 @@
     <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="220dp"
         android:padding="1dp"
         android:scaleType="fitXY"
         android:src="@drawable/ile_aux_cerf_5" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginBottom="5dp">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:fontFamily="@font/poppins_regular"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="5dp"
         android:text="East"
-        android:textColor="@color/black"
-        android:textSize="12dp" />
+        android:textColor="#75706b"
+        android:textSize="14dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/add"
+                app:tint="#000"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:padding="2dp"
+                android:layout_marginEnd="22dp"
+                android:layout_toLeftOf="@+id/map"
+                android:src="@drawable/add" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/map"
+                app:tint="#000"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/map_location" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
 </LinearLayout>
 

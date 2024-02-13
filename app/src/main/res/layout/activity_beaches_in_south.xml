@@ -64,7 +64,7 @@
             android:layout_toRightOf="@+id/icon"
             android:fontFamily="@font/playfair_display_regular"
             android:text="East"
-            android:textColor="@color/black"
+            android:textColor="#75706b"
             android:textSize="29dp" />
 
         <ImageView
@@ -84,7 +84,7 @@
             android:layout_marginRight="22dp"
             android:fontFamily="@font/poppins_bold"
             android:text="Which coastal area is ideal for a beach vacation?"
-            android:textColor="@color/black"
+            android:textColor="#75706b"
             android:textSize="12dp" />
 
         <TextView
@@ -100,7 +100,7 @@
 \nBelow is a guide to the beaches in Mauritius on each coastline to help you choose where to stay.
 "
             android:textAlignment="inherit"
-            android:textColor="@color/black"
+            android:textColor="#75706b"
             android:textIsSelectable="true"
             android:textSize="12dp" />
 

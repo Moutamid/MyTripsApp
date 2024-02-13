@@ -64,7 +64,7 @@
             android:layout_toRightOf="@+id/icon"
             android:fontFamily="@font/playfair_display_regular"
             android:text="West"
-            android:textColor="@color/black"
+            android:textColor="#75706b"
             android:textSize="29dp" />
 
         <ImageView
@@ -86,7 +86,7 @@
             android:justificationMode="inter_word"
             android:text="The western coastline is ideal for indulging in sunset cocktails at stylish beach bars, engaging in activities like snorkeling and diving to discover treasures like the Crystal Rock. The Le Morne Brabant mountain graces the horizon, and the area is renowned as a premier kitesurfing hotspot. Moreover, there is an increased likelihood of encountering wild dolphin pods off the west coast."
             android:textAlignment="inherit"
-            android:textColor="@color/black"
+            android:textColor="#75706b"
             android:textIsSelectable="true"
             android:textSize="12dp" />
 

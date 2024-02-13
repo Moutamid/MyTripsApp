@@ -68,7 +68,7 @@
                 android:layout_margin="20dp"
                 android:fontFamily="@font/playfair_display_regular"
                 android:text="East"
-                android:textColor="@color/black"
+                android:textColor="#75706b"
                 android:textSize="29dp" />
 
             <ImageView
@@ -138,7 +138,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:text="Map it"
                         android:layout_gravity="center"
-                        android:textColor="@color/black"
+                        android:textColor="#75706b"
                         android:textSize="12dp" />
                 </LinearLayout>
 
@@ -154,7 +154,7 @@
                 android:justificationMode="inter_word"
                 android:text="The Belle Mare Beach is located near the town of Mahebourg on the Southeast coast of Mauritius, spanning between the villages Belle Mare and Pointe de Flacq. Sheltered from the big waves by the coral reef, this crescent-shaped beach has a parking area and a shaded rest area under the filaos trees. It is quite wide with parts of fine, dazzling white sand. The water is transparent and calm, and the lagoon has a most magnificent turquoise blue color. In this realm, unspoiled nature prevails, with minimal development except for a few scattering hotels and exclusive villas."
                 android:textAlignment="inherit"
-                android:textColor="@color/black"
+                android:textColor="#75706b"
                 android:textIsSelectable="true"
                 android:textSize="12dp" />
 
@@ -182,7 +182,7 @@ Engage in an array of activities at Belle Mare Beach, including pedalo rides, wi
 "
 
                 android:textAlignment="inherit"
-                android:textColor="@color/black"
+                android:textColor="#75706b"
                 android:textIsSelectable="true"
                 android:textSize="12dp" />
         </LinearLayout>
