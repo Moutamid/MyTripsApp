@@ -25,7 +25,6 @@ public class BeachesActivity extends AppCompatActivity {
     public void beaches_in_east(View view) {
         String title_header = "Beaches in the East";
         String title = "East";
-
         String[] itemTexts = {"District of Flacq ", "District of Flacq", "District of Flacq", "District of Riviere du Rempart"};
         String[] itemName = {"Belle Mare Beach", "Ile aux Cerfs Beach", "Poste Lafayette Beach", "Roche Noire Beach"};
         String[] itemName1 = {"Belle Mare", "Ile aux Cerfs", "Poste Lafayette", "Roche Noire"};

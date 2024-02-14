@@ -75,8 +75,8 @@
 
         <ImageView
             android:id="@+id/add"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
 
             android:layout_alignParentBottom="true"
             android:layout_marginTop="20dp"
@@ -84,7 +84,19 @@
             android:layout_marginBottom="5dp"
             android:layout_toLeftOf="@+id/map"
             android:src="@drawable/add"
-            app:tint="#5c79ff" />
+            app:tint="#516EF4" />
+        <ImageView
+            android:id="@+id/remove"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toLeftOf="@+id/map"
+            android:src="@drawable/minus"
+            app:tint="#516EF4" />
 
         <ImageView
             android:id="@+id/map"

@@ -19,6 +19,8 @@ public class DashboardActivity extends AppCompatActivity {
 
     public void explore(View view) {
         startActivity(new Intent(DashboardActivity.this, ExploreActivity.class));
+    }public void my_trips(View view) {
+        startActivity(new Intent(DashboardActivity.this, MyTripsActivity.class));
     }
 
 }
