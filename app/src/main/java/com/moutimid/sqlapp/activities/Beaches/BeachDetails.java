@@ -1,12 +1,16 @@
 package com.moutimid.sqlapp.activities.Beaches;
 
+import static com.moutimid.sqlapp.model.DatabaseHelper.TABLE_NAME;
+
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
@@ -16,15 +20,16 @@ import com.fxn.stash.Stash;
 import com.moutimid.sqlapp.R;
 import com.moutimid.sqlapp.activities.DashboardActivity;
 import com.moutimid.sqlapp.model.BeacModel;
+import com.moutimid.sqlapp.model.DatabaseHelper;
+
+import java.util.List;
 
 public class BeachDetails extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beach_details);
-
         ImageView mainImg = findViewById(R.id.main_img);
         ImageView menu = findViewById(R.id.menu);
         ImageView mainImage = findViewById(R.id.main_image);
@@ -35,6 +40,7 @@ public class BeachDetails extends AppCompatActivity {
         TextView beach_header = findViewById(R.id.beach_header);
         TextView title1 = findViewById(R.id.title1);
         ImageView image1 = findViewById(R.id.image1);
+        ImageView remove = findViewById(R.id.remove);
         TextView text2 = findViewById(R.id.text2);
         TextView title2 = findViewById(R.id.title2);
         ImageView image2 = findViewById(R.id.image2);
@@ -57,43 +63,25 @@ public class BeachDetails extends AppCompatActivity {
         TextView text10 = findViewById(R.id.text10);
         TextView text11 = findViewById(R.id.text11);
         TextView text12 = findViewById(R.id.text12);
+        TextView add_not = findViewById(R.id.add_not);
+        LinearLayout add_lyt = findViewById(R.id.add_lyt);
+            int isTrip = getIntent().getIntExtra("is_trip", 1);
+            if(isTrip==0)
+            {
+                beach_type.setVisibility(View.GONE);
+            }
 
-        add.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: // User touches the icon
-                        add.setAlpha(0.5f); // Set transparency to 50%
-                        return true;
-                    case MotionEvent.ACTION_UP: // User releases the touch
-                        add.setAlpha(1f); // Set transparency back to 0%
-                        return true;
-                }
-                return false;
-            }
-        });
-        map.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: // User touches the icon
-                        map.setAlpha(0.5f); // Set transparency to 50%
-                        return true;
-                    case MotionEvent.ACTION_UP: // User releases the touch
-                        map.setAlpha(1f); // Set transparency back to 0%
-                        return true;
-                }
-                return false;
-            }
-        });
+        com.moutimid.sqlapp.model.DatabaseHelper databaseHelper;
+        databaseHelper = new DatabaseHelper(BeachDetails.this);
         BeacModel model = (BeacModel) Stash.getObject("model", BeacModel.class);
+        Log.d("model", model.text1 + " test");
         beach_header.setText(Html.fromHtml(model.title));
         beach_type.setText(Stash.getString("type"));
         mainImage.setImageResource(model.main_image);
         if (!model.text1.isEmpty()) {
             text1.setText(Html.fromHtml(model.text1));
             text1.setVisibility(View.VISIBLE);
-            } else {
+        } else {
             text1.setVisibility(View.GONE);
         }
 
@@ -266,6 +254,72 @@ public class BeachDetails extends AppCompatActivity {
         } else {
             text12.setVisibility(View.GONE);
         }
+
+
+        List<BeacModel> beacModels = databaseHelper.getAllBeacModels();
+        boolean isDataAvailable = false;
+        for (BeacModel model1 : beacModels) {
+            if (model1.title.equals(beach_header.getText().toString())) {
+                isDataAvailable = true;
+                break;
+            }
+        }
+        if (isDataAvailable) {
+            add.setVisibility(View.GONE);
+            remove.setVisibility(View.VISIBLE);
+            add_not.setText("Remove");
+        } else {
+            add.setVisibility(View.VISIBLE);
+            remove.setVisibility(View.GONE);
+            add_not.setText("Add");
+        }
+
+        remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String deleteName = beach_header.getText().toString();
+                SQLiteDatabase db = databaseHelper.getWritableDatabase();
+                db.delete(TABLE_NAME, DatabaseHelper.COLUMN_TITLE + "=?", new String[]{deleteName});
+                db.close();
+                remove.setVisibility(View.GONE);
+                add.setVisibility(View.VISIBLE);
+                add_not.setText("Add");
+            }
+        });
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                com.moutimid.sqlapp.model.DatabaseHelper databaseHelper = new com.moutimid.sqlapp.model.DatabaseHelper(BeachDetails.this);
+                databaseHelper.insertBeacModel(model);
+                add.setVisibility(View.GONE);
+                remove.setVisibility(View.VISIBLE);
+                add_not.setText("Remove");
+
+            }
+        });
+        boolean finalIsDataAvailable = isDataAvailable;
+        add_lyt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (finalIsDataAvailable) {
+                    String deleteName = beach_header.getText().toString();
+                    SQLiteDatabase db = databaseHelper.getWritableDatabase();
+                    db.delete(TABLE_NAME, DatabaseHelper.COLUMN_TITLE + "=?", new String[]{deleteName});
+                    db.close();
+                    remove.setVisibility(View.GONE);
+                    add.setVisibility(View.VISIBLE);
+                    add_not.setText("Add");
+                } else {
+                    com.moutimid.sqlapp.model.DatabaseHelper databaseHelper = new com.moutimid.sqlapp.model.DatabaseHelper(BeachDetails.this);
+                    databaseHelper.insertBeacModel(model);
+                    add.setVisibility(View.GONE);
+                    remove.setVisibility(View.VISIBLE);
+                    add_not.setText("Remove");
+
+                }
+            }
+        });
 
     }
 

@@ -43,7 +43,7 @@ public class BeachesActivity extends AppCompatActivity {
         String title_header = "Beaches in the West";
         String title = "West";
         String[] itemTexts = {"Flic enFlac", "La Preneuse", "Le Morne Brabant", "Tamarin"};
-        String[] itemName = {"FlicenFlacPublic Beach", "La PreneusePublic Beach", "Le Morne Public Beach", "TamarinBay Beach"};
+        String[] itemName = {"Flic enFlac Public Beach", "La Preneuse Public Beach", "Le Morne Public Beach", "Tamarin Bay Beach"};
         String[] itemName1 = {"District of Black River", "District of Black River", "District of Black River", "District of Black River"};
         int[] itemImages = {R.drawable.flic_en_flac_3, R.drawable.la_preneuse_4, R.drawable.le_morne_beach_2, R.drawable.tamarin_3};
         Intent intent = new Intent(BeachesActivity.this, BeachesTypeActivity.class);
@@ -80,7 +80,7 @@ public class BeachesActivity extends AppCompatActivity {
         String title = "North";
 
         String[] itemTexts = {"Cap Malheureux", "Grand Gaube", "Mont Choisy", "Grand Baie", "Trou aux Biches"};
-        String[] itemName = {"Cap Malheureux Public Beach", "Grand GaubePublic Beach", "Mont Choisy Public Beach", "PereyberePublic Beach", "Trou aux Biches Public Beach"};
+        String[] itemName = {"Cap Malheureux Public Beach", "Grand Gaube Public Beach", "Mont Choisy Public Beach", "Pereybere Public Beach", "Trou aux Biches Public Beach"};
         String[] itemName1 = {"District of Riviere du Rempart", "District of Riviere du Rempart", "District of Pamplemousses", "District of Riviere du Rempart", "District of Pamplemousses"};
         int[] itemImages = {R.drawable.cap_malheureux_6, R.drawable.grand_gaube_1, R.drawable.mont_choisy_2, R.drawable.pereybere_beach_1, R.drawable.trou_aux_biches_1};
         Intent intent = new Intent(BeachesActivity.this, BeachesTypeActivity.class);

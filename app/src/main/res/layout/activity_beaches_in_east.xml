@@ -65,10 +65,11 @@
             android:layout_toRightOf="@+id/icon"
             android:fontFamily="@font/playfair_display_regular"
             android:text="East"
-            android:textColor="#75706b"
+            android:textColor="#000"
             android:textSize="29dp" />
 
         <ImageView
+            android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_marginLeft="22dp"
@@ -77,6 +78,7 @@
             android:src="@drawable/belle_mare_1" />
 
         <TextView
+            android:id="@+id/heading_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -85,22 +87,21 @@
             android:layout_marginRight="22dp"
             android:fontFamily="@font/poppins_bold"
             android:text="Which coastal area is ideal for a beach vacation?"
-            android:textColor="#75706b"
+            android:textColor="#000"
             android:textSize="12dp" />
 
         <TextView
+            android:id="@+id/text_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="22dp"
             android:layout_marginTop="3dp"
             android:layout_marginRight="22dp"
-
             android:fontFamily="@font/poppins_regular"
             android:justificationMode="inter_word"
-            android:text="Mauritius is surrounded by the warm, turquoise waters of the Indian Ocean, and is home to a variety of beaches that cater to different tastes.
-\nBelow is a guide to the beaches in Mauritius on each coastline to help you choose where to stay.
-"
             android:textAlignment="inherit"
+            android:text="Mauritius is surrounded by the warm, turquoise waters of the Indian Ocean, and is home to a variety of beaches that cater to different tastes.
+\nBelow is a guide to the beaches in Mauritius on each coastline to help you choose where to stay."
             android:textColor="#75706b"
             android:textIsSelectable="true"
             android:textSize="12dp" />

@@ -155,7 +155,6 @@
                 android:text="Ranked among the top 10 beaches in Mauritius, the Roche Noire Beach is located just a few kilometers from Poste Lafayette on the southeast coast of the island. The beach has a stunning landscape characterized by black lava rocks and a dark sea, where gentle waves crash onto the nearby coral reef. The pristine sand and the spectacular views of sunrise and sunset contribute to making Roche Noire Beach an unparalleled destination. The winds throughout the year provide a refreshing breeze, especially during the hot summer months. It is one of the most photographed beaches according to tourist reviews"
                 android:textAlignment="inherit"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <ImageView
@@ -182,7 +181,6 @@ Parking facilities are commonly accessible in the vicinity of the Roche Noire Be
 
                 android:textAlignment="inherit"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
         </LinearLayout>
 

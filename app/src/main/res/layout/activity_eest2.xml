@@ -154,7 +154,6 @@
                 android:text="On the eastern coast of Mauritius, just south of Trou d’Eau Douce, lies a pair of islands known collectively as Ile aux Cerfs. Ile aux Cerfs is a genuine paradise spanning 87 hectares. It is particularly appealing to water sports enthusiasts andis one of the most stunning beaches in Mauritius."
                 android:textAlignment="inherit"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <TextView
@@ -167,7 +166,6 @@
                 android:justificationMode="inter_word"
                 android:text="What to Explore and Experience on Ile aux Cerfs"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <ImageView
@@ -194,7 +192,6 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
 "
                 android:textAlignment="inherit"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <ImageView
@@ -218,7 +215,6 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                 android:text="While many visitors come to the Ile aux Cerfs for leisurely water activities, true sun worshippers find their sanctuary here, especially given the limited shelter on the beach. The overarching advice is to liberally apply sunscreen, preferably opting for products that are environmentally friendly.\nIt's worth noting that most visitors tend to remain in close proximity to the pier, where the shuttle from Pointe Maurice drops them off. If you wish to evade the crowds, particularly on weekends, consider strolling a bit farther along the coast. Numerous other nearby beaches offer equally tranquil surroundings."
                 android:textAlignment="inherit"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
 
@@ -232,7 +228,6 @@ Other activities include speedboat rides, water skiing, and paddleboarding. Snor
                 android:justificationMode="inter_word"
                 android:text="How to Reach Ile aux Cerfs"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <ImageView
@@ -258,7 +253,6 @@ An alternative approach is by catamaran, with numerous providers offering scenic
 "
                 android:textAlignment="inherit"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <TextView
@@ -271,7 +265,6 @@ An alternative approach is by catamaran, with numerous providers offering scenic
                 android:justificationMode="inter_word"
                 android:text="Optimal Time to Explore the Island"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <ImageView
@@ -295,7 +288,6 @@ An alternative approach is by catamaran, with numerous providers offering scenic
                 android:text="The island tends to attract a considerable influx of day trippers during weekends. If your stay in Mauritius extends to at least a week, it is advisable to plan your visit on a weekday. While October and November are considered the prime months to experience Ile aux Cerfs, the period from June to November also offers a delightful visit."
                 android:textAlignment="inherit"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <TextView
@@ -308,7 +300,6 @@ An alternative approach is by catamaran, with numerous providers offering scenic
                 android:justificationMode="inter_word"
                 android:text="Accommodation"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <TextView
@@ -323,7 +314,6 @@ An alternative approach is by catamaran, with numerous providers offering scenic
                 android:text="Noteworthy among the accommodations on Ile aux Cerfs is the opulent 5-star Shangri-La’s Le Touessrok Resort &amp; Spa. While not budget-friendly, it provides an exceptional setting for grand celebrations. "
                 android:textAlignment="inherit"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <TextView
@@ -338,7 +328,6 @@ An alternative approach is by catamaran, with numerous providers offering scenic
                 android:text="Ile aux Cerfshas several dining establishments, including a charming beachside restaurant. Additionally, two bars are available for visitors seeking refreshing beverages or cocktails at reasonable prices. An alternative is to bring ample food and drinks to suit your preferences."
                 android:textAlignment="inherit"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <TextView
@@ -351,7 +340,6 @@ An alternative approach is by catamaran, with numerous providers offering scenic
                 android:justificationMode="inter_word"
                 android:text="Culinary Offerings"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <ImageView
@@ -375,7 +363,6 @@ An alternative approach is by catamaran, with numerous providers offering scenic
                 android:text="Ile aux Cerfshas several dining establishments, including a charming beachside restaurant. Additionally, two bars are available for visitors seeking refreshing beverages or cocktails at reasonable prices. An alternative is to bring ample food and drinks to suit your preferences."
                 android:textAlignment="inherit"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
         </LinearLayout>

@@ -57,7 +57,7 @@
                 android:layout_toRightOf="@+id/icon"
                 android:fontFamily="@font/playfair_display_regular"
                 android:text="Beaches of Mauritius"
-                android:textColor="#75706b"
+                android:textColor="#000"
                 android:textSize="29dp" />
 
             <ImageView
@@ -77,7 +77,7 @@
                 android:layout_marginRight="22dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Which coastal area is ideal for a beach vacation?"
-                android:textColor="#75706b"
+                android:textColor="#000"
                 android:textSize="12dp" />
 
             <TextView
@@ -93,7 +93,6 @@
 "
                 android:textAlignment="inherit"
                 android:textColor="#75706b"
-                android:textIsSelectable="true"
                 android:textSize="12dp" />
 
             <LinearLayout
@@ -127,7 +126,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="North"
-                        android:textColor="#75706b"
+                        android:textColor="#000"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -145,7 +144,7 @@
                         android:layout_height="120dp"
                         android:padding="1dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/flic_en_flac_4" />
+                        android:src="@drawable/le_morne_brabant" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -155,7 +154,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="West"
-                        android:textColor="#75706b"
+                        android:textColor="#000"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -192,7 +191,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="South"
-                        android:textColor="#75706b"
+                        android:textColor="#000"
                         android:textSize="14dp" />
                 </LinearLayout>
 
@@ -210,7 +209,7 @@
                         android:layout_height="120dp"
                         android:padding="1dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/belle_mare_2" />
+                        android:src="@drawable/ile_aux_cerfs_island_2" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -220,7 +219,7 @@
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
                         android:text="East"
-                        android:textColor="#75706b"
+                        android:textColor="#000"
                         android:textSize="14dp" />
                 </LinearLayout>
 

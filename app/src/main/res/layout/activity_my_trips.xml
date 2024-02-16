@@ -51,12 +51,85 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#BFBFBF"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="18dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+
+                android:fontFamily="@font/poppins_bold"
+                android:text="3 stops"
+                android:textColor="@color/white"
+                android:textSize="11dp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="6dp"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+
+                android:fontFamily="@font/poppins_bold"
+                android:text="2h 41m"
+                android:textColor="@color/white"
+                android:textSize="11dp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="6dp"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="170 km"
+                android:textColor="@color/white"
+                android:textSize="11dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/start_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/poppins_bold"
+            android:lineHeight="24dp"
+            android:text="Itinerary\nStart Point"
+            android:textColor="@color/white"
+            android:textSize="13dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toRightOf="@id/start_point"
+            android:background="@drawable/edit_bg"
+            android:fontFamily="@font/poppins_regular"
+            android:padding="5dp"
+            android:textColorHint="#000"
+            android:hint="Enter Location"
+            android:textSize="11dp" />
+    </RelativeLayout>
 
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listView"
@@ -64,7 +137,6 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="15dp" />
 
-    </ScrollView>
 
 
 </LinearLayout>

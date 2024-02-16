@@ -84,7 +84,7 @@
             android:layout_marginBottom="5dp"
             android:layout_toLeftOf="@+id/map"
             android:src="@drawable/add"
-            app:tint="#516EF4" />
+            app:tint="#5c79ff" />
         <ImageView
             android:id="@+id/remove"
             android:layout_width="22dp"
@@ -96,7 +96,7 @@
             android:layout_marginBottom="5dp"
             android:layout_toLeftOf="@+id/map"
             android:src="@drawable/minus"
-            app:tint="#516EF4" />
+            app:tint="#5c79ff" />
 
         <ImageView
             android:id="@+id/map"

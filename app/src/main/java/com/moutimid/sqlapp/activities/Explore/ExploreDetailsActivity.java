@@ -20,7 +20,7 @@ public class ExploreDetailsActivity extends AppCompatActivity {
     private String[] itemName;
     private int[] itemImages;
     TextView title;
-
+    ExploreAdapter exploreAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +36,14 @@ public class ExploreDetailsActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.listView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);
-        ExploreAdapter exploreAdapter = new ExploreAdapter(this, itemName, itemImages, itemHeader);
+        exploreAdapter = new ExploreAdapter(this, itemName, itemImages, itemHeader);
         recyclerView.setAdapter(exploreAdapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        exploreAdapter.notifyDataSetChanged();
     }
 
     public void menu(View view) {

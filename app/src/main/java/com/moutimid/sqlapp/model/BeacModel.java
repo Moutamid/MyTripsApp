@@ -1,7 +1,12 @@
 package com.moutimid.sqlapp.model;
 
 public class BeacModel {
- public String title;
+   public int id_copy;
+   // This field represents the position
+
+   public  int id;
+   public String title;
+   public String type;
  public int main_image;
     public String text1, title1;
     public int image1;

@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_regular"
         android:text="East"
-        android:textColor="#75706b"
+        android:textColor="#000"
         android:textSize="14dp" />
 
     <LinearLayout
@@ -43,23 +43,29 @@
         android:layout_marginEnd="5dp"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/add"
-                app:tint="#000"
+                app:tint="#5c79ff"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:padding="2dp"
-                android:layout_marginEnd="22dp"
-                android:layout_toLeftOf="@+id/map"
+                android:layout_marginEnd="4mm"
                 android:src="@drawable/add" />
+            <ImageView
+                android:id="@+id/remove"
+                app:tint="#5c79ff"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:padding="2dp"
+                android:layout_marginEnd="4mm"
+                android:src="@drawable/minus" />
 
-
-        </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -70,7 +76,8 @@
 
             <ImageView
                 android:id="@+id/map"
-                app:tint="#000"
+                app:tint="#5c79ff"
+
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_centerHorizontal="true"
