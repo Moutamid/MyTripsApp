@@ -45,6 +45,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         BeacModel beacModel = beacModels.get(position);
         holder.textView.setText(beacModel.title);
+        if(position==0)
+        {
+            holder.textView3.setText("Start\nHere");
+        }
+        else
+        {
+            holder.textView3.setText("2h 1m\n167.0km");
+
+        }
         holder.number.setText(String.valueOf(position + 1)); // Update the number accordingly
         holder.imageView.setImageResource(beacModel.main_image);
         com.moutimid.sqlapp.model.DatabaseHelper databaseHelper;
@@ -330,7 +339,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView, textView1, textView2, number;
+        public TextView textView, textView1, textView2, number, textView3;
         public ImageView imageView, add, remove;
 
         public ViewHolder(@NonNull View itemView) {
@@ -342,6 +351,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             imageView = itemView.findViewById(R.id.imageView);
             add = itemView.findViewById(R.id.add);
             remove = itemView.findViewById(R.id.remove);
+            textView3 = itemView.findViewById(R.id.textView3);
         }
     }
 
