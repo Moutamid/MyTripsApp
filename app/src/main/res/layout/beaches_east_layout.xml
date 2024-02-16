@@ -80,7 +80,7 @@
 
             android:layout_alignParentBottom="true"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="22dp"
             android:layout_marginBottom="5dp"
             android:layout_toLeftOf="@+id/map"
             android:src="@drawable/add"
@@ -89,10 +89,9 @@
             android:id="@+id/remove"
             android:layout_width="22dp"
             android:layout_height="22dp"
-
             android:layout_alignParentBottom="true"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="22dp"
             android:layout_marginBottom="5dp"
             android:layout_toLeftOf="@+id/map"
             android:src="@drawable/minus"

@@ -27,9 +27,9 @@ public class ExploreActivity extends AppCompatActivity {
     }
 
     public void west(View view) {
-        String[] itemName1 = {" Albion LightHouse", "Flic en Flac", "Casela Adventure Park", "Tamarin Bay Beach", "La Preneuse Beach"
+        String[] itemName1 = {"Albion LightHouse", "Flic enFlac Public Beach", "Casela Adventure Park", "Tamarin Bay Beach", "La Preneuse Public Beach"
                 , "Martello Tower", "Le Morne Brabant", "Maconde Viewpoint", "Seven Coloured Earths", "Chamarel Waterfalls"
-                , "Black River Gorges", "Le Morne Beach", "Rhumerie de Chamarel", "Curious Corners"};
+                , "Black River Gorges", "Le Morne Public Beach", "Rhumerie de Chamarel", "Curious Corners"};
         int[] itemImages = {R.drawable.albion_lighthouse, R.drawable.flic_en_flac_3, R.drawable.casela, R.drawable.tamarin_3, R.drawable.la_preneuse_4, R.drawable.martello_tower_4, R.drawable.le_morne_1,
                 R.drawable.maconde_1, R.drawable.chamarel_2, R.drawable.chamarel_1, R.drawable.black_river_georges_2, R.drawable.le_morne_beach_2, R.drawable.rhumerie_de_chamarel_1,
                 R.drawable.curious_corner_2};

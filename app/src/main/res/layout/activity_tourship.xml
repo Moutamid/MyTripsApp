@@ -8,6 +8,7 @@
     tools:context=".activities.TourshipActivity">
 
     <RelativeLayout
+        android:id="@+id/title_lyt"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="#4472C4">
@@ -40,9 +41,9 @@
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_lyt"
         android:layout_centerInParent="true"
-        android:layout_marginTop="180dp"
-        android:scaleType="centerInside"
+        android:layout_marginTop="-30dp"
         android:src="@drawable/mauritius_tourist_map" />
 </RelativeLayout>
