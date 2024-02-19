@@ -94,7 +94,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 Intent intent = new Intent(context, BeachDetails.class);
                 intent.putExtra("is_trip", 0);
                 context.startActivity(intent);
-
             }
         });
         holder.itemView.setOnDragListener(new View.OnDragListener() {

@@ -1,4 +1,3 @@
-<!-- res/layout/list_item_layout.xml -->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,7 +7,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:padding="16dp"
         >
         <TextView
@@ -67,7 +65,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="20dp"
-        android:src="@drawable/outline_do_not_disturb_on_24" />
+        android:src="@drawable/minus" />
 
     </RelativeLayout>
 
