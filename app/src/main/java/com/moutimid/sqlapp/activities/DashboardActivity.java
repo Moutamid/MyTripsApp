@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.moutimid.sqlapp.R;
+import com.moutimid.sqlapp.activities.Beaches.ItinerariesActivity;
 import com.moutimid.sqlapp.activities.Explore.ExploreActivity;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -19,8 +20,14 @@ public class DashboardActivity extends AppCompatActivity {
 
     public void explore(View view) {
         startActivity(new Intent(DashboardActivity.this, ExploreActivity.class));
-    }public void my_trips(View view) {
+    }
+
+    public void my_trips(View view) {
         startActivity(new Intent(DashboardActivity.this, MyTripsActivity.class));
     }
 
+    public void iternties(View view) {
+        startActivity(new Intent(DashboardActivity.this, ItinerariesActivity.class));
+
+    }
 }

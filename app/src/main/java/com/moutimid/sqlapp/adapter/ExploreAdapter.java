@@ -1160,7 +1160,6 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
                             holder.add.setVisibility(View.GONE);
                             holder.remove.setVisibility(View.VISIBLE);
                         } else if (holder.getAdapterPosition() == 7) {
-
                             BeacModel model = new BeacModel();
                             model.title = holder.textView.getText().toString();
                             model.main_image = R.drawable.maconde_1;
@@ -1296,7 +1295,6 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ViewHold
                             holder.add.setVisibility(View.GONE);
                             holder.remove.setVisibility(View.VISIBLE);
                         } else if (holder.getAdapterPosition() == 11) {
-
                             BeacModel model = new BeacModel();
                             model.title = holder.textView.getText().toString();
                             model.main_image = R.drawable.le_morne_beach_2;
