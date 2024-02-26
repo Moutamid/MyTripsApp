@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.fxn.stash.Stash;
 import com.moutimid.sqlapp.R;
-import com.moutimid.sqlapp.activities.Beaches.BeachDetails;
+import com.moutimid.sqlapp.activities.Iteneraries.ItenerariesDetails;
 import com.moutimid.sqlapp.model.BeacModel;
 
 public class ItenerariesAdapter extends BaseAdapter {
@@ -21,6 +21,7 @@ public class ItenerariesAdapter extends BaseAdapter {
     private String[] itemName;
     private String[] itemDetails;
     private int[] itemImages;
+
     public ItenerariesAdapter(Context context, String[] itemName, String[] itemDetails, String[] itemTexts, int[] itemImages) {
         this.context = context;
         this.itemTexts = itemTexts;
@@ -57,7 +58,7 @@ public class ItenerariesAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = null;
-//                if (Stash.getString("iterneraries_type").equals("Day1")) {
+                if (Stash.getString("iterneraries_type").equals("Day1")) {
                     if (position == 0) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
@@ -88,7 +89,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     } else if (position == 1) {
                         BeacModel model = new BeacModel();
@@ -120,7 +121,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     } else if (position == 2) {
                         BeacModel model = new BeacModel();
@@ -152,7 +153,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     } else if (position == 3) {
                         BeacModel model = new BeacModel();
@@ -184,7 +185,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     } else if (position == 4) {
                         BeacModel model = new BeacModel();
@@ -216,7 +217,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     } else if (position == 5) {
                         BeacModel model = new BeacModel();
@@ -248,7 +249,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     } else if (position == 6) {
                         BeacModel model = new BeacModel();
@@ -280,7 +281,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.brabant_9;
                         model.text12 = "An abandoned cemetery, identified in a remote area beneath the mountain, dates back to the 19th century, with archaeological findings suggesting a connection to individuals of Malagasy and Mozambican origin.";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     } else if (position == 7) {
                         BeacModel model = new BeacModel();
@@ -312,7 +313,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     } else if (position == 8) {
                         BeacModel model = new BeacModel();
@@ -344,7 +345,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     } else if (position == 9) {
                         BeacModel model = new BeacModel();
@@ -376,7 +377,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     } else if (position == 10) {
                         BeacModel model = new BeacModel();
@@ -408,7 +409,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     } else if (position == 11) {
                         BeacModel model = new BeacModel();
@@ -440,7 +441,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     } else if (position == 12) {
 
@@ -473,16 +474,243 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
-                        intent = new Intent(context, BeachDetails.class);
+                        intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-//                    }
+                    }
                 }
-//                else if (Stash.getString("iterneraries_type").equals("Day2")) {
-//                    if (position == 0) {
-//
-//                    }
-//
-//                }
+                else if (Stash.getString("iterneraries_type").equals("Day21")) {
+                    if (position == 0) {
+                        BeacModel model = new BeacModel();
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.pamplemousse_garden;
+                        model.text1 = "The Sir Seewoosagur Ramgoolam Botanic Garden, also known as the Pamplemousses Botanic Garden, is a prominent tourist attraction located in Pamplemousses near Port Louis, Mauritius. It holds the distinction of being the oldest botanical garden in the Southern Hemisphere. Established in 1770 by Pierre Poivre, the garden spans approximately 37 hectares (91 acres) and is renowned for its expansive pond featuring giant water lilies (Victoria amazonica).<br>" + "Throughout its history, the garden underwent various name changes, reflecting its evolving status and ownership. Notable names include 'Jardin de Mon Plaisir,' 'Jardin des Plantes,' 'Le Jardin National de l’Ile de France,' 'Jardin Royal,' 'Jardin Botanique des Pamplemousses,' 'The Royal Botanical Gardens of Pamplemousses,' and 'The Royal Botanic Gardens, Pamplemousses.' Eventually, on September 17, 1988, it was officially named the \"Sir Seewoosagur Ramgoolam Botanic Garden\" in honor of the first prime minister of Mauritius.<br>";
+                        model.title1 = "";
+                        model.image1 = R.drawable.botanical_garden_1;
+                        model.text2 = "Beyond the mesmerizing giant water lilies, the garden boasts an assortment of spices, ebonies, sugar canes, and 85 palm varieties sourced from Central America, Asia, Africa, and the Indian Ocean islands. Noteworthy individuals, including Princess Margaret, Countess of Snowdon, Indira Gandhi, François Mitterrand, and Robert Mugabe, have contributed by planting trees within the garden.<br>" + "Situated in the village of Pamplemousses, approximately seven miles northeast of Port Louis, the garden has a rich history dating back to 1729 when it was set aside for colonist P. Barmont. Over the years, it changed hands multiple times, with various owners contributing to its expansion and development. Today, it covers an area of about 25,110 hectares (62,040 acres), with the remaining portion serving as an experimental station.<br>";
+                        model.title2 = "";
+                        model.text3 = "";
+                        model.image2 = R.drawable.botanical_garden_3;
+                        model.text4 = "<br>" + "The roots of the Royal Botanic Gardens can be traced to the initiative of Mahé de La Bourdonnais, the first French Governor of Mauritius, in 1735. Initially created as a vegetable garden for his household and the burgeoning township of Port Louis, the garden evolved into a botanical haven. Under Pierre Poivre's directorship in 1768, the garden became a hub for acclimatizing plants from overseas and nurturing crops with economic significance, such as cassava.<br>";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.botanical_garden_2;
+                        model.text9 = "Throughout its history, the garden weathered periods of neglect and upheaval, with directors like James Duncan contributing to its restoration and enhancement. In 1866, during a malaria epidemic, the garden played a crucial role in producing Eucalyptus trees to combat the disease.<br>" + "The Department of Agriculture assumed responsibility for the garden in 1913, overseeing its development and maintenance. Notably, following Seewoosagur Ramgoolam's death in 1985, part of the botanical garden was dedicated to a crematorium, marking the first instance of someone being cremated within its grounds.<br>" + "<br>" + "The Sir Seewoosagur Ramgoolam Botanic Garden stands as a testament to Mauritius's botanical heritage, offering visitors a captivating journey through its lush landscapes and rich history.<br>";
+                        model.title8 = "Chateau de Mon Plaisir";
+                        model.text10 = "";
+                        model.image4 = R.drawable.botanical_garden_4;
+                        model.text11 = "Until 1839, the Chateau de Mon Plaisir featured a modest structure characterized by a flat roof and circular verandahs. The current single-story building, constructed by the English in the mid-19th century, has been designated as a National Monument, giving it legal protection. Visitors can enjoy a charming panorama of the Moka Range and the Peak of Pieter Both from the Chateau.";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "";
+                        Stash.put("model", model);
+                        intent = new Intent(context, ItenerariesDetails.class);
+                        context.startActivity(intent);
+                    } else if (position == 1) {
+                        BeacModel model = new BeacModel();
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.sugar_museum_pamplemousses;
+                        model.text1 = "Located not too far from the Pamplemousse Botanical Garden, amidst a picturesque setting featuring a bougainvillea and coconut tree-lined alley, a pond surrounded by lush greenery, stands the impressively renovated sugar mill—a truly spectacular attraction on the island!<br>" + "From the moment the Dutch set foot in Mauritius and introduced sugar canes to the island, the sugar industry has played a significant role in the island's history. At L'Aventure du Sucre, you'll delve into the intricacies of the sugar-making process and explore the colonial past that has profoundly shaped Mauritius into what it is today. Traverse a 250-year historical journey within the museum, a former operational sugar factory, and conclude your tour with a delightful sugar tasting experience, along with sampling various products derived from the golden era of colonial centuries.<br>";
+                        model.title1 = "";
+                        model.image1 = R.drawable.laventure_du_sucre;
+                        model.text2 = "Embark on your museum tour by delving into the history of sugar plantations in Mauritius. Gain insights into the Dutch era, succeeded by the French and eventually the English colonists. Following this historical exploration, proceed to the operational factory, which remained active until the 1970s. Immerse yourself in the intricate stages of the sugar-making process showcased in vivid detail. Complement your visit to L'Aventure du Sucre by exploring the Village Boutik for gift shopping and souvenirs. Alternatively, enjoy a delightful pause at Restaurant Le Fangourin, savoring the nuances of Mauritian cuisine.";
+                        model.title2 = "";
+                        model.text3 = "";
+                        model.image2 = R.drawable.map_location;
+                        model.text4 = "";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.map_location;
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
+                        model.image4 = R.drawable.map_location;
+                        model.text11 = "";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "";
+                        Stash.put("model", model);
+                        intent = new Intent(context, ItenerariesDetails.class);
+                        context.startActivity(intent);
+                    } else if (position == 2) {
+                        BeacModel model = new BeacModel();
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.port_louis_3;
+                        model.text1 = "Le Caudan Waterfront is as a prominent commercial development in Port Louis, the capital city of Mauritius, offering a diverse array of amenities such as shops, banking facilities, casinos, cinemas, restaurants, a marina, and the renowned five-star hotel, Le Labourdonnais.<br>" + "<b>Historical Roots:</b><br>" + "The name \"Le Caudan Waterfront\" pays homage to Jean Dominique Michel de Caudan, a notable figure who arrived in the former Isle de France from Languedoc, a historical province in the South of France, in 1726. He initiated a saltpan near a small bay in the southwest of Port-Louis, now recognized as the Robert Edward Hart Garden, situated on the entrance road to Le Caudan Waterfront.<br>" + "The peninsula of Le Caudan, formed around a fossil coral islet, witnessed the evolution of various structures over 250 years, including a powder magazine, an astronomical and meteorological observatory, quays, warehouses, and small enterprises. The sugar industry significantly influenced the harbor's daily activities until the establishment of the Bulk Sugar Terminal in 1980. Today, only a few remaining walls bear testament to the bustling activities that transpired over 150 years.<br>" + "<b>Historically Significant Spots</b><br>" + "Several areas within Le Caudan Waterfront hold historical significance. The first meteorological observatory in the Indian Ocean, now home to the Food Court and the Namasté restaurant, is one such spot. The Blue Penny Museum occupies the former Docks office building.<br>" + "The naming of different wings within the complex reflects episodes from the country's colonial history:<br>" + "Barkly Wharf: Named after Sir Henry Barkly, a Member of Parliament of the British government and appointed governor of Mauritius from 1863-1870.<br>" + "Le Pavillon wing: Derived from Pavillon Street on an ancient map of Port Louis, speculated to have origins during the period when Port Louis was called ‘Port Napoléon.’<br>" + "Dias Pier: A tribute to Diogo Dias, brother of the famous navigator Barthoulomeu Dias, believed to be the first to record the Mascarene Islands on a navigation map.<br>" + "<b>Modern Day Attraction</b><br>";
+                        model.title1 = "";
+                        model.image1 = R.drawable.port_louis_13;
+                        model.text2 = "<br>" + "Caudan, commonly known today, was the island's first major shopping development, and it continues to be an iconic shopping destination for both locals and tourists. The mall features the latest fashion trends, a popular Craft Market, specialty shops offering unique local goods, cinemas, a marina, a bookstore, restaurants, cafes, a museum housing two of the rarest stamps globally, a casino, and tax-free shopping for tourists.<br>";
+                        model.title2 = "";
+                        model.text3 = "";
+                        model.image2 = R.drawable.port_louis_6;
+                        model.text4 = "Despite being the first shopping mall on the island, Caudan has adeptly adapted to current trends, maintaining its appeal as a modern waterfront mall. Visitors can witness the bustling port activities as large container and cruise ships navigate in and out.";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.map_location;
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
+                        model.image4 = R.drawable.map_location;
+                        model.text11 = "";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "";
+                        Stash.put("model", model);
+                        intent = new Intent(context, ItenerariesDetails.class);
+                        context.startActivity(intent);
+                    } else if (position == 3) {
+                        BeacModel model = new BeacModel();
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.aapravasi_ghat_1;
+                        model.text1 = "The Aapravasi Ghat is a historical site located in Port Louis, the capital city of Mauritius. It holds great significance in the history of the island and is recognized as a UNESCO World Heritage Site. The history of the Aapravasi Ghat is closely tied to the indentured labor system that shaped the social and economic landscape of Mauritius.<br>" + "Here is a brief history of the Aapravasi Ghat:<br>" + "1.\t<b>Indentured Labor System:</b> In the 19th century, after the abolition of slavery, the British turned to the system of indentured labor to meet the demand for cheap and abundant workforce for their colonies. Indentured laborers were recruited from various parts of India, as well as China and Africa, to work on plantations in Mauritius and other British colonies.<br>" + "2.\t<b>Establishment of Aapravasi Ghat:</b> The Aapravasi Ghat was established in 1849 as the first site for the reception of indentured laborers in Mauritius. The name \"Aapravasi Ghat\" translates to \"immigration depot\" in Hindi. The location served as a processing center where indentured laborers arriving by ship were registered, housed temporarily, and assigned to various plantations across the island.<br>" + "3.\t<b>Living Conditions:</b> Indentured laborers faced harsh living conditions at the Aapravasi Ghat. They were often crowded into cramped barracks, and the site became a place where many experienced suffering, sickness, and death. The conditions were challenging, and the laborers endured a difficult transition from their home countries to the unfamiliar environment of Mauritius.<br>" + "4.\t<b>End of Indenture:</b> The indenture system continued until the early 20th century when it was officially abolished. The Aapravasi Ghat continued to be used for processing immigrants until 1920. After the cessation of the indenture system, the site underwent various transformations, serving different purposes over the years.<br>" + "5.\t<b>UNESCO World Heritage Site:</b> In 2006, the Aapravasi Ghat was designated as a UNESCO World Heritage Site in recognition of its historical importance in the global migration of indentured laborers and its impact on the multicultural identity of Mauritius.<br>";
+                        model.title1 = "";
+                        model.image1 = R.drawable.aapravasi_ghat_2;
+                        model.text2 = "indentured laborers who played a crucial role in shaping the cultural and social fabric of Mauritius. The site is open to visitors, allowing them to explore its history and gain insights into this critical period in the island's past.";
+                        model.title2 = "";
+                        model.text3 = "";
+                        model.image2 = R.drawable.map_location;
+                        model.text4 = "";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.map_location;
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
+                        model.image4 = R.drawable.map_location;
+                        model.text11 = "";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "";
+                        Stash.put("model", model);
+                        intent = new Intent(context, ItenerariesDetails.class);
+                        context.startActivity(intent);
+                    } else if (position == 4) {
+                        BeacModel model = new BeacModel();
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.blue_penny_museum_2;
+                        model.text1 = "The Blue Penny Museum in Mauritius was inaugurated in November 2001 and is dedicated to showcasing the history and art of the island. Its name is derived from the famous 1847 Blue Penny and Red Penny stamps, which hold great historical significance.<br>" + "Here's a brief history of the Blue Penny Museum:<br>" + "1.\t<b>Stamp Acquisition (1993):</b> The museum's centerpiece is the 1847 Blue Penny and Red Penny stamps, considered some of the rarest and most valuable stamps in the world. In 1993, a consortium of Mauritian enterprises, led by The Mauritius Commercial Bank, purchased the stamps for $2,000,000. These stamps were then repatriated to Mauritius, marking their return to the island after nearly 150 years.<br>" + "2.\t<b>Museum Inauguration (2001):</b> The Blue Penny Museum officially opened its doors to the public in November 2001. It was established as a cultural institution aimed at preserving and showcasing Mauritius's rich history and artistic heritage.<br>" + "3.\t<b>Conservation Efforts:</b> Given the extreme rarity and value of the Blue Penny stamps, conservation efforts were implemented. The originals are illuminated only temporarily to prevent damage from prolonged exposure. Visitors to the museum typically view replicas of the stamps, ensuring the long-term preservation of the priceless artifacts.<br>" + "4.\t<b>Founder - The Mauritius Commercial Bank:</b> The museum was founded by The Mauritius Commercial Bank, one of the leading financial institutions in Mauritius. This initiative reflects the bank's commitment to preserving and promoting the cultural heritage of the island.<br>";
+                        model.title1 = "";
+                        model.image1 = R.drawable.blue_penny_museum_1;
+                        model.text2 = "5.\t<b>Additional Artifacts: In addition to the Blue Penny stamps, the museum houses other notable artifacts, including the original statue of Paul and Virginia. Crafted by Prosper d'Épinay in 1881, this statue adds to the cultural and artistic richness of the museum's collection.<br>" + "The Blue Penny Museum has become a significant cultural institution in Mauritius, attracting both locals and tourists interested in exploring the island's history through its valuable artifacts and exhibits.<br>" + "The Blue Penny Museum is structured across two floors, each offering distinct features and exhibits:<br>" + "<b>Ground Floor:</b><br>" + "1.\t<b>Souvenir Shop: Visitors are welcomed by a souvenir shop on the ground floor, providing an opportunity to purchase mementos related to the museum and Mauritius.<br>" + "2.\t<b>Temporary Exhibition Room: The ground floor houses a temporary exhibition room, showcasing rotating exhibits that may vary over time, allowing for diverse and dynamic displays.<br>" + "First Floor:<br>" + "1.\t<b>The Age of Discovery:</b> This exhibition room narrates the stories of pioneers who undertook the first oceanic voyages to reach the Mascarene Islands. It prominently features ancient maps that document this historic journey.<br>" + "2.\t<b>The Island Builders:</b> Covering three significant periods in Mauritius's history—the Dutch Period, the French Period, and the English Taking Over—this room provides a comprehensive overview of the island's historical evolution.<br>" + "3.\t<b>Port Louis:</b> This exhibition room focuses on the origins and history of Port Louis, offering insights into the development and growth of the city.<br>" + "4.\t<b>The Postal Adventure:</b> Dedicated to the postal history of Mauritius, this room proudly displays two stamps from the renowned Blue Penny collection, contributing to the island's philatelic heritage.<br>" + "5.\t<b>Engraved Memory:</b> Honoring Joseph Osmond Barnard, the first individual to engrave stamps in Mauritius, this room serves as a tribute to his significant contributions to the field.<br>" + "Overall, the Blue Penny Museum is thoughtfully organized to provide visitors with a captivating journey through Mauritius's history, art, and unique cultural heritage.<br>";
+                        model.title2 = "";
+                        model.text3 = "";
+                        model.image2 = R.drawable.map_location;
+                        model.text4 = "";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.map_location;
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
+                        model.image4 = R.drawable.map_location;
+                        model.text11 = "";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "";
+                        Stash.put("model", model);
+                        intent = new Intent(context, ItenerariesDetails.class);
+                        context.startActivity(intent);
+                    } else if (position == 5) {
+                        BeacModel model = new BeacModel();
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.black_river_georges_2;
+                        model.text1 = "Black River Gorges National Park, located in the hilly southwestern region of Mauritius, was officially established on June 15, 1994, and is under the management of the National Parks and Conservation Service. Encompassing a total area of 67.54 km², the park features diverse habitats, including humid upland forests, drier lowland forests, and marshy heathlands. Visitor facilities within the park comprise two information centers, picnic areas, and an extensive network of 60 kilometers of trails. Additionally, there are four field stations dedicated to research and conservation projects conducted by the National Parks and Conservation Service and the Mauritian Wildlife Foundation.<br>" +
+                                "The primary aim of the park is to safeguard a significant portion of the island's remaining rainforest, even though parts of it have suffered degradation due to the introduction of non-native plants like Chinese guava and privet, as well as the presence of invasive animals such as the rusa deer and wild pigs. To preserve native wildlife, specific areas within the park have been cordoned off, and efforts have been made to eliminate invasive species. <br>";
+                        model.title1 = "";
+                        model.image1 = R.drawable.fody;
+                        model.text2 = "Despite the challenges, the park continues to host a variety of endemic plants and animals, including the Mauritian flying fox and all endemic bird species on the island: Mauritius kestrel, pink pigeon, Mauritius parakeet, Mauritius cuckooshrike, Mauritius bulbul, Mauritius olive white-eye, Mauritius grey white-eye, and Mauritius fody. Recognized as an Important Bird Area by BirdLife International, Black River Gorges National Park plays a crucial role in the conservation of Mauritius' unique biodiversity.";
+                        model.title2 = "";
+                        model.text3 = "";
+                        model.image2 = R.drawable.map_location;
+                        model.text4 = "";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.map_location;
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
+                        model.image4 = R.drawable.map_location;
+                        model.text11 = "";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "";
+                        Stash.put("model", model);
+                        intent = new Intent(context, ItenerariesDetails.class);
+                        context.startActivity(intent);
+                    } else if (position == 6) {
+                        BeacModel model = new BeacModel();
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.chamarel_2;
+                        model.text1 = "The Seven Coloured Earths form a geological wonder and a popular tourist destination situated in the Chamarel plain of the Rivière Noire District in southwestern Mauritius. This unique site encompasses small sand dunes exhibiting seven distinctive colors—red, brown, violet, green, blue, purple, and yellow. The remarkable characteristic of this location lies in the settling of differently colored sands in distinct layers, creating surrealistic and striped patterns on the dunes. Over time, rains have sculpted captivating designs into the hillside, resulting in an effect reminiscent of earthen meringue.<br>" +
+                                "These sands originate from the decomposition of volcanic rock (basalt) gullies into clay, later transformed into ferralitic soil through total hydrolysis. The primary elements responsible for the red/anthracite and blue/purplish colors are iron and aluminum, respectively. The various hues are thought to be a consequence of the molten volcanic rock cooling down at different external temperatures, although the specific causes of their consistent and spontaneous separation are not fully understood.<br>" +
+                                "The term \"Seven Coloured Earths\" serves as a descriptive, rather than an official, name. Various versions, including \"Chamarel Seven Coloured Earths,\" \"Chamarel Coloured Earth(s),\" \"Coloured Earth,\" and Terres des Sept Couleurs in French, have been reported.<br>" +
+                                "This phenomenon can be replicated on a smaller scale by taking sands of different colors, mixing them together, and observing their eventual separation into a layered spectrum.<br>" +
+                                "Since the 1960s, this site has evolved into one of Mauritius' major tourist attractions. Presently, the dunes are safeguarded by a wooden fence, and visitors are prohibited from climbing on them. However, observation outposts along the fence allow visitors to enjoy the scenery. Curio shops in the vicinity offer small test tubes containing the colored sands.<br>";
+                        model.title1 = "";
+                        model.image1 = R.drawable.map_location;
+                        model.text2 = "";
+                        model.title2 = "";
+                        model.text3 = "";
+                        model.image2 = R.drawable.map_location;
+                        model.text4 = "";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.map_location;
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
+                        model.image4 = R.drawable.map_location;
+                        model.text11 = "";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "";
+                        Stash.put("model", model);
+                        intent = new Intent(context, ItenerariesDetails.class);
+                        context.startActivity(intent);
+                    }
+
+                }
             }
         });
         return itemView;

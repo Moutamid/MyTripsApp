@@ -1,4 +1,4 @@
-package com.moutimid.sqlapp.activities.Beaches;
+package com.moutimid.sqlapp.activities.Iteneraries;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,11 +6,14 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.fxn.stash.Stash;
 import com.google.android.material.tabs.TabLayout;
 import com.moutimid.sqlapp.R;
 import com.moutimid.sqlapp.adapter.AppAdapter;
 import com.moutimid.sqlapp.adapter.Day2Adapter;
 import com.moutimid.sqlapp.adapter.Day3Adapter;
+import com.moutimid.sqlapp.adapter.Day4Adapter;
+import com.moutimid.sqlapp.adapter.Day5Adapter;
 
 public class ItinerariesActivity extends AppCompatActivity {
     TabLayout tabLayout;
@@ -36,31 +39,32 @@ public class ItinerariesActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
-
+        Stash.put("iterneraries_type", "Day1");
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
                 if (tab.getPosition() == 0) {
+                    Stash.put("iterneraries_type", "Day1");
+
                     tabLayout.setVisibility(View.VISIBLE);
                     tabLayout1.setVisibility(View.GONE);
                     viewPager.setVisibility(View.VISIBLE);
                     viewPager1.setVisibility(View.GONE);
-                }
-                if (tab.getPosition() == 1) {
+                } else if (tab.getPosition() == 1) {
+                    Stash.put("iterneraries_type", "Day21");
+
                     tabLayout.setVisibility(View.VISIBLE);
                     tabLayout1.setVisibility(View.VISIBLE);
                     viewPager.setVisibility(View.GONE);
                     viewPager1.setVisibility(View.VISIBLE);
                     tabLayout1.removeAllTabs();
-
                     tabLayout1.addTab(tabLayout1.newTab().setText("DAY1"));
                     tabLayout1.addTab(tabLayout1.newTab().setText("DAY2"));
                     tabLayout1.setTabGravity(TabLayout.GRAVITY_FILL);
                     Day2Adapter day2Adapter = new Day2Adapter(ItinerariesActivity.this, getSupportFragmentManager(), tabLayout1.getTabCount());
                     viewPager1.setAdapter(day2Adapter);
-                }
-                if (tab.getPosition() == 2) {
+                } else if (tab.getPosition() == 2) {
                     tabLayout.setVisibility(View.VISIBLE);
                     tabLayout1.setVisibility(View.VISIBLE);
                     viewPager.setVisibility(View.GONE);
@@ -70,8 +74,35 @@ public class ItinerariesActivity extends AppCompatActivity {
                     tabLayout1.addTab(tabLayout1.newTab().setText("DAY2"));
                     tabLayout1.addTab(tabLayout1.newTab().setText("DAY3"));
                     tabLayout1.setTabGravity(TabLayout.GRAVITY_FILL);
-                    Day3Adapter day2Adapter = new Day3Adapter(ItinerariesActivity.this, getSupportFragmentManager(), tabLayout1.getTabCount());
-                    viewPager1.setAdapter(day2Adapter);
+                    Day3Adapter day3Adapter = new Day3Adapter(ItinerariesActivity.this, getSupportFragmentManager(), tabLayout1.getTabCount());
+                    viewPager1.setAdapter(day3Adapter);
+                } else if (tab.getPosition() == 3) {
+                    tabLayout.setVisibility(View.VISIBLE);
+                    tabLayout1.setVisibility(View.VISIBLE);
+                    viewPager.setVisibility(View.GONE);
+                    viewPager1.setVisibility(View.VISIBLE);
+                    tabLayout1.removeAllTabs();
+                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY1"));
+                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY2"));
+                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY3"));
+                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY4"));
+                    tabLayout1.setTabGravity(TabLayout.GRAVITY_FILL);
+                    Day4Adapter day3Adapter = new Day4Adapter(ItinerariesActivity.this, getSupportFragmentManager(), tabLayout1.getTabCount());
+                    viewPager1.setAdapter(day3Adapter);
+                } else if (tab.getPosition() == 4) {
+                    tabLayout.setVisibility(View.VISIBLE);
+                    tabLayout1.setVisibility(View.VISIBLE);
+                    viewPager.setVisibility(View.GONE);
+                    viewPager1.setVisibility(View.VISIBLE);
+                    tabLayout1.removeAllTabs();
+                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY1"));
+                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY2"));
+                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY3"));
+                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY4"));
+                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY5"));
+                    tabLayout1.setTabGravity(TabLayout.GRAVITY_FILL);
+                    Day5Adapter day3Adapter = new Day5Adapter(ItinerariesActivity.this, getSupportFragmentManager(), tabLayout1.getTabCount());
+                    viewPager1.setAdapter(day3Adapter);
                 }
             }
 

@@ -10,44 +10,44 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.moutimid.sqlapp.fragments.DayFragments;
 
 public class AppAdapter extends FragmentPagerAdapter {
-
     private Context myContext;
     int totalTabs;
+    private Fragment[] fragments;
 
     public AppAdapter(Context context, FragmentManager fm, int totalTabs) {
         super(fm);
         myContext = context;
         this.totalTabs = totalTabs;
+        fragments = new Fragment[totalTabs];
     }
 
-    // this is for fragment tabs  
+    // this is for fragment tabs
     @Override
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                DayFragments homeFragment = new DayFragments(1);
-                return homeFragment;
+                fragments[position] = new DayFragments(1);
+                return fragments[position];
             case 1:
-                DayFragments homeFragment1 = new DayFragments(2);
-                return homeFragment1;
+                fragments[position] = new DayFragments(2);
+                return fragments[position];
             case 2:
-                DayFragments homeFragment2 = new DayFragments(3);
-                return homeFragment2;
+                fragments[position] = new DayFragments(3);
+                return fragments[position];
             case 3:
-                DayFragments homeFragment3 = new DayFragments(4);
-                return homeFragment3;
+                fragments[position] = new DayFragments(4);
+                return fragments[position];
             case 4:
-                DayFragments homeFragment4 = new DayFragments(5);
-                return homeFragment4;
-//            case 1:
-//                DayFragment sportFragment = new DayFragment();
-//                return sportFragment;
-//            case 2:
-//                DayFragment movieFragment = new DayFragment();
-//                return movieFragment;
+                fragments[position] = new DayFragments(5);
+                return fragments[position];
             default:
                 return null;
         }
+    }
+
+    // Method to get fragment instance
+    public Fragment getFragment(int position) {
+        return fragments[position];
     }
 
     // this counts total number of tabs
@@ -55,4 +55,4 @@ public class AppAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return totalTabs;
     }
-}  
+}
