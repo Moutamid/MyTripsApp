@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.moutimid.sqlapp.fragments.DayFragments;
+import com.moutimid.sqlapp.MainActivity;
+import com.moutimid.sqlapp.fragments.Day4Fragments;
+import com.moutimid.sqlapp.fragments.Day5Fragments;
 
 public class Day4Adapter extends FragmentPagerAdapter {
 
@@ -22,24 +24,12 @@ public class Day4Adapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
-            case 0:
-                DayFragments homeFragment = new DayFragments(31);
-                return homeFragment;
-            case 1:
-                DayFragments homeFragment1 = new DayFragments(32);
-                return homeFragment1;
-            case 2:
-                DayFragments homeFragment2 = new DayFragments(33);
-                return homeFragment2;
-            default:
-                return null;
-        }
+        // Pass the position to the Day5Fragments using newInstance method
+        return Day4Fragments.newInstance(position + 31);
     }
-
     // this counts total number of tabs
     @Override
     public int getCount() {
         return totalTabs;
     }
-}  
+}

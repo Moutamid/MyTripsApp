@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.fxn.stash.Stash;
+import com.moutimid.sqlapp.fragments.Day2Fragments;
+import com.moutimid.sqlapp.fragments.Day3Fragments;
 import com.moutimid.sqlapp.fragments.DayFragments;
 
 public class Day3Adapter extends FragmentPagerAdapter {
@@ -24,13 +27,16 @@ public class Day3Adapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                DayFragments homeFragment = new DayFragments(21);
+                Stash.put("iterneraries_type", "Day21");
+                Day3Fragments homeFragment = new Day3Fragments(21);
                 return homeFragment;
             case 1:
-                DayFragments homeFragment1 = new DayFragments(22);
+                Stash.put("iterneraries_type", "Day22");
+                Day3Fragments homeFragment1 = new Day3Fragments(22);
                 return homeFragment1;
             case 2:
-                DayFragments homeFragment2 = new DayFragments(23);
+                Stash.put("iterneraries_type", "Day23");
+                Day3Fragments homeFragment2 = new Day3Fragments(23);
                 return homeFragment2;
             default:
                 return null;

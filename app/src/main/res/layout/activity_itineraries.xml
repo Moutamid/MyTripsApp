@@ -107,16 +107,6 @@
         app:tabSelectedTextColor="#5c79ff"
         app:tabTextColor="@color/black" />
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/search_layout"
-        android:background="#FFFFFF"
-        android:visibility="gone"
-        app:tabIndicatorColor="#5c79ff"
-        app:tabSelectedTextColor="#5c79ff"
-        app:tabTextColor="@color/black" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"

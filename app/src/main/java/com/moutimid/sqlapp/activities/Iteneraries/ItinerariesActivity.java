@@ -1,13 +1,16 @@
 package com.moutimid.sqlapp.activities.Iteneraries;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.fxn.stash.Stash;
 import com.google.android.material.tabs.TabLayout;
+import com.moutimid.sqlapp.MainActivity;
 import com.moutimid.sqlapp.R;
 import com.moutimid.sqlapp.adapter.AppAdapter;
 import com.moutimid.sqlapp.adapter.Day2Adapter;
@@ -17,18 +20,22 @@ import com.moutimid.sqlapp.adapter.Day5Adapter;
 
 public class ItinerariesActivity extends AppCompatActivity {
     TabLayout tabLayout;
-    TabLayout tabLayout1;
+    TabLayout subtablayout;
     ViewPager viewPager;
-    ViewPager viewPager1;
+    ViewPager subviewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itineraries);
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        tabLayout1 = (TabLayout) findViewById(R.id.tabLayout1);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
-        viewPager1 = (ViewPager) findViewById(R.id.viewPager1);
+
+        // Initialize views
+        tabLayout = findViewById(R.id.tabLayout);
+        subtablayout = findViewById(R.id.tabLayout1);
+        viewPager = findViewById(R.id.viewPager);
+        subviewPager = findViewById(R.id.viewPager1);
+
+        // Add tabs to the first TabLayout
         tabLayout.addTab(tabLayout.newTab().setText("IN 1 DAY"));
         tabLayout.addTab(tabLayout.newTab().setText("IN 2 DAY"));
         tabLayout.addTab(tabLayout.newTab().setText("IN 3 DAY"));
@@ -37,85 +44,106 @@ public class ItinerariesActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         final AppAdapter adapter = new AppAdapter(this, getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
-        Stash.put("iterneraries_type", "Day1");
+        // Set listener to handle tab selection and viewpager synchronization
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                if (tab.getPosition() == 0) {
-                    Stash.put("iterneraries_type", "Day1");
-
-                    tabLayout.setVisibility(View.VISIBLE);
-                    tabLayout1.setVisibility(View.GONE);
-                    viewPager.setVisibility(View.VISIBLE);
-                    viewPager1.setVisibility(View.GONE);
-                } else if (tab.getPosition() == 1) {
-                    Stash.put("iterneraries_type", "Day21");
-
-                    tabLayout.setVisibility(View.VISIBLE);
-                    tabLayout1.setVisibility(View.VISIBLE);
-                    viewPager.setVisibility(View.GONE);
-                    viewPager1.setVisibility(View.VISIBLE);
-                    tabLayout1.removeAllTabs();
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY1"));
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY2"));
-                    tabLayout1.setTabGravity(TabLayout.GRAVITY_FILL);
-                    Day2Adapter day2Adapter = new Day2Adapter(ItinerariesActivity.this, getSupportFragmentManager(), tabLayout1.getTabCount());
-                    viewPager1.setAdapter(day2Adapter);
-                } else if (tab.getPosition() == 2) {
-                    tabLayout.setVisibility(View.VISIBLE);
-                    tabLayout1.setVisibility(View.VISIBLE);
-                    viewPager.setVisibility(View.GONE);
-                    viewPager1.setVisibility(View.VISIBLE);
-                    tabLayout1.removeAllTabs();
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY1"));
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY2"));
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY3"));
-                    tabLayout1.setTabGravity(TabLayout.GRAVITY_FILL);
-                    Day3Adapter day3Adapter = new Day3Adapter(ItinerariesActivity.this, getSupportFragmentManager(), tabLayout1.getTabCount());
-                    viewPager1.setAdapter(day3Adapter);
-                } else if (tab.getPosition() == 3) {
-                    tabLayout.setVisibility(View.VISIBLE);
-                    tabLayout1.setVisibility(View.VISIBLE);
-                    viewPager.setVisibility(View.GONE);
-                    viewPager1.setVisibility(View.VISIBLE);
-                    tabLayout1.removeAllTabs();
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY1"));
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY2"));
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY3"));
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY4"));
-                    tabLayout1.setTabGravity(TabLayout.GRAVITY_FILL);
-                    Day4Adapter day3Adapter = new Day4Adapter(ItinerariesActivity.this, getSupportFragmentManager(), tabLayout1.getTabCount());
-                    viewPager1.setAdapter(day3Adapter);
-                } else if (tab.getPosition() == 4) {
-                    tabLayout.setVisibility(View.VISIBLE);
-                    tabLayout1.setVisibility(View.VISIBLE);
-                    viewPager.setVisibility(View.GONE);
-                    viewPager1.setVisibility(View.VISIBLE);
-                    tabLayout1.removeAllTabs();
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY1"));
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY2"));
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY3"));
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY4"));
-                    tabLayout1.addTab(tabLayout1.newTab().setText("DAY5"));
-                    tabLayout1.setTabGravity(TabLayout.GRAVITY_FILL);
-                    Day5Adapter day3Adapter = new Day5Adapter(ItinerariesActivity.this, getSupportFragmentManager(), tabLayout1.getTabCount());
-                    viewPager1.setAdapter(day3Adapter);
-                }
+                handleSecondTabLayout(tab.getPosition());
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
+        viewPager.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        subviewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(subtablayout));
+    }
+
+    private void handleSecondTabLayout(int position) {
+        switch (position) {
+            case 0:
+
+                // First tab selected, handle visibility of views
+                Stash.put("iterneraries_type", "Day1");
+                tabLayout.setVisibility(View.VISIBLE);
+                subtablayout.setVisibility(View.GONE);
+                viewPager.setVisibility(View.VISIBLE);
+                subviewPager.setVisibility(View.GONE);
+                break;
+            case 1:
+                // Second tab selected, handle visibility of views and populate the second TabLayout
+                tabLayout.setVisibility(View.VISIBLE);
+                subtablayout.setVisibility(View.VISIBLE);
+                viewPager.setVisibility(View.GONE);
+                subviewPager.setVisibility(View.VISIBLE);
+                setupSecondTabLayout(2); // Setup second TabLayout with 2 tabs
+                break;
+            case 2:
+                // Handle the visibility of views and populate the second TabLayout
+                tabLayout.setVisibility(View.VISIBLE);
+                subtablayout.setVisibility(View.VISIBLE);
+                viewPager.setVisibility(View.GONE);
+                subviewPager.setVisibility(View.VISIBLE);
+                setupSecondTabLayout(3); // Setup second TabLayout with 3 tabs
+                break;
+            case 3:
+                // Handle the visibility of views and populate the second TabLayout
+                tabLayout.setVisibility(View.VISIBLE);
+                subtablayout.setVisibility(View.VISIBLE);
+                viewPager.setVisibility(View.GONE);
+                subviewPager.setVisibility(View.VISIBLE);
+                setupSecondTabLayout(4); // Setup second TabLayout with 4 tabs
+                break;
+            case 4:
+                // Handle the visibility of views and populate the second TabLayout
+                tabLayout.setVisibility(View.VISIBLE);
+                subtablayout.setVisibility(View.VISIBLE);
+                viewPager.setVisibility(View.GONE);
+                subviewPager.setVisibility(View.VISIBLE);
+                setupSecondTabLayout(5); // Setup second TabLayout with 5 tabs
+                break;
+        }
+    }
+
+    // Method to setup the second TabLayout based on the number of tabs required
+    private void setupSecondTabLayout(int numberOfTabs) {
+        subtablayout.removeAllTabs(); // Clear existing tabs
+        for (int i = 0; i < numberOfTabs; i++) {
+            subtablayout.addTab(subtablayout.newTab().setText("DAY " + (i + 1))); // Add new tabs
+        }
+        subtablayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        switch (numberOfTabs) {
+            case 2:
+                Day2Adapter day2Adapter = new Day2Adapter(ItinerariesActivity.this, getSupportFragmentManager(), numberOfTabs);
+                subviewPager.setAdapter(day2Adapter);
+                break;
+            case 3:
+                Day3Adapter day3Adapter = new Day3Adapter(ItinerariesActivity.this, getSupportFragmentManager(), numberOfTabs);
+                subviewPager.setAdapter(day3Adapter);
+                break;
+            case 4:
+                Day4Adapter day4Adapter = new Day4Adapter(ItinerariesActivity.this, getSupportFragmentManager(), numberOfTabs);
+                subviewPager.setAdapter(day4Adapter);
+                break;
+            case 5:
+                Day5Adapter day5Adapter = new Day5Adapter(ItinerariesActivity.this, getSupportFragmentManager(), numberOfTabs);
+                subviewPager.setAdapter(day5Adapter);
+                break;
+        }
     }
 
     public void BackPress(View view) {
