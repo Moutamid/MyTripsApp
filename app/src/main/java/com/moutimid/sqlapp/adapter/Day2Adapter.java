@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.fxn.stash.Stash;
 import com.moutimid.sqlapp.fragments.Day2Fragments;
-import com.moutimid.sqlapp.fragments.DayFragments;
 
 public class Day2Adapter extends FragmentPagerAdapter {
 

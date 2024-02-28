@@ -17,22 +17,8 @@ import com.moutimid.sqlapp.adapter.ItenerariesAdapter;
 public class Day5Fragments extends Fragment {
     int position;
 
-    public static Day5Fragments newInstance(int position) {
-        Day5Fragments fragment = new Day5Fragments();
-        Bundle args = new Bundle();
-        args.putInt("position", position);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null)
-        {
-            position = getArguments().getInt("position");
-            Log.d("position", "fragment5     "+ position);
-        }
+    public Day5Fragments(int i) {
+        position = i;
     }
 
 

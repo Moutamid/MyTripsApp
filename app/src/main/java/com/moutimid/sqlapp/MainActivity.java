@@ -24,7 +24,8 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
     Button btn1, btn2;
-
+public static int main_tab_position;
+    public static int small_tab_position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

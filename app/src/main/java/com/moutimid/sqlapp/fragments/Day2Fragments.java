@@ -1,11 +1,11 @@
 package com.moutimid.sqlapp.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -14,7 +14,10 @@ import com.moutimid.sqlapp.adapter.ItenerariesAdapter;
 
 public class Day2Fragments extends Fragment {
     private int position;
-
+    String[] itemTexts;
+    String[] itemName1;
+    String[] itemName;
+    int[] itemImages;
     public Day2Fragments(int position) {
         this.position = position;
     }
@@ -23,10 +26,8 @@ public class Day2Fragments extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_day_fragments, container, false);
 
-        String[] itemTexts;
-        String[] itemName1;
-        String[] itemName;
-        int[] itemImages;
+
+        Log.d("position", "tab2   "+position);
         switch (position) {
             case 11:
                 itemTexts = new String[]{"SSR Botanical Garden", "L’Aventure du Sucre", "LeCaudan Waterfront", "Aapravasi Ghat", "Blue Penny Museum", "Black River Gorges", "Chamarel Seven Coloured Earth"};

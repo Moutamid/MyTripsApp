@@ -1,6 +1,7 @@
 package com.moutimid.sqlapp.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ public class Day3Fragments extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_day_fragments, container, false);
+        Log.d("position", "tab3   "+position);
 
       if (position == 21) {
             String[] itemTexts = {"SSR Botanical Garden", "L’Aventure du Sucre", "Chateau de Labourdonnais", "Le Caudan Waterfront", "Aapravasi Ghat", "Blue Penny Museum"};
@@ -35,8 +37,7 @@ public class Day3Fragments extends Fragment {
             String[] itemTexts = {"Bois Cheri Tea Museum", "La Vanille Nature Park ", "Gris Gris Beach"};
             String[] itemName = {"Admission Entrance Fee", "Admission Entrance Fee", "Admission Free"};
             String[] itemName1 = {"South • 3 hours", "South • 4 hour", "South • 1 hour"};
-//            TODO (2)  la_vanille_1 change
-            int[] itemImages = {R.drawable.bois_cheri_1, R.drawable.bois_cheri_1, R.drawable.gris_gris_1};
+            int[] itemImages = {R.drawable.bois_cheri_1, R.drawable.la_vanilla_1, R.drawable.gris_gris_1};
             ListView listView = view.findViewById(R.id.listView);
             ItenerariesAdapter adapter = new ItenerariesAdapter(getContext(), itemTexts, itemName, itemName1, itemImages);
             listView.setAdapter(adapter);

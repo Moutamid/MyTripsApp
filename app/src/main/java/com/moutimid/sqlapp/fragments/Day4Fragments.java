@@ -18,30 +18,19 @@ import com.moutimid.sqlapp.adapter.ItenerariesAdapter;
 public class Day4Fragments extends Fragment {
     private int position;
 
-    public static Day4Fragments newInstance(int position) {
-        Day4Fragments fragment = new Day4Fragments();
-        Bundle args = new Bundle();
-        args.putInt("position", position);
-        fragment.setArguments(args);
-        return fragment;
+    String[] itemTexts;
+    String[] itemName1;
+    String[] itemName;
+    int[] itemImages;
+    public Day4Fragments(int i) {
+        position = i;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            position = getArguments().getInt("position");
-            Log.d("position", "fragment4     "+ position);
-        }
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_day_fragments, container, false);
+        Log.d("position", "tab4   "+position);
 
-        String[] itemTexts;
-        String[] itemName1;
-        String[] itemName;
-        int[] itemImages;
         // Load data based on the fragment position
         switch (position) {
             case 31:

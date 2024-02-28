@@ -77,7 +77,6 @@ public class ItinerariesActivity extends AppCompatActivity {
         switch (position) {
             case 0:
 
-                // First tab selected, handle visibility of views
                 Stash.put("iterneraries_type", "Day1");
                 tabLayout.setVisibility(View.VISIBLE);
                 subtablayout.setVisibility(View.GONE);
@@ -85,31 +84,28 @@ public class ItinerariesActivity extends AppCompatActivity {
                 subviewPager.setVisibility(View.GONE);
                 break;
             case 1:
-                // Second tab selected, handle visibility of views and populate the second TabLayout
+                Stash.put("iterneraries_type", "Day21");
                 tabLayout.setVisibility(View.VISIBLE);
                 subtablayout.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.GONE);
                 subviewPager.setVisibility(View.VISIBLE);
-                setupSecondTabLayout(2); // Setup second TabLayout with 2 tabs
+                setupSecondTabLayout(2);
                 break;
             case 2:
-                // Handle the visibility of views and populate the second TabLayout
                 tabLayout.setVisibility(View.VISIBLE);
                 subtablayout.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.GONE);
                 subviewPager.setVisibility(View.VISIBLE);
-                setupSecondTabLayout(3); // Setup second TabLayout with 3 tabs
+                setupSecondTabLayout(3);
                 break;
             case 3:
-                // Handle the visibility of views and populate the second TabLayout
                 tabLayout.setVisibility(View.VISIBLE);
                 subtablayout.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.GONE);
                 subviewPager.setVisibility(View.VISIBLE);
-                setupSecondTabLayout(4); // Setup second TabLayout with 4 tabs
+                setupSecondTabLayout(4);
                 break;
             case 4:
-                // Handle the visibility of views and populate the second TabLayout
                 tabLayout.setVisibility(View.VISIBLE);
                 subtablayout.setVisibility(View.VISIBLE);
                 viewPager.setVisibility(View.GONE);
@@ -128,10 +124,12 @@ public class ItinerariesActivity extends AppCompatActivity {
         subtablayout.setTabGravity(TabLayout.GRAVITY_FILL);
         switch (numberOfTabs) {
             case 2:
+                subviewPager.removeAllViews();
                 Day2Adapter day2Adapter = new Day2Adapter(ItinerariesActivity.this, getSupportFragmentManager(), numberOfTabs);
                 subviewPager.setAdapter(day2Adapter);
                 break;
             case 3:
+                subviewPager.removeAllViews();
                 Day3Adapter day3Adapter = new Day3Adapter(ItinerariesActivity.this, getSupportFragmentManager(), numberOfTabs);
                 subviewPager.setAdapter(day3Adapter);
                 break;
@@ -140,6 +138,7 @@ public class ItinerariesActivity extends AppCompatActivity {
                 subviewPager.setAdapter(day4Adapter);
                 break;
             case 5:
+                subviewPager.removeAllViews();
                 Day5Adapter day5Adapter = new Day5Adapter(ItinerariesActivity.this, getSupportFragmentManager(), numberOfTabs);
                 subviewPager.setAdapter(day5Adapter);
                 break;

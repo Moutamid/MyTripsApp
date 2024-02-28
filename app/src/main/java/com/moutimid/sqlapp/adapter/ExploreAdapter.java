@@ -3588,7 +3588,6 @@ else if (getAdapterPosition() == 8) {
                         intent = new Intent(context, BeachDetails.class);
                         context.startActivity(intent);
                     } else if (getAdapterPosition() == 10) {
-
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.black_river_georges_2;
