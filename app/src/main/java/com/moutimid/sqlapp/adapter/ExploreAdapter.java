@@ -3264,8 +3264,8 @@ else if (getAdapterPosition() == 8) {
                         Stash.put("model", model);
                         intent = new Intent(context, BeachDetails.class);
                         context.startActivity(intent);
-                    } else if (getAdapterPosition() == 2) {
 
+                    } else if (getAdapterPosition() == 2) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.casela;

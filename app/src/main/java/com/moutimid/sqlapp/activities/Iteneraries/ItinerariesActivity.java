@@ -1,15 +1,20 @@
 package com.moutimid.sqlapp.activities.Iteneraries;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.fxn.stash.Stash;
 import com.moutimid.sqlapp.R;
+import com.moutimid.sqlapp.activities.DashboardActivity;
+import com.moutimid.sqlapp.activities.MyTripsActivity;
 import com.moutimid.sqlapp.adapter.ItenerariesAdapter;
 
 public class ItinerariesActivity extends AppCompatActivity implements View.OnClickListener {
@@ -163,7 +168,7 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
             pressView1.setVisibility(View.VISIBLE);
             showSubButtons(1);
             tab_layout2.setVisibility(View.GONE);
-            handle_sub_visibility(1, 1);
+            handle_sub_visibility(0, 0);
 
         } else if (buttonId == R.id.buttonDay2) {
             buttonDay2.setVisibility(View.INVISIBLE);
@@ -400,16 +405,18 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
         String[] itemName = new String[0];
         int[] itemImages = new int[0];
         if (main_day == 0 && sub_day == 0) {
+            Stash.put("day", "day1");
             tab_layout2.setVisibility(View.GONE);
             itemTexts = new String[]{"Le Caudan Waterfront", "Aapravasi Ghat", "Port Louis Central Market", "Marie Reine de la Paix Chapel", "Fort Adelaide", "Le Morne Beach", "Le Morne Brabant", "Maconde Viewpoint", "ChamarelSeven Coloured Earth", "Chamarel Waterfalls", "Black River Gorges", "Grand Bassin", "Gris Gris Beach"};
             itemName = new String[]{"Admission Free", "Admission Entrance Fee", "Admission Free", "Admission Free", "Admission Free", "Admission Free", "Admission Free", "Admission Free", "Admission Free", "Admission Entrance Fee", "Chamarel", "Admission Free", "Admission Free"};
             itemName1 = new String[]{"South • 30 minutes - 1 hour", "North • 1 hour", "North • 1 hour", "North • 45 minutes", "North • 1 hour", "Southwest • 1 hour", "Southwest • 3 - 4 hours", "Southwest • 30 minutes", "Southwest • 1 hour 30 minutes", "Southwest • 1 hour 30 minutes", "Southwest • 1 hour 30 minutes", "South • 1 hour 30 minutes", "South • 30 minutes - 1 hour"};
-            itemImages = new int[]{R.drawable.port_louis_3, R.drawable.aapravasi_ghat_1, R.drawable.port_louis_4, R.drawable.marie_reine_de_la_paix_3, R.drawable.citadelle, R.drawable.le_morne_beach_2, R.drawable.le_morne_1, R.drawable.maconde_1, R.drawable.chamarel_2, R.drawable.chamarel_1, R.drawable.black_river_georges_2, R.drawable.grand_bassin_1, R.drawable.gris_gris_coastal_4};
+            itemImages = new int[]{R.drawable.port_louis_3, R.drawable.aapravasi_ghat_1, R.drawable.port_louis_4, R.drawable.marie_reine_de_la_paix_3, R.drawable.citadelle, R.drawable.le_morne_beach_2, R.drawable.le_morne_1, R.drawable.maconde_1, R.drawable.chamarel_2, R.drawable.chamarel_1, R.drawable.black_river_georges_2, R.drawable.grand_bassin_1, R.drawable.gris_gris_1};
 
         }
         if (main_day == 2 && sub_day == 1) {
-            tab_layout2.setVisibility(View.VISIBLE);
+            Stash.put("day", "day21");
 
+            tab_layout2.setVisibility(View.VISIBLE);
             subbuttonDay1.setVisibility(View.INVISIBLE);
             subview1.setVisibility(View.INVISIBLE);
             subbuttonDay2.setVisibility(View.VISIBLE);
@@ -438,8 +445,9 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
 
         }
         if (main_day == 2 && sub_day == 2) {
-            tab_layout2.setVisibility(View.VISIBLE);
+            Stash.put("day", "day22");
 
+            tab_layout2.setVisibility(View.VISIBLE);
             subbuttonDay1.setVisibility(View.VISIBLE);
             subview1.setVisibility(View.VISIBLE);
             subbuttonDay2.setVisibility(View.INVISIBLE);
@@ -467,8 +475,9 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
 
         }
         if (main_day == 3 && sub_day == 1) {
-            tab_layout2.setVisibility(View.VISIBLE);
+            Stash.put("day", "day31");
 
+            tab_layout2.setVisibility(View.VISIBLE);
             subbuttonDay1.setVisibility(View.INVISIBLE);
             subview1.setVisibility(View.INVISIBLE);
             subbuttonDay2.setVisibility(View.VISIBLE);
@@ -496,6 +505,8 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
 
         }
         if (main_day == 3 && sub_day == 2) {
+            Stash.put("day", "day32");
+
             subbuttonDay1.setVisibility(View.VISIBLE);
             subview1.setVisibility(View.VISIBLE);
             subbuttonDay2.setVisibility(View.INVISIBLE);
@@ -522,6 +533,8 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
             itemImages = new int[]{R.drawable.bois_cheri_1, R.drawable.la_vanilla_1, R.drawable.gris_gris_1};
         }
         if (main_day == 3 && sub_day == 3) {
+            Stash.put("day", "day33");
+
             subbuttonDay1.setVisibility(View.VISIBLE);
             subview1.setVisibility(View.VISIBLE);
             subbuttonDay2.setVisibility(View.VISIBLE);
@@ -548,6 +561,8 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
             itemImages = new int[]{R.drawable.tamarin_3, R.drawable.trou_aux_cerfs_4, R.drawable.grand_bassin_1, R.drawable.black_river_georges_2, R.drawable.chamarel_2};
         }
         if (main_day == 4 && sub_day == 1) {
+            Stash.put("day", "day41");
+
             subbuttonDay1.setVisibility(View.INVISIBLE);
             subview1.setVisibility(View.INVISIBLE);
             subbuttonDay2.setVisibility(View.VISIBLE);
@@ -575,6 +590,8 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
 
         }
         if (main_day == 4 && sub_day == 2) {
+            Stash.put("day", "day42");
+
             subbuttonDay1.setVisibility(View.VISIBLE);
             subview1.setVisibility(View.VISIBLE);
             subbuttonDay2.setVisibility(View.INVISIBLE);
@@ -602,6 +619,8 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
 
         }
         if (main_day == 4 && sub_day == 3) {
+            Stash.put("day", "day43");
+
             subbuttonDay1.setVisibility(View.VISIBLE);
             subview1.setVisibility(View.VISIBLE);
             subbuttonDay2.setVisibility(View.VISIBLE);
@@ -625,9 +644,10 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
             itemTexts = new String[]{"Casela Adventure Park", "Trou aux Cerfs", "Black River Gorges", "Chamarel Waterfalls", "Chamarel Seven Coloured Earth", "Tamarin Bay Beach"};
             itemName = new String[]{"Admission Entrance Fee", "Admission Fee", "Admission Free", "Admission Fee", "Admission Entrance Fee", "Admission Fee"};
             itemName1 = new String[]{"West • 2 hours 30 minutes", "Center • 40 minutes", "Southwest • 30 minutes", "Southwest • 35 minutes", "Southwest • 1 hour 30 minutes", "West • 1 hour"};
-            itemImages = new int[]{R.drawable.casela, R.drawable.la_preneuse_4, R.drawable.black_river_georges_2, R.drawable.chamarel_1, R.drawable.chamarel_2, R.drawable.tamarin_3};
+            itemImages = new int[]{R.drawable.casela, R.drawable.trou_aux_cerfs_4, R.drawable.black_river_georges_2, R.drawable.chamarel_1, R.drawable.chamarel_2, R.drawable.tamarin_3};
         }
         if (main_day == 4 && sub_day == 4) {
+            Stash.put("day", "day44");
             subbuttonDay1.setVisibility(View.VISIBLE);
             subview1.setVisibility(View.VISIBLE);
             subbuttonDay2.setVisibility(View.VISIBLE);
@@ -651,9 +671,11 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
             itemTexts = new String[]{"Eau Bleu Waterfall", "Pont Naturel Bridge", "Le Souffleur", "Gris Gris Beach", "La Roche Qui Pleure", "Rochester Falls", "Maconde Viewpoint", "La Prairie Beach"};
             itemName = new String[]{"Admission Fee", "Admission Fee", "Admission Free", "Admission Fee", "Admission Fee", "Admission Fee", "Admission Fee", "Admission Fee"};
             itemName1 = new String[]{"Southeast • 35 minutes", "South • 30 minutes", "South • 30 minutes", "South • 35 minutes", "South • 35 minutes", "South • 45 minutes", "Southwest • 30 minutes", "Southwest • 1 hour 30 minutes"};
-            itemImages = new int[]{R.drawable.gris_gris_coastal_4, R.drawable.gris_gris_coastal_4, R.drawable.gris_gris_coastal_4, R.drawable.gris_gris_coastal_4, R.drawable.la_roche_qui_pleure, R.drawable.rochester_falls_1, R.drawable.maconde_1, R.drawable.gris_gris_coastal_4};
+            itemImages = new int[]{R.drawable.eau_bleu_1, R.drawable.pont_naturel_2, R.drawable.le_souffleur_1, R.drawable.gris_gris_1, R.drawable.la_roche_qui_pleure, R.drawable.rochester_falls_1, R.drawable.maconde_1, R.drawable.la_prairie_2};
         }
         if (main_day == 5 && sub_day == 1) {
+            Stash.put("day", "day51");
+
             subbuttonDay1.setVisibility(View.INVISIBLE);
             subview1.setVisibility(View.INVISIBLE);
             subbuttonDay2.setVisibility(View.VISIBLE);
@@ -681,6 +703,8 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
 
         }
         if (main_day == 5 && sub_day == 2) {
+            Stash.put("day", "day52");
+
             subbuttonDay1.setVisibility(View.VISIBLE);
             subview1.setVisibility(View.VISIBLE);
             subbuttonDay2.setVisibility(View.INVISIBLE);
@@ -707,6 +731,8 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
             itemImages = new int[]{R.drawable.chamarel_2, R.drawable.chamarel_1, R.drawable.black_river_georges_2, R.drawable.rhumerie_de_chamarel_1, R.drawable.tamarin_3};
         }
         if (main_day == 5 && sub_day == 3) {
+            Stash.put("day", "day53");
+
             subbuttonDay1.setVisibility(View.VISIBLE);
             subview1.setVisibility(View.VISIBLE);
             subbuttonDay2.setVisibility(View.VISIBLE);
@@ -733,6 +759,8 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
             itemImages = new int[]{R.drawable.casela, R.drawable.la_preneuse_4, R.drawable.martello_tower_4, R.drawable.le_morne_1, R.drawable.flic_en_flac_3};
         }
         if (main_day == 5 && sub_day == 4) {
+            Stash.put("day", "day54");
+
             subbuttonDay1.setVisibility(View.VISIBLE);
             subview1.setVisibility(View.VISIBLE);
             subbuttonDay2.setVisibility(View.VISIBLE);
@@ -757,9 +785,11 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
             itemName = new String[]{"Admission Fee", "Admission Fee", "Admission Free", "Admission Fee", "Admission  Fee", "Admission  Fee", "Admission  Fee"};
             itemName1 = new String[]{"Southeast • 1 – 2 hours", "Southeast • 1 – 2 hours", "Southeast • 1 – 1.5 hours", "South • 35 minutes", "South • 35 minutes", "Southwest • 30 minutes", "Southwest • 1 hour 30 minutes"};
 //            TODO last image la_prairie_2
-            itemImages = new int[]{R.drawable.mahebourg, R.drawable.mahebourg_museum_2, R.drawable.blue_bay, R.drawable.gris_gris_coastal_4, R.drawable.la_roche_qui_pleure, R.drawable.maconde_1, R.drawable.maconde_1};
+            itemImages = new int[]{R.drawable.mahebourg, R.drawable.mahebourg_museum_2, R.drawable.blue_bay, R.drawable.gris_gris_coastal_4, R.drawable.la_roche_qui_pleure, R.drawable.maconde_1, R.drawable.la_prairie_2};
         }
         if (main_day == 5 && sub_day == 5) {
+            Stash.put("day", "day55");
+
             subbuttonDay1.setVisibility(View.VISIBLE);
             subview1.setVisibility(View.VISIBLE);
             subbuttonDay2.setVisibility(View.VISIBLE);
@@ -789,4 +819,23 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
         ItenerariesAdapter adapter = new ItenerariesAdapter(ItinerariesActivity.this, itemTexts, itemName, itemName1, itemImages);
         listView.setAdapter(adapter);
     }
+    public void menu(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.menu, popupMenu.getMenu());
+
+        // Optional: Set a listener to respond to menu item clicks
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if ((item.getItemId() == R.id.menu_item_1))
+                {
+                    startActivity(new Intent(ItinerariesActivity.this, DashboardActivity.class));
+                    finishAffinity();
+                }
+                return true;
+            }
+        });
+        popupMenu.show();
+    }
+
 }
