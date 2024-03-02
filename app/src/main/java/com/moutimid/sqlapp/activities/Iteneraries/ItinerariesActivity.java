@@ -784,7 +784,6 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
             itemTexts = new String[]{"Mahebourg Waterfront", "Mahebourg Museum", "Blue Bay Beach", "Gris Gris Beach", "La Roche Qui Pleure", "Maconde Viewpoint", "La Prairie Beach"};
             itemName = new String[]{"Admission Fee", "Admission Fee", "Admission Free", "Admission Fee", "Admission  Fee", "Admission  Fee", "Admission  Fee"};
             itemName1 = new String[]{"Southeast • 1 – 2 hours", "Southeast • 1 – 2 hours", "Southeast • 1 – 1.5 hours", "South • 35 minutes", "South • 35 minutes", "Southwest • 30 minutes", "Southwest • 1 hour 30 minutes"};
-//            TODO last image la_prairie_2
             itemImages = new int[]{R.drawable.mahebourg, R.drawable.mahebourg_museum_2, R.drawable.blue_bay, R.drawable.gris_gris_coastal_4, R.drawable.la_roche_qui_pleure, R.drawable.maconde_1, R.drawable.la_prairie_2};
         }
         if (main_day == 5 && sub_day == 5) {
@@ -823,7 +822,6 @@ public class ItinerariesActivity extends AppCompatActivity implements View.OnCli
         PopupMenu popupMenu = new PopupMenu(this, view);
         popupMenu.getMenuInflater().inflate(R.menu.menu, popupMenu.getMenu());
 
-        // Optional: Set a listener to respond to menu item clicks
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {

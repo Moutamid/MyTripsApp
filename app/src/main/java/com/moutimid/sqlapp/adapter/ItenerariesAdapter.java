@@ -753,7 +753,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 1) {
+                    }
+                    else if (position == 1) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.grand_bassin_1;
@@ -791,8 +792,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 2) {
-
+                    }
+                    else if (position == 2) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.bois_cheri_1;
@@ -832,12 +833,14 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.main_image = R.drawable.la_vanilla_1;
                         model.text1 = "Discover the native plants and animals of Mauritius and its neighboring islands at La Vanille Nature Park. You may see Nile Crocodiles, tenrecs, eels, iguanas, and turtles from Madagascar and the Seychelles among the reserve's wildlife under the shade of large bamboo and palm trees.";
                         model.title1 = "";
-                        model.image1 = R.drawable.map_location;
-                        model.text2 = "";
+                        model.image1 = R.drawable.la_vanille_4;
+                        model.text2 = "You will discover a variety of fossilized species, like the Madagascar elephant bird and the dodo that were once common in Mauritius and the neighboring islands but are now extinct. Additionally, the La Vanille Nature Park has an insectarium with a distinctive collection of more than 23,000 species from all over the world where you will have the opportunity to expand your knowledge on insects.";
                         model.title2 = "";
                         model.text3 = "";
-                        model.image2 = R.drawable.map_location;
-                        model.text4 = "";
+                        model.image2 = R.drawable.la_vanille_9;
+                        model.text4 = "The Crocodile Park section is famous for housing more than 2000 Nile crocodiles in various stages of growth. The centerpiece of the Crocodile Park is the enormous colony of crocodiles, where visitors may hold newborn Nile crocodiles to pose for photos.It is a great place to broaden your knowledge of this reptile that coexisted with humans before the dinosaur eraand observe firsthand how they have adapted their physical characteristics to survive throughout history. Every day at 11:30 am there is a free crocodile feeding display.<br>" +
+                                "The Park is home to the world's largest artificial Aldabra tortoise habitat. Thanks to the park's specialized breeding facilities, the number of tortoises has increased to over a thousand. You are free to approach and feed them.<br>" +
+                                "The La Vanille Nature Park is a comprehensive institution designed to preserving the earth's wonderful environment. The Park features a wide range of natural elements, including trees, plants, animals, insects, marine life, and fossils preserved in their most authentic form. <br>";
                         model.title3 = "";
                         model.text5 = "";
                         model.title4 = "";
@@ -847,17 +850,20 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.title6 = "";
                         model.text8 = "";
                         model.title7 = "";
-                        model.image3 = R.drawable.map_location;
-                        model.text9 = "";
+                        model.image3 = R.drawable.la_vanille_6;
+                        model.text9 = "When you hike in the La Vanille Nature Park you will feel you are close to nature.The serene atmosphere of strolling along a well-kept path becomes even more thrilling as nature presents itself to you at every turn. Indeed, you will discover the park's surrounding beautiful green forest and will be enthralled with the ponds and unique wildlife where you may come across the giant tortoises and friendly deer strolling alongside you. For those with a keen eye for photography and the ability to engage with wildlife, this location is a photographer's paradise.<br>" +
+                                "Actively participating in the preservation of nature, the La Vanille Nature Park works on numerous programs to plant over 350,000 domestic trees and endangered animal breeds in their facilities.<br>" +
+                                "The Crocodile Park Shop sells a variety of merchandise such as handcrafted souvenirs from Mauritius, crocodile-inspired items, and books about animals. <br>";
                         model.title8 = "";
                         model.text10 = "";
-                        model.image4 = R.drawable.map_location;
-                        model.text11 = "";
+                        model.image4 = R.drawable.la_vanilla_8;
+                        model.text11 = "A wonderful way to end your wildlife excursion is with a meal of good food and relaxation in a cozy setting at the Crocodile Park Restaurant. Located in the forest, the restaurant provides a range of choices for both adults and children.To make up for the craziest supper of your life, Le Crocodile Affamé serves a distinctive cuisine made with crocodile meat. Those who try it can't help but compliment the dish.";
                         model.image5 = R.drawable.map_location;
-                        model.text12 = "";
+                        model.text12 = "<b>Opening hours:</b><br> Every day from 8:30 to 17:00";
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
+
                     } else if (position == 4) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
@@ -1212,42 +1218,42 @@ public class ItenerariesAdapter extends BaseAdapter {
                         context.startActivity(intent);
                     }
                     else if (position == 1) {
-//                        BeacModel model = new BeacModel();
-//                        model.title = textView.getText().toString();
-//                        model.main_image = R.drawable.la_vanille_1;
-//                        model.text1 = "Discover the native plants and animals of Mauritius and its neighboring islands at La Vanille Nature Park. You may see Nile Crocodiles, tenrecs, eels, iguanas, and turtles from Madagascar and the Seychelles among the reserve's wildlife under the shade of large bamboo and palm trees.";
-//                        model.title1 = "";
-//                        model.image1 = R.drawable.la_vanille_4;
-//                        model.text2 = "You will discover a variety of fossilized species, like the Madagascar elephant bird and the dodo that were once common in Mauritius and the neighboring islands but are now extinct. Additionally, the La Vanille Nature Park has an insectarium with a distinctive collection of more than 23,000 species from all over the world where you will have the opportunity to expand your knowledge on insects.";
-//                        model.title2 = "";
-//                        model.text3 = "";
-//                        model.image2 = R.drawable.la_vanille_9;
-//                        model.text4 = "The Crocodile Park section is famous for housing more than 2000 Nile crocodiles in various stages of growth. The centerpiece of the Crocodile Park is the enormous colony of crocodiles, where visitors may hold newborn Nile crocodiles to pose for photos.It is a great place to broaden your knowledge of this reptile that coexisted with humans before the dinosaur eraand observe firsthand how they have adapted their physical characteristics to survive throughout history. Every day at 11:30 am there is a free crocodile feeding display.<br>" +
-//                                "The Park is home to the world's largest artificial Aldabra tortoise habitat. Thanks to the park's specialized breeding facilities, the number of tortoises has increased to over a thousand. You are free to approach and feed them.<br>" +
-//                                "The La Vanille Nature Park is a comprehensive institution designed to preserving the earth's wonderful environment. The Park features a wide range of natural elements, including trees, plants, animals, insects, marine life, and fossils preserved in their most authentic form. <br>";
-//                        model.title3 = "";
-//                        model.text5 = "";
-//                        model.title4 = "";
-//                        model.text6 = "";
-//                        model.title5 = "";
-//                        model.text7 = "";
-//                        model.title6 = "";
-//                        model.text8 = "";
-//                        model.title7 = "";
-//                        model.image3 = R.drawable.la_vanille_6;
-//                        model.text9 = "When you hike in the La Vanille Nature Park you will feel you are close to nature.The serene atmosphere of strolling along a well-kept path becomes even more thrilling as nature presents itself to you at every turn. Indeed, you will discover the park's surrounding beautiful green forest and will be enthralled with the ponds and unique wildlife where you may come across the giant tortoises and friendly deer strolling alongside you. For those with a keen eye for photography and the ability to engage with wildlife, this location is a photographer's paradise.<br>" +
-//                                "Actively participating in the preservation of nature, the La Vanille Nature Park works on numerous programs to plant over 350,000 domestic trees and endangered animal breeds in their facilities.<br>" +
-//                                "The Crocodile Park Shop sells a variety of merchandise such as handcrafted souvenirs from Mauritius, crocodile-inspired items, and books about animals. <br>";
-//                        model.title8 = "";
-//                        model.text10 = "";
-//                        model.image4 = R.drawable.la_vanilla_8;
-//                        model.text11 = "A wonderful way to end your wildlife excursion is with a meal of good food and relaxation in a cozy setting at the Crocodile Park Restaurant. Located in the forest, the restaurant provides a range of choices for both adults and children.To make up for the craziest supper of your life, Le Crocodile Affamé serves a distinctive cuisine made with crocodile meat. Those who try it can't help but compliment the dish.";
-//                        model.image5 = R.drawable.map_location;
-//                        model.text12 = "";
-//                        Stash.put("model", model);
-//                        intent = new Intent(context, ItenerariesDetails.class);
-//                        context.startActivity(intent);
-                        Toast.makeText(context, "images are no available", Toast.LENGTH_SHORT).show();
+                        BeacModel model = new BeacModel();
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.la_vanilla_1;
+                        model.text1 = "Discover the native plants and animals of Mauritius and its neighboring islands at La Vanille Nature Park. You may see Nile Crocodiles, tenrecs, eels, iguanas, and turtles from Madagascar and the Seychelles among the reserve's wildlife under the shade of large bamboo and palm trees.";
+                        model.title1 = "";
+                        model.image1 = R.drawable.la_vanille_4;
+                        model.text2 = "You will discover a variety of fossilized species, like the Madagascar elephant bird and the dodo that were once common in Mauritius and the neighboring islands but are now extinct. Additionally, the La Vanille Nature Park has an insectarium with a distinctive collection of more than 23,000 species from all over the world where you will have the opportunity to expand your knowledge on insects.";
+                        model.title2 = "";
+                        model.text3 = "";
+                        model.image2 = R.drawable.la_vanille_9;
+                        model.text4 = "The Crocodile Park section is famous for housing more than 2000 Nile crocodiles in various stages of growth. The centerpiece of the Crocodile Park is the enormous colony of crocodiles, where visitors may hold newborn Nile crocodiles to pose for photos.It is a great place to broaden your knowledge of this reptile that coexisted with humans before the dinosaur eraand observe firsthand how they have adapted their physical characteristics to survive throughout history. Every day at 11:30 am there is a free crocodile feeding display.<br>" +
+                                "The Park is home to the world's largest artificial Aldabra tortoise habitat. Thanks to the park's specialized breeding facilities, the number of tortoises has increased to over a thousand. You are free to approach and feed them.<br>" +
+                                "The La Vanille Nature Park is a comprehensive institution designed to preserving the earth's wonderful environment. The Park features a wide range of natural elements, including trees, plants, animals, insects, marine life, and fossils preserved in their most authentic form. <br>";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.la_vanille_6;
+                        model.text9 = "When you hike in the La Vanille Nature Park you will feel you are close to nature.The serene atmosphere of strolling along a well-kept path becomes even more thrilling as nature presents itself to you at every turn. Indeed, you will discover the park's surrounding beautiful green forest and will be enthralled with the ponds and unique wildlife where you may come across the giant tortoises and friendly deer strolling alongside you. For those with a keen eye for photography and the ability to engage with wildlife, this location is a photographer's paradise.<br>" +
+                                "Actively participating in the preservation of nature, the La Vanille Nature Park works on numerous programs to plant over 350,000 domestic trees and endangered animal breeds in their facilities.<br>" +
+                                "The Crocodile Park Shop sells a variety of merchandise such as handcrafted souvenirs from Mauritius, crocodile-inspired items, and books about animals. <br>";
+                        model.title8 = "";
+                        model.text10 = "";
+                        model.image4 = R.drawable.la_vanilla_8;
+                        model.text11 = "A wonderful way to end your wildlife excursion is with a meal of good food and relaxation in a cozy setting at the Crocodile Park Restaurant. Located in the forest, the restaurant provides a range of choices for both adults and children.To make up for the craziest supper of your life, Le Crocodile Affamé serves a distinctive cuisine made with crocodile meat. Those who try it can't help but compliment the dish.";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "<b>Opening hours:</b><br> Every day from 8:30 to 17:00";
+                        Stash.put("model", model);
+                        intent = new Intent(context, ItenerariesDetails.class);
+                        context.startActivity(intent);
+                        //                        Toast.makeText(context, "images are no available", Toast.LENGTH_SHORT).show();
                     }
                     else if (position == 2) {
 
@@ -1544,10 +1550,75 @@ public class ItenerariesAdapter extends BaseAdapter {
                     }
 
                     else if (position == 2) {
-                        Toast.makeText(context, "data is not yet added", Toast.LENGTH_SHORT).show();
+                        BeacModel model = new BeacModel();
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.chateau_de_labourdonnais;
+                        model.text1 = "A majestic lane of exceptionally large trees invites you to the colonial mansion once owned by Christian Wiehe. Constructed in 1856 and completed approximately three years later, this residence is often referred to by many Mauritians as the most exquisite colonial house on the island, and rightfully so. Featuring a spacious dining room, an impressive house pantry, a large living room, elegantly styled bedrooms, and a grand exhibition hall, this palace is undeniably an enchanting destination.";
+                        model.title1 = "";
+                        model.image1 = R.drawable.chateau_de_labourdonnais_4;
+                        model.text2 = "During your exploration, you'll wander through the lush gardens with expansive pathways, showcasing the opulence of Mr. Wiehe's era. Century-old mango trees, various spice trees, and numerous exotic fruit trees contribute to the garden's incredible charm. The Aldabra tortoises peacefully graze, considering the palace their home. As part of your visit, you can venture to the Rhumerie des Mascareignes, established in 2006, to learn about traditional rum-making techniques. The tour of La Château de Labourdonnais concludes with a splendid tasting session featuring rum and other local delights such as fruit pastes, juices, and sorbets. The boutique provides an opportunity to purchase gifts and souvenirs, and you can also take a break at La Table du Chateau, an elegant restaurant offering Mauritian dishes.";
+                        model.title2 = "";
+                        model.text3 = "";
+                        model.image2 = R.drawable.chateau_de_labourdonnais_2;
+                        model.text4 = "The visit concludes delectably at the Tasting Bar, where you can sample products from the distillery or orchards, including jams, fruit jellies, fruit juices, and sorbets.<br>" + "Beyond the Château of Labourdonnais tour, you can explore the shop offering authentic local products, including decorative items related to colonial life and gardens, rum, fruit jellies, spices, and more.<br>" + "La Table du Château provides a unique and refined culinary experience inspired by the fruits and vegetables from the Labourdonnais orchards. Set in a contemporary ambiance, it offers a gastronomic journey unveiling the flavors of Mauritius.<br>";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.map_location;
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
+                        model.image4 = R.drawable.map_location;
+                        model.text11 = "";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "";
+                        Stash.put("model", model);
+                        intent = new Intent(context, ItenerariesDetails.class);
+                        context.startActivity(intent);
                     }
                     else if (position == 3) {
-                        Toast.makeText(context, "data is not yet added", Toast.LENGTH_SHORT).show();
+                        BeacModel model = new BeacModel();
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.port_louis_3;
+                        model.text1 = "Le Caudan Waterfront is as a prominent commercial development in Port Louis, the capital city of Mauritius, offering a diverse array of amenities such as shops, banking facilities, casinos, cinemas, restaurants, a marina, and the renowned five-star hotel, Le Labourdonnais.";
+                        model.title1 = "Historical Roots:";
+                        model.image1 = R.drawable.map_location;
+                        model.text2 = "The name \"Le Caudan Waterfront\" pays homage to Jean Dominique Michel de Caudan, a notable figure who arrived in the former Isle de France from Languedoc, a historical province in the South of France, in 1726. He initiated a saltpan near a small bay in the southwest of Port-Louis, now recognized as the Robert Edward Hart Garden, situated on the entrance road to Le Caudan Waterfront.<br>" +
+                                "The peninsula of Le Caudan, formed around a fossil coral islet, witnessed the evolution of various structures over 250 years, including a powder magazine, an astronomical and meteorological observatory, quays, warehouses, and small enterprises. The sugar industry significantly influenced the harbor's daily activities until the establishment of the Bulk Sugar Terminal in 1980. Today, only a few remaining walls bear testament to the bustling activities that transpired over 150 years.<br>";
+                        model.title2 = "Historically Significant Spots";
+                        model.text3 = "Several areas within Le Caudan Waterfront hold historical significance. The first meteorological observatory in the Indian Ocean, now home to the Food Court and the Namasté restaurant, is one such spot. The Blue Penny Museum occupies the former Docks office building.<br>" +
+                                "The naming of different wings within the complex reflects episodes from the country's colonial history:<br>" +
+                                "Barkly Wharf: Named after Sir Henry Barkly, a Member of Parliament of the British government and appointed governor of Mauritius from 1863-1870.<br>" +
+                                "Le Pavillon wing: Derived from Pavillon Street on an ancient map of Port Louis, speculated to have origins during the period when Port Louis was called ‘Port Napoléon.’<br>" +
+                                "Dias Pier: A tribute to Diogo Dias, brother of the famous navigator Barthoulomeu Dias, believed to be the first to record the Mascarene Islands on a navigation map.<br>";
+                        model.image2 = R.drawable.map_location;
+                        model.text4 = "";
+                        model.title3 = "Modern Day Attraction";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.port_louis_13;
+                        model.text9 = "Caudan, commonly known today, was the island's first major shopping development, and it continues to be an iconic shopping destination for both locals and tourists. The mall features the latest fashion trends, a popular Craft Market, specialty shops offering unique local goods, cinemas, a marina, a bookstore, restaurants, cafes, a museum housing two of the rarest stamps globally, a casino, and tax-free shopping for tourists.";
+                        model.title8 = "";
+                        model.text10 = "";
+                        model.image4 = R.drawable.port_louis_6;
+                        model.text11 = "Despite being the first shopping mall on the island, Caudan has adeptly adapted to current trends, maintaining its appeal as a modern waterfront mall. Visitors can witness the bustling port activities as large container and cruise ships navigate in and out.";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "";
+                        Stash.put("model", model);
+                        intent = new Intent(context, ItenerariesDetails.class);
+                        context.startActivity(intent);
                     }
                     else if (position == 4) {
                         BeacModel model = new BeacModel();
@@ -1946,6 +2017,39 @@ public class ItenerariesAdapter extends BaseAdapter {
                         context.startActivity(intent);
                     }
                     else if (position == 2) {
+                        BeacModel model = new BeacModel();
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.le_souffleur_1;
+                        model.text1 = "Hiking to Le Souffleur is undoubtedly one of the best things to do in Mauritius because of the area's distinctive rock formations, powerful waves that crash against the cliffs, causing enormous water sprays, and a hidden beach that few visitors ever visit.\n" +
+                                "Le Souffleur is conveniently close to Pont Naturel and Gris Gris beach, so you should consider organizing a quick road trip to visit all three places in one day.\n" +
+                                "Le Souffleur is located near the village of L'Escalier in the southern region of Mauritius. There are no buses that will transport you to the beach, so you'll need to rent a car to get there. Even so, if you rely solely on Google Maps to get you to Le Souffleur you almost certainly will get lost.The best way to reach to your destination is using Google Maps and search for \"Savannah Sugar Industry.\" Follow the driving directions until you arrive at a roundabout with a sign directing you to Le Souffleur.\n";
+                        model.title1 = "";
+                        model.image1 = R.drawable.le_souffleur_2;
+                        model.text2 ="One of Mauritius' most distinctive natural attractions, Le Souffleur is a place where you may even see the amazing blowhole effect if the sea is rough that day. As waves crash against the cliffs and rock cracks you will be able to watch the huge awe-inspiringwater jets flying in the air. You shouldn't miss it if you're visiting Mauritius - it's an amazing sight!\n" +
+                                "The gorgeous golden sand beach of Savinia, which is by far the least populated beach in Mauritius, is the last stop downhill on the right. You will also find two naturally occurring arches which should not be mistaken with the Pont Naturel, another natural attraction.Just a few meters before you reach theSavinia Beach, you will find another small cove. Unfortunately, the strong current makes swimming there impossible.\n";
+                        model.title2 = "";
+                        model.text3 = "";
+                        model.image2 = R.drawable.map_location;
+                        model.text4 = "";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.map_location;
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
+                        model.image4 = R.drawable.map_location;
+                        model.text11 = "";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "";
+                    }
+                    else if (position == 3) {
 
                          BeacModel model = new BeacModel();
                          model.title = textView.getText().toString();
@@ -1980,7 +2084,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     }
-                    else if (position == 3) {
+                    else if (position == 4) {
 
                          BeacModel model = new BeacModel();
                          model.title = textView.getText().toString();
@@ -2014,7 +2118,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     }
-                    else if (position == 4) {
+                    else if (position == 5) {
 
                          BeacModel model = new BeacModel();
                          model.title = textView.getText().toString();
@@ -2051,7 +2155,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     }
-                    else if (position == 5) {
+                    else if (position == 6) {
                         BeacModel model = new BeacModel();
                          model.title = textView.getText().toString();
                          model.main_image = R.drawable.maconde_1;
@@ -2084,35 +2188,36 @@ public class ItenerariesAdapter extends BaseAdapter {
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     }
-                    else if (position == 6) {
+                    else if (position == 7) {
                         BeacModel model = new BeacModel();
-                         model.title = textView.getText().toString();
-                         model.main_image = R.drawable.maconde_1;
-                         model.text1 = "The Maconde viewpoint is locatedon the southern coast of Baie du Cap, a charming and modest village celebrated for its striking natural allure and untamed, rugged coastlines. The viewpoint is nestled on a curved stretch of the coastal road atop a small rocky cliff. The landscape unfolds with picturesque vistas, featuring the vibrant red earth, lush green forests, rows of palm trees, and the glistening expanse of the Indian Ocean, creating a truly mesmerizing experience.<br>" + "Legend has it that the name \"Maconde\" traces its roots to the era of slavery, where runaway slaves from the Makonde tribe in Mozambique sought refuge in this area, while others believe it was named after Governor Jean Baptiste Henri Conde, who constructed an outlook on the cliff.<br>";
-                         model.title1 = "";
-                         model.image1 = R.drawable.maconde_2;
-                         model.text2 = "Access to this region was historically challenging, and it wasn't until the 1920s that the first road was constructed, overcoming the difficulties posed by the low-lying coast and uneven terrain. Recent renovations have significantly enhanced safety. The winding road along basalt cliffs, with the rhythmic sounds of the ocean against the rocks, provides a captivating spectacle, making it a favored spot for those captivated by ocean swells.<br>" + "To reach the viewpoint, ascend a set of narrow stairs, where you'll be greeted by panoramic views of the ocean, the nearby coastal village, and occasional fishermen along the shore.<br>";
-                         model.title2 = "";
-                         model.text3 = "";
-                         model.image2 = R.drawable.map_location;
-                         model.text4 = "";
-                         model.title3 = "";
-                         model.text5 = "";
-                         model.title4 = "";
-                         model.text6 = "";
-                         model.title5 = "";
-                         model.text7 = "";
-                         model.title6 = "";
-                         model.text8 = "";
-                         model.title7 = "";
-                         model.image3 = R.drawable.map_location;
-                         model.text9 = "";
-                         model.title8 = "";
-                         model.text10 = "";
-                         model.image4 = R.drawable.map_location;
-                         model.text11 = "";
-                         model.image5 = R.drawable.map_location;
-                         model.text12 = "";
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.la_prairie_2;
+                        model.text1 = "While driving down Mauritius' lovely southern coastline road, it is difficult not to be captivated by the little beach of La Prairie. The short grass that grows all the way to the water's edge gives the area its name and contributes to its allure. There are plenty of quaint little locations to escape the crowd, and the vast lagoon is just a feast to the eyes. Located in the southwest region of Mauritius, Prairie Beach is close to the community of Baie-du-Cap. It is one of Mauritius' many beaches in the Savanne region.";
+                        model.title1 = "";
+                        model.image1 = R.drawable.la_prairie_1;
+                        model.text2 ="Nestled between the charming village of Baie-du-Cap and Le Morne, la Prairie is a wonderful spot to see the famous Le Morne Brabant mountain. Usually, the beach is not crowded during weekdays, but it can get pretty busy on weekends and holidays.<br>" +
+                                "Although swimming is not recommended because of the strong sea currents, the location is still perfect for picnicking or sunbathing.<br>";
+                        model.title2 = "";
+                        model.text3 = "";
+                        model.image2 = R.drawable.map_location;
+                        model.text4 = "";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.map_location;
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
+                        model.image4 = R.drawable.map_location;
+                        model.text11 = "";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "";
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
