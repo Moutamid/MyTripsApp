@@ -152,8 +152,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         } else if (holder.textView.getText().toString().equals("St Felix Beach")) {
             holder.textView1.setText("St Felix");
             holder.textView2.setText("District of Savanne");
-        } else if (holder.textView.getText().toString().equals("Flic enFlac Public Beach")) {
-            holder.textView1.setText("Flic enFlac");
+        } else if (holder.textView.getText().toString().equals("Flic en Flac Public Beach")) {
+            holder.textView1.setText("Flic en Flac");
             holder.textView2.setText("District of Black River");
         } else if (holder.textView.getText().toString().equals("La Preneuse Public Beach")) {
             holder.textView1.setText("La Preneuse");
@@ -291,8 +291,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             holder.textView1.setText("Albion Light House");
             holder.textView2.setText("Albion, District of Black River");
         } else if (holder.textView.getText().toString().equals("Flic en Flac")) {
-            holder.textView1.setText("Flic enFlac");
-            holder.textView2.setText("Flic enFlac, District of Black River");
+            holder.textView1.setText("Flic en Flac");
+            holder.textView2.setText("Flic en Flac, District of Black River");
         } else if (holder.textView.getText().toString().equals("Casela Adventure Park")) {
             holder.textView1.setText("Casela Adventure Park");
             holder.textView2.setText("Royal Road, Cascavelle");

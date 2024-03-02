@@ -82,7 +82,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
-                android:text="IN 2 DAY"
+                android:text="IN 2 DAYS"
                 android:textColor="@color/black"
 
                 android:textSize="12sp" />
@@ -94,7 +94,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
-                android:text="IN 3 DAY"
+                android:text="IN 3 DAYS"
                 android:textColor="@color/black"
 
                 android:textSize="12sp" />
@@ -106,7 +106,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
-                android:text="IN 4 DAY"
+                android:text="IN 4 DAYS"
                 android:textColor="@color/black"
 
                 android:textSize="12sp" />
@@ -118,7 +118,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
-                android:text="IN 5 DAY"
+                android:text="IN 5 DAYS"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 

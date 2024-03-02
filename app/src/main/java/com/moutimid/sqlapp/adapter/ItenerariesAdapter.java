@@ -100,7 +100,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 1) {
+                    }
+                    else if (position == 1) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.aapravasi_ghat_1;
@@ -132,7 +133,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 2) {
+                    }
+                    else if (position == 2) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.port_louis_4;
@@ -164,7 +166,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 3) {
+                    }
+                    else if (position == 3) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.marie_reine_de_la_paix_3;
@@ -196,7 +199,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 4) {
+                    }
+                    else if (position == 4) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.citadelle;
@@ -228,7 +232,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 5) {
+                    }
+                    else if (position == 5) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.le_morne_beach_2;
@@ -260,7 +265,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 6) {
+                    }
+                    else if (position == 6) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.le_morne_1;
@@ -292,7 +298,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 7) {
+                    }
+                    else if (position == 7) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.maconde_1;
@@ -324,7 +331,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 8) {
+                    }
+                    else if (position == 8) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.chamarel_2;
@@ -356,7 +364,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 9) {
+                    }
+                    else if (position == 9) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.chamarel_1;
@@ -388,7 +397,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 10) {
+                    }
+                    else if (position == 10) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.black_river_georges_2;
@@ -420,7 +430,8 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 11) {
+                    }
+                    else if (position == 11) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.grand_bassin_1;
@@ -452,20 +463,26 @@ public class ItenerariesAdapter extends BaseAdapter {
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
-                    } else if (position == 12) {
+                    }
+                    else if (position == 12) {
 
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
-                        model.main_image = R.drawable.gris_gris_coastal_4;
-                        model.text1 = "This enchanting havendistinguishes itself by the absence of a coral barrier reef, making it truly unique. The ocean waves vigorously crash against the shoreline, providing captivating vistas for visitors. Gris Gris beach stands in stark contrast to other tranquil and calm beaches in Mauritius, known for their coral reef protection. The island's typical coral reef barrier contributes to calmer ocean waves and shallow beach waters, creating ideal swimming conditions. However, Gris Gris, surprisingly, lacks this barrier reef.";
-                        model.title1 = "";
-                        model.image1 = R.drawable.gris_gris_3;
-                        model.text2 = "A visit to Gris Gris is an absolute essential for anyone exploring Mauritius. The beach's beauty is awe-inspiring, with towering cliffs descending toward the ocean, where turbulent waves crash against rocks, creating a striking white froth accompanied by a resounding crash. Located at the southernmost point of of Mauritius, a few kilometers southeast of the village of Souillac, Gris Gris boasts a unique history dating back to the French colonial era.<br>" + "The name \"Gris Gris\" adds an intriguing dimension to the experience. Upon entering the beach, a large sign displays the history behind the name. According to local tradition, \"Gris Gris\" is linked to the African amulet known as the “Gris Gris” and its association with the tumultuous coastline. However, the story takes an unexpected turn, suggesting that Gris Gris might have been the name of a puppy belonging to a French cartographer who visited the coast in 1753.<br>";
-                        model.title2 = "Gris Gris Beach";
+                        model.main_image = R.drawable.gris_gris_1;
+                        model.text1 = "The primary beach area features an expansive green field with a commanding view of dramatic cliffs and enormous waves. There are benches and a pavilion available for relaxation while taking in the scenery.\n" +
+                                "To the left, a concrete staircase descends to the beach, but swimming is strongly discouraged due to the high danger level. The powerful waves can swiftly overwhelm swimmers. Instead, enjoy a leisurely stroll along the beach, heading toward a small cave at the far end.\n";
+                        model.title1 = "Secret Caves at Gris Gris";
+                        model.image1 = R.drawable.grisgris_2;
+                        model.text2 = "In addition to the cave on the far left side of the beach, two other hidden caves can be discovered at Gris Gris. These are more challenging to reach, involving a descent down a cliff and walking through the water.\n" +
+                                "Caution is advised against going all the way down, as water levels can fluctuate unpredictably, and the current is often too strong.\n" +
+                                "For those eager to explore the secret caves at Gris Gris, head towards the cliff's edge directly across from the parking lot. Upon reaching the spot, descend only about halfway to catch a glimpse of the caves on your right.\n" +
+                                "It's important to bear in mind that entering the caves could pose risks if the water level rises!\n" +
+                                "Gris Gris beach is intricately connected to the village of Souillac, which relies heavily on tourism for its revenue. Established 200 years ago as a port for ships sailing from Europe to India, Souillac has a rich history worth exploring. Plan your day strategically to make the most of your visit to the southern part of Mauritius, and consider including a visit to Rochester Falls, just outside the village, renowned for its distinctive rectangular-sided rocks.\n" + "The name \"Gris Gris\" adds an intriguing dimension to the experience. Upon entering the beach, a large sign displays the history behind the name. According to local tradition, \"Gris Gris\" is linked to the African amulet known as the “Gris Gris” and its association with the tumultuous coastline. However, the story takes an unexpected turn, suggesting that Gris Gris might have been the name of a puppy belonging to a French cartographer who visited the coast in 1753.<br>";
+                        model.title2 = "";
                         model.text3 = "";
-                        model.image2 = R.drawable.gris_gris_1;
-                        model.text4 = "The primary beach area features an expansive green field with a commanding view of dramatic cliffs and enormous waves. There are benches and a pavilion available for relaxation while taking in the scenery.<br>" + "To the left, a concrete staircase descends to the beach, but swimming is strongly discouraged due to the high danger level. The powerful waves can swiftly overwhelm swimmers. Instead, enjoy a leisurely stroll along the beach, heading toward a small cave at the far end.<br>";
-                        model.title3 = "Caves at Gris Gris";
+                        model.image2 = R.drawable.map_location;
+                        model.text4 = "";
+                        model.title3 = "";
                         model.text5 = "";
                         model.title4 = "";
                         model.text6 = "";
@@ -474,12 +491,12 @@ public class ItenerariesAdapter extends BaseAdapter {
                         model.title6 = "";
                         model.text8 = "";
                         model.title7 = "";
-                        model.image3 = R.drawable.grisgris_2;
-                        model.text9 = "In addition to the cave on the far left side of the beach, two other hidden caves can be discovered at Gris Gris. These are more challenging to reach, involving a descent down a cliff and walking through the water.<br>" + "Caution is advised against going all the way down, as water levels can fluctuate unpredictably, and the current is often too strong.<br>" + "For those eager to explore the secret caves at Gris Gris, head towards the cliff's edge directly across from the parking lot. Upon reaching the spot, descend only about halfway to catch a glimpse of the caves on your right.<br>" + "It's important to bear in mind that entering the caves could pose risks if the water level rises!<br>" + "Gris Gris beach is intricately connected to the village of Souillac, which relies heavily on tourism for its revenue. Established 200 years ago as a port for ships sailing from Europe to India, Souillac has a rich history worth exploring. Plan your day strategically to make the most of your visit to the southern part of Mauritius, and consider including a visit to Rochester Falls, just outside the village, renowned for its distinctive rectangular-sided rocks.<br>";
-                        model.title8 = "La Roche qui Pleure";
+                        model.image3 = R.drawable.map_location;
+                        model.text9 = "";
+                        model.title8 = "";
                         model.text10 = "";
-                        model.image4 = R.drawable.la_roche_qui_pleure;
-                        model.text11 = "This mystical site derives its name from the visual impression it creates: as water trickles down its walls, the cliffs appear to shed tears. Even more astonishing, some claim to recognize the eroded features of the Mauritian poet Robert Edward Hart.<br>" + "From a geographical and climatic standpoint, unlike other parts of the island, La Roche qui Pleure lacks coral reefs. Consequently, its shores are more exposed to the assaults of the ocean. This absence of a natural barrier results in more powerful and spectacular waves, a stark contrast to the tranquil lagoons typically associated with the island. The region is influenced by strong winds and seasonal variations, shaping its unique landscape and marine dynamics.<br>";
+                        model.image4 = R.drawable.map_location;
+                        model.text11 = "";
                         model.image5 = R.drawable.map_location;
                         model.text12 = "";
                         Stash.put("model", model);
@@ -2051,35 +2068,39 @@ public class ItenerariesAdapter extends BaseAdapter {
                     }
                     else if (position == 3) {
 
-                         BeacModel model = new BeacModel();
-                         model.title = textView.getText().toString();
-                         model.main_image = R.drawable.gris_gris_coastal_4;
-                         model.text1 = "This enchanting havendistinguishes itself by the absence of a coral barrier reef, making it truly unique. The ocean waves vigorously crash against the shoreline, providing captivating vistas for visitors. Gris Gris beach stands in stark contrast to other tranquil and calm beaches in Mauritius, known for their coral reef protection. The island's typical coral reef barrier contributes to calmer ocean waves and shallow beach waters, creating ideal swimming conditions. However, Gris Gris, surprisingly, lacks this barrier reef.";
-
-                         model.title1 = "";
-                         model.image1 = R.drawable.gris_gris_3;
-                         model.text2 = "A visit to Gris Gris is an absolute essential for anyone exploring Mauritius. The beach's beauty is awe-inspiring, with towering cliffs descending toward the ocean, where turbulent waves crash against rocks, creating a striking white froth accompanied by a resounding crash. Located at the southernmost point of of Mauritius, a few kilometers southeast of the village of Souillac, Gris Gris boasts a unique history dating back to the French colonial era.<br>" + "The name \"Gris Gris\" adds an intriguing dimension to the experience. Upon entering the beach, a large sign displays the history behind the name. According to local tradition, \"Gris Gris\" is linked to the African amulet known as the “Gris Gris” and its association with the tumultuous coastline. However, the story takes an unexpected turn, suggesting that Gris Gris might have been the name of a puppy belonging to a French cartographer who visited the coast in 1753.<br>";
-                         model.title2 = "Gris Gris Beach";
-                         model.text3 = "";
-                         model.image2 = R.drawable.gris_gris_1;
-                         model.text4 = "The primary beach area features an expansive green field with a commanding view of dramatic cliffs and enormous waves. There are benches and a pavilion available for relaxation while taking in the scenery.<br>" + "To the left, a concrete staircase descends to the beach, but swimming is strongly discouraged due to the high danger level. The powerful waves can swiftly overwhelm swimmers. Instead, enjoy a leisurely stroll along the beach, heading toward a small cave at the far end.<br>";
-                         model.title3 = "";
-                         model.text5 = "";
-                         model.title4 = "";
-                         model.text6 = "";
-                         model.title5 = "";
-                         model.text7 = "";
-                         model.title6 = "";
-                         model.text8 = "";
-                         model.title7 = "";
-                         model.image3 = R.drawable.map_location;
-                         model.text9 = "";
-                         model.title8 = "";
-                         model.text10 = "";
-                         model.image4 = R.drawable.map_location;
-                         model.text11 = "";
-                         model.image5 = R.drawable.map_location;
-                         model.text12 = "";
+                        BeacModel model = new BeacModel();
+                        model.title = textView.getText().toString();
+                        model.main_image = R.drawable.gris_gris_1;
+                        model.text1 = "The primary beach area features an expansive green field with a commanding view of dramatic cliffs and enormous waves. There are benches and a pavilion available for relaxation while taking in the scenery.\n" +
+                                "To the left, a concrete staircase descends to the beach, but swimming is strongly discouraged due to the high danger level. The powerful waves can swiftly overwhelm swimmers. Instead, enjoy a leisurely stroll along the beach, heading toward a small cave at the far end.\n";
+                        model.title1 = "Secret Caves at Gris Gris";
+                        model.image1 = R.drawable.grisgris_2;
+                        model.text2 = "In addition to the cave on the far left side of the beach, two other hidden caves can be discovered at Gris Gris. These are more challenging to reach, involving a descent down a cliff and walking through the water.\n" +
+                                "Caution is advised against going all the way down, as water levels can fluctuate unpredictably, and the current is often too strong.\n" +
+                                "For those eager to explore the secret caves at Gris Gris, head towards the cliff's edge directly across from the parking lot. Upon reaching the spot, descend only about halfway to catch a glimpse of the caves on your right.\n" +
+                                "It's important to bear in mind that entering the caves could pose risks if the water level rises!\n" +
+                                "Gris Gris beach is intricately connected to the village of Souillac, which relies heavily on tourism for its revenue. Established 200 years ago as a port for ships sailing from Europe to India, Souillac has a rich history worth exploring. Plan your day strategically to make the most of your visit to the southern part of Mauritius, and consider including a visit to Rochester Falls, just outside the village, renowned for its distinctive rectangular-sided rocks.\n" + "The name \"Gris Gris\" adds an intriguing dimension to the experience. Upon entering the beach, a large sign displays the history behind the name. According to local tradition, \"Gris Gris\" is linked to the African amulet known as the “Gris Gris” and its association with the tumultuous coastline. However, the story takes an unexpected turn, suggesting that Gris Gris might have been the name of a puppy belonging to a French cartographer who visited the coast in 1753.<br>";
+                        model.title2 = "";
+                        model.text3 = "";
+                        model.image2 = R.drawable.map_location;
+                        model.text4 = "";
+                        model.title3 = "";
+                        model.text5 = "";
+                        model.title4 = "";
+                        model.text6 = "";
+                        model.title5 = "";
+                        model.text7 = "";
+                        model.title6 = "";
+                        model.text8 = "";
+                        model.title7 = "";
+                        model.image3 = R.drawable.map_location;
+                        model.text9 = "";
+                        model.title8 = "";
+                        model.text10 = "";
+                        model.image4 = R.drawable.map_location;
+                        model.text11 = "";
+                        model.image5 = R.drawable.map_location;
+                        model.text12 = "";
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
@@ -2295,7 +2316,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     }
-                    else if (position == 2) {
+                    else if (position == 3) {
 
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
@@ -2329,7 +2350,7 @@ public class ItenerariesAdapter extends BaseAdapter {
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);
                     }
-                    else if (position == 3) {
+                    else if (position == 2) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
                         model.main_image = R.drawable.port_louis_4;
@@ -2746,47 +2767,6 @@ public class ItenerariesAdapter extends BaseAdapter {
                     else if (position == 4) {
                         BeacModel model = new BeacModel();
                         model.title = textView.getText().toString();
-                        model.main_image = R.drawable.le_morne_1;
-                        model.text1 = "Added to the World Heritage List in 2008, the Le Morne Cultural Landscape is a mountain on the southwestern edge of Mauritius, extending into the Indian Ocean. This site served as a refuge for runaway slaves, commonly referred to as maroons, spanning the 18th century until the early 1900s.<br>" +
-                                "The mountain bears an almost fortress-like character, featuring vertical cliffs encircling it, steep slopes crisscrossed by ravines and valleys, and, at its summit, a relatively level plateau—all of which offered refuge to the maroon slaves.<br>" +
-                                "A wide gorge, referred to as the V-Gap or the mountain's crucial entry point, posed challenges for accessing the plateau. Both oral traditions and early written records suggest the presence of a narrow and hazardous passage that the maroons had to navigate to evade pursuers and find sanctuary at the summit.<br>" +
-                                "Archaeological excavations conducted in cave shelters on the mountain unveiled ashy deposits, providing evidence of fire utilization. Additionally, the discovery of the 300-year-old remains of a young sheep supports the notion that maroons occupied the mountain's summit, successfully securing their survival.<br>" +
-                                "The distinctive and fragile ecosystem of Le Morne Brabant Mountain harbors numerous endemic plant species, some of which are among the rarest in the world.<br>";
-                        model.title1 = "";
-                        model.image1 = R.drawable.brabant_6;
-                        model.text2 = "The flora is exceptionally varied, encompassing 73 out of the 311 species of flowering plants that are exclusive to Mauritius. Among these, the L’Immortelle Du Morne, or Helichrysum Mauritianum, stands out as an endemic species found specifically on the mountain.";
-                        model.title2 = "";
-                        model.text3 = "";
-                        model.image2 = R.drawable.brabant_8;
-                        model.text4 = "The International Slave Route Monument is a tangible representation of the historical impact of slavery in Mauritius and globally. The central monument is encircled by nine smaller stone sculptures, symbolizing the origins and destinations of enslaved individuals.";
-                        model.title3 = "";
-                        model.text5 = "";
-                        model.title4 = "";
-                        model.text6 = "";
-                        model.title5 = "";
-                        model.text7 = "";
-                        model.title6 = "";
-                        model.text8 = "";
-                        model.title7 = "";
-                        model.image3 = R.drawable.brabant_4;
-                        model.text9 = "A notable sculpture, crafted by Haitian artist Fritz Laratte, embodies the theme of liberation from slavery. It narrates the tale of a slave who, through prayer, witnessed the sudden release of his hands from the chains of servitude.<br>" +
-                                "The unique Ah-yee shop, an integral part of Trou-Chenille village since its inception, served as a crucial source of basic necessities for the villagers. Testimonies reveal that the villagers relocated along with the shop.<br>" +
-                                "Stella Maris, the initial Catholic chapel in Le Morne dating back to 1891, originally situated in Trou-Chenille, found its relocation to L’Embrasure during WWI. Following destruction by a cyclone in 1975, it was reconstructed in concrete in Le Morne Village in 1987.<br>";
-                        model.title8 = "";
-                        model.text10 = "";
-                        model.image4 = R.drawable.brabant_7;
-                        model.text11 = "Trou-Chenille, an integral component of the cultural heritage within the Le Morne Cultural Landscape, retains an open-air museum featuring five traditional huts portraying various aspects of daily life.<br>" +
-                                "Archaeological investigations uncovered evidence of a 19th-20th century settlement, Macaque, at the foot of Le Morne Brabant, likely associated with the Labonté and Béguinot families from Madagascar.<br>";
-                        model.image5 = R.drawable.brabant_9;
-                        model.text12 = "An abandoned cemetery, identified in a remote area beneath the mountain, dates back to the 19th century, with archaeological findings suggesting a connection to individuals of Malagasy and Mozambican origin.";
-
-                        Stash.put("model", model);
-                        intent = new Intent(context, ItenerariesDetails.class);
-                        context.startActivity(intent);
-                    }
-                    else if (position == 5) {
-                        BeacModel model = new BeacModel();
-                        model.title = textView.getText().toString();
                         model.main_image = R.drawable.flic_en_flac_3;
                         model.text1 = "Located on the west coast of Mauritius, Flic en Flachas emerged as the second most popular tourist area in the country, following Grand Baie.<br>" +
                                 "Unlike the faster-paced development in the north, the west coast, including beautiful villages like Flic en Flac, has transformed from small fishing communities into charming towns, earning a reputation as a premier holiday destination.<br>" +
@@ -2927,43 +2907,40 @@ public class ItenerariesAdapter extends BaseAdapter {
                         context.startActivity(intent);
                     }
                     else if (position == 3) {
-                        BeacModel model = new BeacModel();
-                        model.title = textView.getText().toString();
-                        model.main_image = R.drawable.gris_gris_coastal_4;
-                        model.text1 = "This enchanting havendistinguishes itself by the absence of a coral barrier reef, making it truly unique. The ocean waves vigorously crash against the shoreline, providing captivating vistas for visitors. Gris Gris beach stands in stark contrast to other tranquil and calm beaches in Mauritius, known for their coral reef protection. The island's typical coral reef barrier contributes to calmer ocean waves and shallow beach waters, creating ideal swimming conditions. However, Gris Gris, surprisingly, lacks this barrier reef.";
 
-                        model.title1 = "";
-                        model.image1 = R.drawable.gris_gris_3;
-                        model.text2 = "A visit to Gris Gris is an absolute essential for anyone exploring Mauritius. The beach's beauty is awe-inspiring, with towering cliffs descending toward the ocean, where turbulent waves crash against rocks, creating a striking white froth accompanied by a resounding crash. Located at the southernmost point of of Mauritius, a few kilometers southeast of the village of Souillac, Gris Gris boasts a unique history dating back to the French colonial era.<br>" +
-                                "The name \"Gris Gris\" adds an intriguing dimension to the experience. Upon entering the beach, a large sign displays the history behind the name. According to local tradition, \"Gris Gris\" is linked to the African amulet known as the “Gris Gris” and its association with the tumultuous coastline. However, the story takes an unexpected turn, suggesting that Gris Gris might have been the name of a puppy belonging to a French cartographer who visited the coast in 1753.<br>";
-                        model.title2 = "Gris Gris Beach";
-                        model.text3 = "";
-                        model.image2 = R.drawable.gris_gris_1;
-                        model.text4 = "The primary beach area features an expansive green field with a commanding view of dramatic cliffs and enormous waves. There are benches and a pavilion available for relaxation while taking in the scenery.<br>" +
-                                "To the left, a concrete staircase descends to the beach, but swimming is strongly discouraged due to the high danger level. The powerful waves can swiftly overwhelm swimmers. Instead, enjoy a leisurely stroll along the beach, heading toward a small cave at the far end.<br>";
-                        model.title3 = "Caves at Gris Gris";
-                        model.text5 = "";
-                        model.title4 = "";
-                        model.text6 = "";
-                        model.title5 = "";
-                        model.text7 = "";
-                        model.title6 = "";
-                        model.text8 = "";
-                        model.title7 = "";
-                        model.image3 = R.drawable.grisgris_2;
-                        model.text9 = "In addition to the cave on the far left side of the beach, two other hidden caves can be discovered at Gris Gris. These are more challenging to reach, involving a descent down a cliff and walking through the water.<br>" +
-                                "Caution is advised against going all the way down, as water levels can fluctuate unpredictably, and the current is often too strong.<br>" +
-                                "For those eager to explore the secret caves at Gris Gris, head towards the cliff's edge directly across from the parking lot. Upon reaching the spot, descend only about halfway to catch a glimpse of the caves on your right.<br>" +
-                                "It's important to bear in mind that entering the caves could pose risks if the water level rises!<br>" +
-                                "Gris Gris beach is intricately connected to the village of Souillac, which relies heavily on tourism for its revenue. Established 200 years ago as a port for ships sailing from Europe to India, Souillac has a rich history worth exploring. Plan your day strategically to make the most of your visit to the southern part of Mauritius, and consider including a visit to Rochester Falls, just outside the village, renowned for its distinctive rectangular-sided rocks.<br>";
-
-                        model.title8 = "La Roche qui Pleure";
-                        model.text10 = "";
-                        model.image4 = R.drawable.la_roche_qui_pleure;
-                        model.text11 = "This mystical site derives its name from the visual impression it creates: as water trickles down its walls, the cliffs appear to shed tears. Even more astonishing, some claim to recognize the eroded features of the Mauritian poet Robert Edward Hart.<br>" +
-                                "From a geographical and climatic standpoint, unlike other parts of the island, La Roche qui Pleure lacks coral reefs. Consequently, its shores are more exposed to the assaults of the ocean. This absence of a natural barrier results in more powerful and spectacular waves, a stark contrast to the tranquil lagoons typically associated with the island. The region is influenced by strong winds and seasonal variations, shaping its unique landscape and marine dynamics.<br>";
-                        model.image5 = R.drawable.map_location;
-                        model.text12 = "";
+                    BeacModel model = new BeacModel();
+                    model.title = textView.getText().toString();
+                    model.main_image = R.drawable.gris_gris_1;
+                    model.text1 = "The primary beach area features an expansive green field with a commanding view of dramatic cliffs and enormous waves. There are benches and a pavilion available for relaxation while taking in the scenery.\n" +
+                            "To the left, a concrete staircase descends to the beach, but swimming is strongly discouraged due to the high danger level. The powerful waves can swiftly overwhelm swimmers. Instead, enjoy a leisurely stroll along the beach, heading toward a small cave at the far end.\n";
+                    model.title1 = "Secret Caves at Gris Gris";
+                    model.image1 = R.drawable.grisgris_2;
+                    model.text2 = "In addition to the cave on the far left side of the beach, two other hidden caves can be discovered at Gris Gris. These are more challenging to reach, involving a descent down a cliff and walking through the water.\n" +
+                            "Caution is advised against going all the way down, as water levels can fluctuate unpredictably, and the current is often too strong.\n" +
+                            "For those eager to explore the secret caves at Gris Gris, head towards the cliff's edge directly across from the parking lot. Upon reaching the spot, descend only about halfway to catch a glimpse of the caves on your right.\n" +
+                            "It's important to bear in mind that entering the caves could pose risks if the water level rises!\n" +
+                            "Gris Gris beach is intricately connected to the village of Souillac, which relies heavily on tourism for its revenue. Established 200 years ago as a port for ships sailing from Europe to India, Souillac has a rich history worth exploring. Plan your day strategically to make the most of your visit to the southern part of Mauritius, and consider including a visit to Rochester Falls, just outside the village, renowned for its distinctive rectangular-sided rocks.\n" + "The name \"Gris Gris\" adds an intriguing dimension to the experience. Upon entering the beach, a large sign displays the history behind the name. According to local tradition, \"Gris Gris\" is linked to the African amulet known as the “Gris Gris” and its association with the tumultuous coastline. However, the story takes an unexpected turn, suggesting that Gris Gris might have been the name of a puppy belonging to a French cartographer who visited the coast in 1753.<br>";
+                    model.title2 = "";
+                    model.text3 = "";
+                    model.image2 = R.drawable.map_location;
+                    model.text4 = "";
+                    model.title3 = "";
+                    model.text5 = "";
+                    model.title4 = "";
+                    model.text6 = "";
+                    model.title5 = "";
+                    model.text7 = "";
+                    model.title6 = "";
+                    model.text8 = "";
+                    model.title7 = "";
+                    model.image3 = R.drawable.map_location;
+                    model.text9 = "";
+                    model.title8 = "";
+                    model.text10 = "";
+                    model.image4 = R.drawable.map_location;
+                    model.text11 = "";
+                    model.image5 = R.drawable.map_location;
+                    model.text12 = "";
                         Stash.put("model", model);
                         intent = new Intent(context, ItenerariesDetails.class);
                         context.startActivity(intent);

@@ -42,8 +42,8 @@ public class BeachesActivity extends AppCompatActivity {
     public void beaches_in_west(View view) {
         String title_header = "Beaches in the West";
         String title = "West";
-        String[] itemTexts = {"Flic enFlac", "La Preneuse", "Le Morne Brabant", "Tamarin"};
-        String[] itemName = {"Flic enFlac Public Beach", "La Preneuse Public Beach", "Le Morne Public Beach", "Tamarin Bay Beach"};
+        String[] itemTexts = {"Flic en Flac", "La Preneuse", "Le Morne Brabant", "Tamarin"};
+        String[] itemName = {"Flic en Flac Public Beach", "La Preneuse Public Beach", "Le Morne Public Beach", "Tamarin Bay Beach"};
         String[] itemName1 = {"District of Black River", "District of Black River", "District of Black River", "District of Black River"};
         int[] itemImages = {R.drawable.flic_en_flac_3, R.drawable.la_preneuse_4, R.drawable.le_morne_beach_2, R.drawable.tamarin_3};
         Intent intent = new Intent(BeachesActivity.this, BeachesTypeActivity.class);
