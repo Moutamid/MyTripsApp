@@ -60,74 +60,74 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:orientation="horizontal"
-           >
+            android:orientation="horizontal">
 
-            <TextView
+
+            <com.moutimid.sqlapp.helper.CustomUnderlineTextView
                 android:id="@+id/buttonDay1"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
                 android:text="IN 1 DAY"
                 android:textColor="@color/black"
+                android:padding="12dp"
+                android:textSize="9sp" />
 
-                android:textSize="12sp" />
-
-            <TextView
+            <com.moutimid.sqlapp.helper.CustomUnderlineTextView
                 android:id="@+id/buttonDay2"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
+                android:padding="12dp"
                 android:text="IN 2 DAYS"
                 android:textColor="@color/black"
+                android:textSize="9sp" />
 
-                android:textSize="12sp" />
-
-            <TextView
+            <com.moutimid.sqlapp.helper.CustomUnderlineTextView
                 android:id="@+id/buttonDay3"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
+                android:padding="12dp"
                 android:text="IN 3 DAYS"
                 android:textColor="@color/black"
+                android:textSize="9sp" />
 
-                android:textSize="12sp" />
-
-            <TextView
+            <com.moutimid.sqlapp.helper.CustomUnderlineTextView
                 android:id="@+id/buttonDay4"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
+                android:padding="12dp"
                 android:text="IN 4 DAYS"
                 android:textColor="@color/black"
+                android:textSize="9sp" />
 
-                android:textSize="12sp" />
-
-            <TextView
+            <com.moutimid.sqlapp.helper.CustomUnderlineTextView
                 android:id="@+id/buttonDay5"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
+                android:padding="12dp"
                 android:text="IN 5 DAYS"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="9sp" />
+
+
+
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:gravity="bottom"
+            android:visibility="gone"
             android:orientation="horizontal"
             >
 
@@ -168,85 +168,79 @@
                 android:background="@color/white" />
 
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
+
+            <com.moutimid.sqlapp.helper.ColoredUnderlineTextView
                 android:id="@+id/pressbuttonDay1"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
                 android:text="IN 1 DAY"
-                android:visibility="gone"
                 android:textColor="@color/bluefb2"
-                android:textSize="12sp" />
+                android:padding="12dp"
+                android:textSize="9sp" />
 
-            <TextView
+            <com.moutimid.sqlapp.helper.ColoredUnderlineTextView
                 android:id="@+id/pressbuttonDay2"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
-                android:text="IN 2 DAY"
-                android:visibility="gone"
+                android:padding="12dp"
 
+                android:text="IN 2 DAYS"
                 android:textColor="@color/bluefb2"
+                android:textSize="9sp" />
 
-                android:textSize="12sp" />
-
-            <TextView
+            <com.moutimid.sqlapp.helper.ColoredUnderlineTextView
                 android:id="@+id/pressbuttonDay3"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
-                android:text="IN 3 DAY"
-                android:visibility="gone"
-
+                android:padding="12dp"
+                android:text="IN 3 DAYS"
                 android:textColor="@color/bluefb2"
+                android:textSize="9sp" />
 
-                android:textSize="12sp" />
-
-            <TextView
+            <com.moutimid.sqlapp.helper.ColoredUnderlineTextView
                 android:id="@+id/pressbuttonDay4"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
-                android:text="IN 4 DAY"
-                android:visibility="gone"
-
+                android:padding="12dp"
+                android:text="IN 4 DAYS"
                 android:textColor="@color/bluefb2"
+                android:textSize="9sp" />
 
-                android:textSize="12sp" />
-
-            <TextView
+            <com.moutimid.sqlapp.helper.ColoredUnderlineTextView
                 android:id="@+id/pressbuttonDay5"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
-                android:visibility="gone"
-
-                android:text="IN 5 DAY"
+                android:padding="12dp"
+                android:text="IN 5 DAYS"
                 android:textColor="@color/bluefb2"
-                android:textSize="12sp" />
+                android:textSize="9sp" />
+
+
+
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="bottom"
+            android:visibility="gone"
             android:orientation="horizontal"
             >
 
@@ -341,59 +335,70 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
+
+            <com.moutimid.sqlapp.helper.CustomUnderlineTextView
                 android:id="@+id/subbuttonDay1"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
                 android:text="DAY 1"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:layout_marginEnd="1mm"
+                android:padding="14dp"
+                android:textSize="12sp"
 
-            <TextView
+                />
+
+            <com.moutimid.sqlapp.helper.CustomUnderlineTextView
                 android:id="@+id/subbuttonDay2"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
                 android:text="DAY 2"
                 android:textColor="@color/black"
+                android:layout_marginStart="1mm"
+                android:layout_marginEnd="1mm"
+                android:padding="14dp"
                 android:textSize="12sp" />
 
-            <TextView
+            <com.moutimid.sqlapp.helper.CustomUnderlineTextView
                 android:id="@+id/subbuttonDay3"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
                 android:text="DAY 3"
+                android:layout_marginStart="1mm"
+                android:layout_marginEnd="1mm"
                 android:textColor="@color/black"
+                android:padding="14dp"
                 android:textSize="12sp" />
 
-            <TextView
+            <com.moutimid.sqlapp.helper.CustomUnderlineTextView
                 android:id="@+id/subbuttonDay4"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginStart="1mm"
+                android:layout_marginEnd="1mm"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
                 android:text="DAY 4"
                 android:textColor="@color/black"
+                android:padding="14dp"
                 android:textSize="12sp" />
 
-            <TextView
+            <com.moutimid.sqlapp.helper.CustomUnderlineTextView
                 android:id="@+id/subbuttonDay5"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="1mm"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
                 android:text="DAY 5"
                 android:textColor="@color/black"
+                android:padding="14dp"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -402,6 +407,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="bottom"
+            android:visibility="gone"
+
             android:orientation="horizontal">
 
             <View
@@ -447,64 +454,74 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
+            <com.moutimid.sqlapp.helper.ColoredUnderlineTextView
                 android:id="@+id/subpressbuttonDay1"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
                 android:text="DAY 1"
-                android:visibility="gone"
                 android:textColor="@color/bluefb2"
-                android:textSize="12sp" />
+                android:layout_marginEnd="1mm"
+                android:padding="14dp"
+                android:textSize="12sp"
+                android:visibility="gone"
 
-            <TextView
+                />
+
+            <com.moutimid.sqlapp.helper.ColoredUnderlineTextView
                 android:id="@+id/subpressbuttonDay2"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
                 android:text="DAY 2"
-                android:visibility="gone"
                 android:textColor="@color/bluefb2"
+                android:layout_marginStart="1mm"
+                android:layout_marginEnd="1mm"
+                android:padding="14dp"
+                android:visibility="gone"
                 android:textSize="12sp" />
 
-            <TextView
+            <com.moutimid.sqlapp.helper.ColoredUnderlineTextView
                 android:id="@+id/subpressbuttonDay3"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
                 android:text="DAY 3"
-                android:visibility="gone"
                 android:textColor="@color/bluefb2"
+                android:layout_marginStart="1mm"
+                android:layout_marginEnd="1mm"
+                android:padding="14dp"
+                android:visibility="gone"
                 android:textSize="12sp" />
 
-            <TextView
+            <com.moutimid.sqlapp.helper.ColoredUnderlineTextView
                 android:id="@+id/subpressbuttonDay4"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
                 android:text="DAY 4"
-                android:visibility="gone"
                 android:textColor="@color/bluefb2"
+                android:layout_marginStart="1mm"
+                android:layout_marginEnd="1mm"
+                android:padding="14dp"
+                android:visibility="gone"
                 android:textSize="12sp" />
 
-            <TextView
+            <com.moutimid.sqlapp.helper.ColoredUnderlineTextView
                 android:id="@+id/subpressbuttonDay5"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:fontFamily="@font/lexend_semi_bold"
                 android:gravity="center"
                 android:text="DAY 5"
-                android:visibility="gone"
                 android:textColor="@color/bluefb2"
+                android:layout_marginEnd="1mm"
+                android:padding="14dp"
+                android:visibility="gone"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -512,6 +529,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:visibility="gone"
             android:gravity="bottom"
             android:orientation="horizontal">
 
@@ -562,8 +580,10 @@
         </LinearLayout>
     </RelativeLayout>
 
+
     <ListView
         android:id="@+id/listView"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tab_layout2"

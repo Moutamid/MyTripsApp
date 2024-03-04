@@ -1,7 +1,14 @@
 package com.moutimid.sqlapp.activities.Iteneraries;
 
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.text.Layout;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.LeadingMarginSpan;
+import android.text.style.UnderlineSpan;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
