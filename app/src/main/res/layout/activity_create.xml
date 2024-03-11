@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
+    tools:context=".activities.Organizer.CreateActivity">
+    <!-- document_details_layout.xml -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            style="@style/TextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Document type">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextQuestion"
+                style="@style/ErrorInHintTextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/bluefb"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+
+                android:text="Document Type"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F6F8F8"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Document Type"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F6F8F8"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Visa"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F6F8F8"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Air Ticket"
+                android:textColor="@color/black"
+                android:textSize="12dp" /> <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F6F8F8"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Air Ticket"
+                android:textColor="@color/black"
+                android:textSize="12dp" /> <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F6F8F8"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Air Ticket"
+                android:textColor="@color/black"
+                android:textSize="12dp" /> <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F6F8F8"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Air Ticket"
+                android:textColor="@color/black"
+                android:textSize="12dp" /> <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F6F8F8"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Air Ticket"
+                android:textColor="@color/black"
+                android:textSize="12dp" /> <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F6F8F8"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="Air Ticket"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/grey"
+            android:hint="Country the document was issued"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/editTextDocumentNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/grey"
+            android:hint="Number on document"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/editTextIssuedBy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/grey"
+            android:hint="Issued by"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/editTextIssuedDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/grey"
+            android:hint="Issued date"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/editTextExpireDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Expire date" />
+
+        <EditText
+            android:id="@+id/editTextNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Notes" />
+
+    </LinearLayout>
+
+</LinearLayout>

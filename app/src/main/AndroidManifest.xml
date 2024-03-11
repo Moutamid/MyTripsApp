@@ -16,11 +16,23 @@
         android:theme="@style/Theme.SQLApp"
         tools:targetApi="31">
         <activity
-            android:name=".activities.OrganizerActivity"
+            android:name=".activities.Organizer.CreateActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.Organizer.MyDocsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Organizer.OrganizerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activities.Iteneraries.ItinerariesActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.MyTripsActivity"
             android:exported="false" />
@@ -32,18 +44,6 @@
             android:exported="false" />
         <activity
             android:name=".activities.Explore.ExploreDetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.Beaches.East.East4Activity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.Beaches.East.East3Activity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.Beaches.East.Eest2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.Beaches.East.East1Activity"
             android:exported="false" />
         <activity
             android:name=".activities.Beaches.BeachesTypeActivity"
@@ -59,13 +59,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.DashboardActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".activities.SavedDataActivity"
             android:exported="false" />

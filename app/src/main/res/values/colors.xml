@@ -8,5 +8,6 @@
     <color name="background">#F9F9F9</color>
     <color name="editBoxBG">#F5F5F5</color>
     <color name="editBoxFG">#999</color>
+    <color name="grey">#C8C6C6</color>
     <color name="transparent">#00FFFFFF</color>
 </resources>
