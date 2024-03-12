@@ -13,13 +13,24 @@
         android:id="@+id/add_icon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_below="@+id/title_bar"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:src="@drawable/add" />
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+<RelativeLayout
+    android:id="@+id/no_text"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
     <ImageView
         android:id="@+id/icon_main"
         android:layout_width="170dp"
@@ -44,6 +55,8 @@
         android:text="Tap on the “+” button on the top right corner to add a document"
         android:textColor="#7E7C7C"
         android:textSize="11dp" />
+
+</RelativeLayout>
 
 
 </RelativeLayout>

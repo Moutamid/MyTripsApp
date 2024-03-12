@@ -16,13 +16,10 @@
         android:theme="@style/Theme.SQLApp"
         tools:targetApi="31">
         <activity
-            android:name=".activities.Organizer.CreateActivity"
+            android:name=".activities.Organizer.SendActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.Organizer.MyDocsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.Organizer.OrganizerActivity"
+            android:name=".activities.Organizer.DocDetailsActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +27,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.Organizer.CreateActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.Organizer.MyDocsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Organizer.OrganizerActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".activities.Iteneraries.ItinerariesActivity"
             android:exported="true" />
@@ -59,7 +65,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.DashboardActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.SavedDataActivity"
             android:exported="false" />

@@ -290,6 +290,42 @@
                             android:textSize="13dp" />
                     </LinearLayout>
 
+                   <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/square_box"
+                            android:padding="18dp"
+                            android:src="@drawable/organizer" />
+
+                        <TextView
+                            android:layout_width="65dp"
+                            android:layout_height="wrap_content"
+
+                            android:layout_gravity="center"
+                            android:layout_margin="7dp"
+                            android:fontFamily="@font/poppins_regular"
+                            android:gravity="center"
+                            android:text="Organizer"
+
+                            android:textColor="#000"
+                            android:textSize="13dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+
+                    android:orientation="horizontal">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -318,42 +354,6 @@
                             android:textSize="13dp" />
                     </LinearLayout>
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/square_box"
-                            android:padding="18dp"
-                            android:src="@drawable/tutorial" />
-
-                        <TextView
-                            android:layout_width="65dp"
-                            android:layout_height="wrap_content"
-
-                            android:layout_gravity="center"
-                            android:layout_margin="7dp"
-                            android:fontFamily="@font/poppins_regular"
-                            android:gravity="center"
-                            android:text="Tutorials"
-
-                            android:textColor="#000"
-                            android:textSize="13dp" />
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -405,7 +405,7 @@
                             android:layout_margin="7dp"
                             android:fontFamily="@font/poppins_regular"
                             android:gravity="center"
-                            android:text="My Account"
+                            android:text="Login"
                             android:textColor="#000"
                             android:textSize="13dp" />
                     </LinearLayout>
