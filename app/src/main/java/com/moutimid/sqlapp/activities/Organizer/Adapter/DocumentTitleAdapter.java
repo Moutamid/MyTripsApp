@@ -1,5 +1,7 @@
 package com.moutimid.sqlapp.activities.Organizer.Adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,16 +11,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moutimid.sqlapp.R;
+import com.moutimid.sqlapp.activities.Organizer.DocDetailsActivity;
 
 import java.util.List;
 
 public class DocumentTitleAdapter extends RecyclerView.Adapter<DocumentTitleAdapter.DocumentTitleViewHolder> {
     private List<String> documentTitles;
-
-    public DocumentTitleAdapter(List<String> documentTitles) {
+    Context context;
+    public DocumentTitleAdapter(Context context, List<String> documentTitles) {
+        this.context = context;
         this.documentTitles = documentTitles;
     }
-
+    public void filterList(List<String> filteredList) {
+        documentTitles = filteredList;
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public DocumentTitleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,7 +38,14 @@ public class DocumentTitleAdapter extends RecyclerView.Adapter<DocumentTitleAdap
         String documentTitle = documentTitles.get(position);
         int i = position + 1;
         holder.bind(documentTitle, i);
-    }
+    holder.itemView.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent= new Intent(context, DocDetailsActivity.class);
+            intent.putExtra("position", position);
+            context.startActivity(intent);
+        }
+    });}
 
     @Override
     public int getItemCount() {

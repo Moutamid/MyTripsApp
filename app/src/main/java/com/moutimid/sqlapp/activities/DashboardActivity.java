@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.moutimid.sqlapp.R;
 import com.moutimid.sqlapp.activities.Iteneraries.ItinerariesActivity;
 import com.moutimid.sqlapp.activities.Explore.ExploreActivity;
+import com.moutimid.sqlapp.activities.Organizer.OrganizerActivity;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -28,6 +29,9 @@ public class DashboardActivity extends AppCompatActivity {
 
     public void iternties(View view) {
         startActivity(new Intent(DashboardActivity.this, ItinerariesActivity.class));
+
+    }   public void organier(View view) {
+        startActivity(new Intent(DashboardActivity.this, OrganizerActivity.class));
 
     }
 }

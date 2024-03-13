@@ -101,10 +101,9 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/card_bg"
-
+android:visibility="gone"
                 android:orientation="vertical"
-                android:padding="2dp"
-                android:visibility="gone">
+                android:padding="2dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -116,18 +115,6 @@
                     android:text="Document Type"
                     android:textColor="@color/white"
                     android:textSize="14dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="5dp"
-                    android:background="#F6F8F8"
-                    android:fontFamily="@font/poppins_regular"
-                    android:gravity="center_vertical"
-                    android:paddingStart="10dp"
-                    android:text="Document Type"
-                    android:textColor="@color/black"
-                    android:textSize="12dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -682,13 +669,13 @@
 </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_marginTop="10dp"
+                android:id="@+id/recyclerViewfiles"
                 android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-           <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewfiles"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

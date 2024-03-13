@@ -12,7 +12,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:scaleType="fitXY"
-        android:src="@drawable/poste_lafayette_1" />
+        android:src="@drawable/file" />
 
     <TextView
         android:id="@+id/fileNameTextView"

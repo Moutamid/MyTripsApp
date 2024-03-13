@@ -10,10 +10,12 @@ import android.provider.OpenableColumns;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +27,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.moutimid.sqlapp.R;
+import com.moutimid.sqlapp.activities.DashboardActivity;
+import com.moutimid.sqlapp.activities.Organizer.Adapter.FileAdapter;
+import com.moutimid.sqlapp.activities.Organizer.Adapter.ImageAdapter;
+import com.moutimid.sqlapp.activities.Organizer.Model.FileData;
+import com.moutimid.sqlapp.activities.Organizer.Model.ImageData;
+import com.moutimid.sqlapp.activities.Organizer.helper.DatabaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -224,7 +232,7 @@ public class CreateActivity extends AppCompatActivity {
         if (editedTextId != -1) {
             // Insert images associated with edited text
             for (ImageData imageData : selectedImages) {
-                dbHelper.insertImageForEditedText(editedTextId, imageData.getImageName(), imageData.getImageSize());
+                dbHelper.insertImageForEditedText(editedTextId, imageData.getImageName(), imageData.getImageSize(), String.valueOf(imageData.getImageUri()));
             }
 
             // Insert files associated with edited text
@@ -233,6 +241,7 @@ public class CreateActivity extends AppCompatActivity {
             }
 
             Toast.makeText(this, "Save Successfully", Toast.LENGTH_SHORT).show();
+            finish();
         } else {
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
         }
@@ -262,6 +271,7 @@ public class CreateActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGES_REQUEST && resultCode == RESULT_OK) {
+            upload_layout.setVisibility(View.GONE);
             if (data != null) {
                 if (data.getClipData() != null) {
                     // Multiple images selected
@@ -282,6 +292,7 @@ public class CreateActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         } else if (requestCode == PICK_FILES_REQUEST && resultCode == RESULT_OK) {
+            upload_layout.setVisibility(View.GONE);
             if (data != null) {
                 if (data.getClipData() != null) {
                     // Multiple files selected
@@ -351,4 +362,23 @@ public class CreateActivity extends AppCompatActivity {
         }
         return 0;
     }
+
+    public void menu(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.menu, popupMenu.getMenu());
+
+        // Optional: Set a listener to respond to menu item clicks
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if ((item.getItemId() == R.id.menu_item_1)) {
+                    startActivity(new Intent(CreateActivity.this, DashboardActivity.class));
+                    finishAffinity();
+                }
+                return true;
+            }
+        });
+        popupMenu.show();
+    }
+
 }
