@@ -1,15 +1,22 @@
 package com.moutimid.sqlapp.activities.Organizer;
 
+import static com.moutimid.sqlapp.activities.Organizer.FileUtils.getDataColumn;
+
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -25,7 +32,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.fxn.stash.Stash;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.gson.Gson;
 import com.moutimid.sqlapp.R;
 import com.moutimid.sqlapp.activities.DashboardActivity;
 import com.moutimid.sqlapp.activities.Organizer.Adapter.FileAdapter;
@@ -34,6 +43,7 @@ import com.moutimid.sqlapp.activities.Organizer.Model.FileData;
 import com.moutimid.sqlapp.activities.Organizer.Model.ImageData;
 import com.moutimid.sqlapp.activities.Organizer.helper.DatabaseHelper;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -165,7 +175,6 @@ public class CreateActivity extends AppCompatActivity {
                 else
                 {
                     saveData();
-
                 }
             }
         });
@@ -261,6 +270,7 @@ public class CreateActivity extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         startActivityForResult(Intent.createChooser(intent, "Select Images"), PICK_IMAGES_REQUEST);
     }
+
     public void openFileManager(View view) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("*/*");
@@ -273,6 +283,7 @@ public class CreateActivity extends AppCompatActivity {
         if (requestCode == PICK_IMAGES_REQUEST && resultCode == RESULT_OK) {
             upload_layout.setVisibility(View.GONE);
             if (data != null) {
+                Uri selectedImageUri = data.getData();
                 if (data.getClipData() != null) {
                     // Multiple images selected
                     int count = data.getClipData().getItemCount();
@@ -281,31 +292,37 @@ public class CreateActivity extends AppCompatActivity {
                         String imageName = getImageName(imageUri);
                         long imageSize = getImageSize(imageUri);
                         selectedImages.add(new ImageData(imageUri, imageName, imageSize));
+
                     }
                 } else if (data.getData() != null) {
                     // Single image selected
+
                     Uri imageUri = data.getData();
+
                     String imageName = getImageName(imageUri);
                     long imageSize = getImageSize(imageUri);
                     selectedImages.add(new ImageData(imageUri, imageName, imageSize));
+
                 }
                 adapter.notifyDataSetChanged();
             }
-        } else if (requestCode == PICK_FILES_REQUEST && resultCode == RESULT_OK) {
+        }
+        else if (requestCode == PICK_FILES_REQUEST && resultCode == RESULT_OK) {
             upload_layout.setVisibility(View.GONE);
             if (data != null) {
                 if (data.getClipData() != null) {
-                    // Multiple files selected
                     int count = data.getClipData().getItemCount();
                     for (int i = 0; i < count; i++) {
                         Uri fileUri = data.getClipData().getItemAt(i).getUri();
+                        File originalFile = new File(FileUtils.getRealPath(this,fileUri));
+                        Log.d("Helper", originalFile+"  File Path: " + fileUri.getPath());
                         String fileName = getFileName(fileUri);
                         long fileSize = getFileSize(fileUri);
                         selectedFiles.add(new FileData(fileUri, fileName, fileSize));
                     }
                 } else if (data.getData() != null) {
-                    // Single file selected
                     Uri fileUri = data.getData();
+                    File originalFile = new File(FileUtils.getRealPath(this,fileUri));
                     String fileName = getFileName(fileUri);
                     long fileSize = getFileSize(fileUri);
                     selectedFiles.add(new FileData(fileUri, fileName, fileSize));
@@ -380,5 +397,6 @@ public class CreateActivity extends AppCompatActivity {
         });
         popupMenu.show();
     }
+
 
 }

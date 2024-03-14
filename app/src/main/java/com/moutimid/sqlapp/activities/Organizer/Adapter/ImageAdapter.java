@@ -48,6 +48,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                 notifyItemRangeChanged(position, imageList.size());
             }
         });
+
+
     }
 
     @Override

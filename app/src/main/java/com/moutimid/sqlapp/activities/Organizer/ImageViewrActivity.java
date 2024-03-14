@@ -1,4 +1,6 @@
 package com.moutimid.sqlapp.activities.Organizer;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.fxn.stash.Stash;
 import com.moutimid.sqlapp.R;
+import com.moutimid.sqlapp.activities.Organizer.Model.ImageData;
+
 public class ImageViewrActivity extends AppCompatActivity {
     ImageView image;
 
@@ -16,19 +20,7 @@ public class ImageViewrActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_viewr);
-        image=findViewById(R.id.image);
-        Uri uri = getIntent().getParcelableExtra("uri");
-        Log.d("dataaaa", uri +"  ");
-        String uriString = "content://media/external/images/media/1000028333";
-
-        // Load image from URI and set to ImageView
-        loadImageFromUri(Uri.parse(uriString));
+        image = findViewById(R.id.image);
+        ImageData image1 = (ImageData) Stash.getObject("image", ImageData.class);
     }
-
-    private void loadImageFromUri(Uri uri) {
-        // Use Glide library to load image from URI into ImageView
-        Glide.with(this)
-                .load(uri)
-                .into(image);
     }
-}

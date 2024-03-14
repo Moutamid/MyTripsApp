@@ -62,11 +62,12 @@
         android:layout_alignParentBottom="true"
         android:background="@color/white"
         app:itemRippleColor="@color/transparent"
-        app:itemBackground="@android:color/transparent"
-        app:itemIconTint="@color/selector_bottom_nav_icon_active"
-        app:menu="@menu/organizer_menu"
-        android:backgroundTint="@color/white"
-        app:backgroundTint="@color/white"/>
+        app:itemBackground="@drawable/bottom_nav_item_background"
+    app:itemIconTint="@color/selector_bottom_nav_icon_active"
+    app:menu="@menu/organizer_menu"
+    android:backgroundTint="@color/white"
+    app:backgroundTint="@color/white"/>
+
 
 
 </RelativeLayout>

@@ -47,7 +47,7 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
     RelativeLayout upload_layout;
     LinearLayout documentTypeLayout, document_title_lyt, number_on_document_lyt, country_document_lyt, date_lyt, issued_by_lyt;
     private static final int PICK_IMAGES_REQUEST = 1;
-
+    EditedText position;
     private List<ImageData> imagesForEditedText;
     private RecyclerView recyclerView;
     private ImageAdapter adapter;
@@ -91,7 +91,7 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         documentTypeLayout = findViewById(R.id.document_type_lyt);
         document_title_lyt = findViewById(R.id.document_title_lyt);
 
-        EditedText position = dbHelper.getAllEditedTexts().get(getIntent().getIntExtra("position", 0));
+        position = dbHelper.getAllEditedTexts().get(getIntent().getIntExtra("position", 0));
         imagesForEditedText = dbHelper.getImagesForEditedText(position.getId());
         selectedFiles = dbHelper.getFilesForEditedText(position.getId());
 
@@ -99,7 +99,6 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         file_recyclerView = findViewById(R.id.recyclerViewfiles);
         file_recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
-
         fileAdapter = new FileAdapter(selectedFiles);
         file_recyclerView.setAdapter(fileAdapter);
         adapter = new ImageAdapter(imagesForEditedText);
@@ -213,7 +212,6 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 upload_layout.setVisibility(View.VISIBLE);
-
             }
         });
     }
@@ -243,12 +241,15 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         long editedTextId = dbHelper.insertOrUpdateEditedText(docType, docTitle, docNumber, countryDoc, issuedBy, issuedDate, expireDate, noteText);
 
         if (editedTextId != -1) {
+
+            dbHelper.deleteImagesForEditedText(editedTextId);
+            dbHelper.deleteFilesForEditedText(editedTextId);
+
             // Insert images associated with edited text
             for (ImageData imageData : imagesForEditedText) {
                 dbHelper.insertImageForEditedText(editedTextId, imageData.getImageName(), imageData.getImageSize(), String.valueOf(imageData.getImageUri()));
             }
 
-            // Insert files associated with edited text
             for (FileData fileData : selectedFiles) {
                 dbHelper.insertFileForEditedText(editedTextId, fileData.getFileName(), fileData.getFileSize());
             }

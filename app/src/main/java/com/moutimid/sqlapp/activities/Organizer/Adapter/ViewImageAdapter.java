@@ -17,7 +17,6 @@ import com.fxn.stash.Stash;
 import com.moutimid.sqlapp.R;
 import com.moutimid.sqlapp.activities.Organizer.ImageViewrActivity;
 import com.moutimid.sqlapp.activities.Organizer.Model.ImageData;
-import com.moutimid.sqlapp.activities.Organizer.PdfViewerActivity;
 
 import java.util.List;
 
@@ -43,7 +42,6 @@ public class ViewImageAdapter extends RecyclerView.Adapter<ViewImageAdapter.Imag
         holder.imageNameTextView.setText(imageData.getImageName());
 
         holder.imageSizeTextView.setText(Formatter.formatFileSize(holder.imageView.getContext(), imageData.getImageSize()));
-
         Glide.with(holder.itemView.getContext())
                 .load(imageData.getImageUri())
                 .into(holder.imageView);
@@ -58,9 +56,9 @@ public class ViewImageAdapter extends RecyclerView.Adapter<ViewImageAdapter.Imag
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                ImageData imageData = imageList.get(position);
 //                Intent intent = new Intent(context, ImageViewrActivity.class);
-//                Stash.put("image_uri", imageData.getImageUri());
-//                intent.putExtra("uri", imageData.getImageUri());
+//                Stash.put("image", imageData);
 //                context.startActivity(intent);
             }
         });

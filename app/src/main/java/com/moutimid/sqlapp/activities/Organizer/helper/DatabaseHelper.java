@@ -217,7 +217,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Method to delete images associated with edited text
-    private void deleteImagesForEditedText(long editedTextId) {
+    public void deleteImagesForEditedText(long editedTextId) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(DatabaseContract.ImageEntry.TABLE_NAME,
                 DatabaseContract.ImageEntry.COLUMN_NAME_EDITED_TEXT_ID + " = ?",
@@ -225,7 +225,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Method to delete files associated with edited text
-    private void deleteFilesForEditedText(long editedTextId) {
+    public void deleteFilesForEditedText(long editedTextId) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(DatabaseContract.FileEntry.TABLE_NAME,
                 DatabaseContract.FileEntry.COLUMN_NAME_EDITED_TEXT_ID + " = ?",

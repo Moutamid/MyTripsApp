@@ -103,7 +103,14 @@ public class DocDetailsActivity extends AppCompatActivity {
         issuesDate.setText(issuedDate_str);
         issuedBy.setText(issuedBy_str);
         note.setText(note_str);
-
+        Stash.put("documentTitle", documentTitle_str);
+        Stash.put("countryDocument", countryDocument_str);
+        Stash.put("documentNumber", documentNumber_str);
+        Stash.put("expireDate", expireDate_str);
+        Stash.put("issuedBy", issuedBy_str);
+        Stash.put("issuedDate", issuedDate_str);
+        Stash.put("note", note_str);
+        Stash.put("documentType", documentType_str);
     }
     public List<EditedText> readAllEditedText() {
         List<EditedText> editedTextList = new ArrayList<>();
@@ -162,12 +169,12 @@ public class DocDetailsActivity extends AppCompatActivity {
                 int itemId = item.getItemId();
                 if (itemId == R.id.menu_item1) {
                     Intent intent = new Intent(DocDetailsActivity.this, SendActivity.class);
-                    startActivity(intent);// Handle item 1 click
+                    intent.putExtra("position", position);
+                    startActivity(intent);
                     return true;
                 } else if (itemId == R.id.menu_item2) {
                     Intent intent = new Intent(DocDetailsActivity.this, EditOrganizerDetailsActivity.class);
                     intent.putExtra("position", position);
-
                     startActivity(intent);
                     return true;
                 } else if (itemId == R.id.menu_item3) {// Handle item 2 click
@@ -223,6 +230,60 @@ public class DocDetailsActivity extends AppCompatActivity {
             }
         });
         popupMenu.show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        databaseHelper = new DatabaseHelper(DocDetailsActivity.this);
+
+        position = getIntent().getIntExtra("position", 0);
+        List<EditedText> editedTexts = readAllEditedText();
+        String documentTitle_str = editedTexts.get(position).getDocumentTitle();
+        String countryDocument_str = editedTexts.get(position).getCountryDocument();
+        String documentNumber_str = editedTexts.get(position).getDocumentNumber();
+        String expireDate_str = editedTexts.get(position).getExpireDate();
+        String issuedBy_str = editedTexts.get(position).getIssuedBy();
+        String issuedDate_str = editedTexts.get(position).getIssuedDate();
+        String note_str = editedTexts.get(position).getNote();
+        String documentType_str = editedTexts.get(position).getDocumentType();
+        if (editedTexts.get(position).getNote().length() < 1) {
+            note.setVisibility(View.GONE);
+        }
+        if (editedTexts.get(position).getNote().length() < 1) {
+            note.setVisibility(View.GONE);
+        }
+
+//        Log.d("data", editedTexts.get(position).getImages().get(0).getImageName()+ "files");
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+        List<FileData> filesForEditedText = databaseHelper.getFilesForEditedText(editedTexts.get(position).getId());
+        ViewFileAdapter adapter = new ViewFileAdapter(this, filesForEditedText);
+        recyclerView.setAdapter(adapter);
+
+        RecyclerView recyclerViewimages = findViewById(R.id.recyclerViewimages);
+        recyclerViewimages.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+        List<ImageData> imageData = databaseHelper.getImagesForEditedText(editedTexts.get(position).getId());
+        ViewImageAdapter imageAdapter = new ViewImageAdapter(DocDetailsActivity.this, imageData);
+        recyclerViewimages.setAdapter(imageAdapter);
+//
+        type.setText(documentType_str);
+        title.setText(documentTitle_str);
+        country.setText(countryDocument_str);
+        number.setText(documentNumber_str);
+        expireDate.setText(expireDate_str);
+        issuesDate.setText(issuedDate_str);
+        issuedBy.setText(issuedBy_str);
+        note.setText(note_str);
+        Stash.put("documentTitle", documentTitle_str);
+        Stash.put("countryDocument", countryDocument_str);
+        Stash.put("documentNumber", documentNumber_str);
+        Stash.put("expireDate", expireDate_str);
+        Stash.put("issuedBy", issuedBy_str);
+        Stash.put("issuedDate", issuedDate_str);
+        Stash.put("note", note_str);
+        Stash.put("documentType", documentType_str);
     }
 
     public void BackPress(View view) {
