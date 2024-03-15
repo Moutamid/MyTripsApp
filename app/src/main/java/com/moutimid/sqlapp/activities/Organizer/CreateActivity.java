@@ -1,17 +1,12 @@
 package com.moutimid.sqlapp.activities.Organizer;
 
 
-
 import android.content.ContentResolver;
-import android.content.ContentUris;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.text.Editable;
@@ -19,6 +14,7 @@ import android.text.InputFilter;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.MenuItem;
@@ -36,9 +32,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fxn.stash.Stash;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.gson.Gson;
 import com.moutimid.sqlapp.R;
 import com.moutimid.sqlapp.activities.DashboardActivity;
 import com.moutimid.sqlapp.activities.Organizer.Adapter.FileAdapter;
@@ -47,15 +41,12 @@ import com.moutimid.sqlapp.activities.Organizer.Model.FileData;
 import com.moutimid.sqlapp.activities.Organizer.Model.ImageData;
 import com.moutimid.sqlapp.activities.Organizer.helper.DatabaseHelper;
 
-import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CreateActivity extends AppCompatActivity {
     EditText documentTypeEditText, document_title, document_number, country_document,
-            issued_by, issued_date, expire_date, note;
+            issued_by, issued_date, expire_date, note, format, format_expiry;
     TextView upload;
     ImageView close;
     TextView save_btn, document_title_ok, number_on_document_ok, country_document_ok, issued_by_ok, date_ok;
@@ -79,6 +70,8 @@ public class CreateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create);
         dbHelper = new DatabaseHelper(this);
 
+        format = findViewById(R.id.format);
+        format_expiry = findViewById(R.id.format_expiry);
         close = findViewById(R.id.close);
         save_btn = findViewById(R.id.save_btn);
         upload = findViewById(R.id.upload);
@@ -129,28 +122,8 @@ public class CreateActivity extends AppCompatActivity {
                 });
             }
         }
-        issued_date.setHint("DD-MM-YYYY");
-        issued_date.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() == 1) {
-                    if (!s.toString().equals("D")) {
-                        issued_date.setText(s + getString(R.string.d_mm_yyyy));
-                        issued_date.setSelection(issued_date.getText().length() - 8);
-                    }
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+        date_format(issued_date, format);
+        date_format(expire_date, format_expiry);
         document_title_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -200,6 +173,8 @@ public class CreateActivity extends AppCompatActivity {
                 else  if (expire_date.getText().toString().isEmpty() || issued_date.getText().toString().isEmpty()) {
                     date_lyt.setVisibility(View.VISIBLE);
                 }
+                else  if (expire_date.getText().toString().length()<10 || issued_date.getText().toString().length()<10) {
+                    Toast.makeText(CreateActivity.this, "Please write proper dates with format", Toast.LENGTH_SHORT).show();                }
                 else
                 {
                     saveData();
@@ -230,7 +205,7 @@ public class CreateActivity extends AppCompatActivity {
         applyStylesToTextInputLayoutHint(document_number, "Number on document");
         applyStylesToTextInputLayoutHint(country_document, "Country the document was issued");
         applyStylesToTextInputLayoutHint(issued_by, "Issued by");
-//        applyStylesToTextInputLayoutHint(issued_date, "Issued date");
+        applyStylesToTextInputLayoutHint(issued_date, "Issued date");
         applyStylesToTextInputLayoutHint(expire_date, "Expired Date");
         applyStylesToTextInputLayoutHint(note, "Note");
         upload.setOnClickListener(new View.OnClickListener() {
@@ -247,6 +222,7 @@ public class CreateActivity extends AppCompatActivity {
         SpannableString spannableString = new SpannableString(hint);
         spannableString.setSpan(new StyleSpan(android.graphics.Typeface.ITALIC), 0, hint.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         textInputLayout.setHint(spannableString);
+
     }
     public void saveData() {
         String docType = documentTypeEditText.getText().toString();
@@ -442,4 +418,152 @@ public class CreateActivity extends AppCompatActivity {
                 cursor.close();
             }
         }
-    }}
+    }
+public void date_format(EditText issued_date, EditText format)
+{
+    issued_date.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10)});
+    issued_date.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View view, boolean b) {
+            if(b)
+            {
+                format.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                format.setVisibility(View.GONE);
+
+            }
+        }
+    });
+    issued_date.addTextChangedListener(new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if (s.length() == 0) {
+                String firstPart = s.toString();
+                String secondPart = "MM-DD-YYYY";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+            }
+            if (s.length() == 1) {
+                String firstPart = s.toString();
+                String secondPart = "M-DD-YYYY";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+            }
+            if (s.length() == 2) {
+                String firstPart = s.toString();
+                String secondPart = "-DD-YYYY";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+            }
+            if (s.length() == 3 && s.charAt(2) != '-') {
+                issued_date.setText(new StringBuilder(s).insert(2, "-").toString());
+                String firstPart =issued_date.getText().toString();
+                String secondPart = "D-YYYY";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+                issued_date.setSelection(4);
+            } if (s.length() == 3) {
+                String firstPart =issued_date.getText().toString();
+                String secondPart = "D-YYYY";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+            }
+            if (s.length() == 4) {
+                String firstPart = s.toString();
+                String secondPart = "D-YYYY";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+            }
+
+            if (s.length() == 5) {
+                String firstPart = s.toString();
+                String secondPart = "-YYYY";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+            }
+            if (s.length() == 6 && s.charAt(5) != '-') {
+
+                issued_date.setText(new StringBuilder(s).insert(5, "-").toString());
+                String firstPart =issued_date.getText().toString();
+                String secondPart = "YYY";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+                issued_date.setSelection(7);
+            }
+            if (s.length() == 6) {
+                String firstPart = issued_date.getText().toString();
+                String secondPart = "YYY";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+            }
+            if (s.length() == 7) {
+                String firstPart = s.toString();
+                String secondPart = "YYY";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+            }
+            if (s.length() == 8) {
+                String firstPart = s.toString();
+                String secondPart = "YY";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+            }
+            if (s.length() == 9) {
+                String firstPart = s.toString();
+                String secondPart = "Y";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+            }
+            if (s.length() == 10) {
+                String firstPart = s.toString();
+                String secondPart = "Y";
+                SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                format.setText(spannableString);
+            }
+
+        }
+
+
+
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    });
+}
+
+}
