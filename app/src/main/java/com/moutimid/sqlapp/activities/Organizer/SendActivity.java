@@ -1,6 +1,9 @@
 package com.moutimid.sqlapp.activities.Organizer;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -13,6 +16,8 @@ import android.widget.EditText;
 import android.widget.PopupMenu;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.fxn.stash.Stash;
 import com.moutimid.sqlapp.R;
@@ -24,10 +29,15 @@ import com.moutimid.sqlapp.activities.Organizer.helper.DatabaseContract;
 import com.moutimid.sqlapp.activities.Organizer.helper.DatabaseHelper;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SendActivity extends AppCompatActivity {
+    private static final int REQUEST_EXTERNAL_STORAGE_PERMISSION = 1;
     EditText name, email, message;
     DatabaseHelper databaseHelper;
     int position;
@@ -39,7 +49,25 @@ public class SendActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
         message = findViewById(R.id.message);
+        databaseHelper = new DatabaseHelper(SendActivity.this);
+        List<EditedText> editedTexts = readAllEditedText();
 
+        position = getIntent().getIntExtra("position", 0);
+        List<String> imagePaths = new ArrayList<>();
+
+        List<ImageData> imageData = databaseHelper.getImagesForEditedText(editedTexts.get(position).getId());
+        for (int i = 0; i < imageData.size(); i++) {
+            String pathFromUri = getPathFromUri(imageData.get(i).getImageUri());
+            File file = new File(pathFromUri);
+            String absolutePath = file.getAbsolutePath();
+            imagePaths.add(absolutePath);
+        }
+        Log.e("SendEmailTask", "sending image" + imagePaths.size() + "  ");
+
+        for (int i = 0; i < imagePaths.size(); i++) {
+            Log.e("SendEmailTask", "sending image" + imagePaths.get(i).toString() + "  ");
+
+        }
 
     }
 
@@ -129,11 +157,10 @@ public class SendActivity extends AppCompatActivity {
 
         List<ImageData> imageData = databaseHelper.getImagesForEditedText(editedTexts.get(position).getId());
         for (int i = 0; i < imageData.size(); i++) {
-            String pathFromUri = getPathFromUri(imageData.get(position).getImageUri());
+            String pathFromUri = getPathFromUri(imageData.get(i).getImageUri());
             File file = new File(pathFromUri);
             String absolutePath = file.getAbsolutePath();
             imagePaths.add(absolutePath);
-
         }
         Log.e("SendEmailTask", "sending image" + imagePaths.size() + "  ");
 
@@ -144,8 +171,20 @@ public class SendActivity extends AppCompatActivity {
         Stash.put("name", name.getText().toString());
         Stash.put("email", email.getText().toString());
         Stash.put("message", message.getText().toString());
-        NetworkTask networkTask = new NetworkTask(SendActivity.this);
-        networkTask.execute(imagePaths);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    REQUEST_EXTERNAL_STORAGE_PERMISSION);
+        } else {
+            NetworkTask networkTask = new NetworkTask(SendActivity.this);
+            networkTask.execute(imagePaths);
+        }
+
 
     }
 

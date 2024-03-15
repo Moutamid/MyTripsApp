@@ -25,6 +25,7 @@ import com.moutimid.sqlapp.activities.Organizer.Adapter.ViewImageAdapter;
 import com.moutimid.sqlapp.activities.Organizer.Model.EditedText;
 import com.moutimid.sqlapp.activities.Organizer.Model.FileData;
 import com.moutimid.sqlapp.activities.Organizer.Model.ImageData;
+import com.moutimid.sqlapp.activities.Organizer.helper.CustomDialogFragment;
 import com.moutimid.sqlapp.activities.Organizer.helper.DatabaseContract;
 import com.moutimid.sqlapp.activities.Organizer.helper.DatabaseHelper;
 
@@ -168,9 +169,11 @@ public class DocDetailsActivity extends AppCompatActivity {
                 // Handle menu item clicks
                 int itemId = item.getItemId();
                 if (itemId == R.id.menu_item1) {
-                    Intent intent = new Intent(DocDetailsActivity.this, SendActivity.class);
-                    intent.putExtra("position", position);
-                    startActivity(intent);
+                    // Show the dialog
+                    CustomDialogFragment dialogFragment = new CustomDialogFragment();
+                    dialogFragment.show(getSupportFragmentManager(), "CustomDialogFragment");
+Stash.put("position", position);
+
                     return true;
                 } else if (itemId == R.id.menu_item2) {
                     Intent intent = new Intent(DocDetailsActivity.this, EditOrganizerDetailsActivity.class);

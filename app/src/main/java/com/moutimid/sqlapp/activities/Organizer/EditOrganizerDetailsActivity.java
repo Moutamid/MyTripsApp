@@ -251,7 +251,7 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
             }
 
             for (FileData fileData : selectedFiles) {
-                dbHelper.insertFileForEditedText(editedTextId, fileData.getFileName(), fileData.getFileSize());
+                dbHelper.insertFileForEditedText(editedTextId, fileData.getFileName(), fileData.getFileSize(), fileData.getFilepath());
             }
 
             Toast.makeText(this, "Save Successfully", Toast.LENGTH_SHORT).show();
@@ -321,7 +321,8 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
                     Uri fileUri = data.getData();
                     String fileName = getFileName(fileUri);
                     long fileSize = getFileSize(fileUri);
-                    selectedFiles.add(new FileData(fileUri, fileName, fileSize));
+                    String filePath = fileUri.getPath(); // Get the absolute file path
+                    selectedFiles.add(new FileData(fileUri, fileName, fileSize, filePath));
                 }
                 fileAdapter.notifyDataSetChanged();
             }

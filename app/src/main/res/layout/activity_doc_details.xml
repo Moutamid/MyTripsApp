@@ -61,7 +61,7 @@
         android:layout_gravity="end"
         android:layout_margin="20dp"
         android:onClick="showPopupMenu"
-        android:src="@drawable/menu_circle_dots" />
+        android:src="@drawable/minus" />
 
     <TextView
         android:id="@+id/title"

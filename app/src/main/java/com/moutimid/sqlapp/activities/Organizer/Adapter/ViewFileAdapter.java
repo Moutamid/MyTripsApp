@@ -47,6 +47,7 @@ Context context;
         {
             holder.imageView.setImageResource(R.drawable.doc);
         }
+        Log.d("path", fileData.getFilepath()+" //// "+ fileData.getFileUri());
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

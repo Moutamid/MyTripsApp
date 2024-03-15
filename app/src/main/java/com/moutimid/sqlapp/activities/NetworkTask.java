@@ -75,20 +75,31 @@ public class NetworkTask extends AsyncTask<List<String>, Void, Boolean> {
                     "text/html");
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
-            for (int i = 0; i < imageUriLists.length; i++) {
 
-                Log.e("SendEmailTask", "sending image" + imageUriLists[i].get(i).toString() + "  ");
-                MimeBodyPart attachmentBodyPart = new MimeBodyPart();
-                try {
-                    DataSource source = new FileDataSource(imageUriLists[i].get(i).toString());
-                    attachmentBodyPart.setDataHandler(new DataHandler(source));
-                    attachmentBodyPart.setFileName("image.jpg");
-                    // Change the file name as needed
-                    multipart.addBodyPart(attachmentBodyPart);
-                } catch (Exception e) {
-                    Log.e("SendEmailTask", "Error sending image", e);
+            for (List<String> imageUriList : imageUriLists) {
+                for (String imageUri : imageUriList) {
+                    Log.d("images ", imageUri+"  1");
+                    MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+                    try {
+                        DataSource source = new FileDataSource(imageUri);
+                        attachmentBodyPart.setDataHandler(new DataHandler(source));
+                        attachmentBodyPart.setFileName("image.jpg");
+                        multipart.addBodyPart(attachmentBodyPart);
+                    } catch (Exception e) {
+                        Log.e("SendEmailTask", "Error sending image", e);
+                    }
                 }
             }
+//            MimeBodyPart pdfBodyPart = new MimeBodyPart();
+//            try {
+//                DataSource pdfSource = new FileDataSource("/storage/emulated/0/Download/Fiza CV-1.pdf");
+//                pdfBodyPart.setDataHandler(new DataHandler(pdfSource));
+//                pdfBodyPart.setFileName("document.pdf");
+//                multipart.addBodyPart(pdfBodyPart);
+//            } catch (Exception e) {
+//                Log.e("SendEmailTask", "Error sending PDF", e);
+//            }
+
 
             message.setContent(multipart);
             Transport.send(message);

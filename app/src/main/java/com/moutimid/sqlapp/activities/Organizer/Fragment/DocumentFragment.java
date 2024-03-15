@@ -61,6 +61,7 @@ public class DocumentFragment extends Fragment {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 // Filter document titles based on user input
                 filterDocumentTitles(charSequence.toString());
+
             }
 
             @Override

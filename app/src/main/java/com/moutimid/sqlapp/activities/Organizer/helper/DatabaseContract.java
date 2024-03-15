@@ -32,6 +32,7 @@ public class DatabaseContract {
         public static final String TABLE_NAME = "files";
         public static final String COLUMN_NAME_FILE_NAME = "file_name";
         public static final String COLUMN_NAME_FILE_SIZE = "file_size";
+        public static final String COLUMN_NAME_FILE_PATH = "file_path";
         public static final String COLUMN_NAME_EDITED_TEXT_ID = "edited_text_id";
     }
 
@@ -62,6 +63,7 @@ public class DatabaseContract {
             "CREATE TABLE " + FileEntry.TABLE_NAME + " (" +
                     FileEntry._ID + " INTEGER PRIMARY KEY," +
                     FileEntry.COLUMN_NAME_FILE_NAME + " TEXT," +
+                    FileEntry.COLUMN_NAME_FILE_PATH + " TEXT," +
                     FileEntry.COLUMN_NAME_FILE_SIZE + " INTEGER," +
                     FileEntry.COLUMN_NAME_EDITED_TEXT_ID + " INTEGER," +
                     "FOREIGN KEY(" + FileEntry.COLUMN_NAME_EDITED_TEXT_ID + ") REFERENCES " +

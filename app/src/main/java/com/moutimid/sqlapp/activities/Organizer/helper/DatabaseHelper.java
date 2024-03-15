@@ -162,6 +162,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         String[] projection = {DatabaseContract.FileEntry._ID,
                 DatabaseContract.FileEntry.COLUMN_NAME_FILE_NAME,
+                DatabaseContract.FileEntry.COLUMN_NAME_FILE_PATH,
                 DatabaseContract.FileEntry.COLUMN_NAME_FILE_SIZE};
         String selection = DatabaseContract.FileEntry.COLUMN_NAME_EDITED_TEXT_ID + " = ?";
         String[] selectionArgs = {String.valueOf(editedTextId)};
@@ -178,8 +179,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (cursor.moveToNext()) {
                 long fileId = cursor.getLong(cursor.getColumnIndex(DatabaseContract.FileEntry._ID));
                 String fileName = cursor.getString(cursor.getColumnIndex(DatabaseContract.FileEntry.COLUMN_NAME_FILE_NAME));
+                String filepath = cursor.getString(cursor.getColumnIndex(DatabaseContract.FileEntry.COLUMN_NAME_FILE_PATH));
                 long fileSize = cursor.getLong(cursor.getColumnIndex(DatabaseContract.FileEntry.COLUMN_NAME_FILE_SIZE));
-                files.add(new FileData(fileId, fileName, fileSize));
+                files.add(new FileData(fileId, fileName, fileSize, filepath));
             }
             cursor.close();
         }
@@ -198,14 +200,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Insert file data for edited text
-    public long insertFileForEditedText(long editedTextId, String fileName, long fileSize) {
+    public long insertFileForEditedText(long editedTextId, String fileName, long fileSize, String filePath) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DatabaseContract.FileEntry.COLUMN_NAME_FILE_NAME, fileName);
         values.put(DatabaseContract.FileEntry.COLUMN_NAME_FILE_SIZE, fileSize);
+        values.put(DatabaseContract.FileEntry.COLUMN_NAME_FILE_PATH, filePath); // Add file path to database
         values.put(DatabaseContract.FileEntry.COLUMN_NAME_EDITED_TEXT_ID, editedTextId);
         return db.insert(DatabaseContract.FileEntry.TABLE_NAME, null, values);
     }
+
     public void deleteEditedText(long editedTextId) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(DatabaseContract.EditedTextEntry.TABLE_NAME,

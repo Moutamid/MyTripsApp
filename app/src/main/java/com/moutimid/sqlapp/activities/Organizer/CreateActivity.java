@@ -1,20 +1,24 @@
 package com.moutimid.sqlapp.activities.Organizer;
 
-import static com.moutimid.sqlapp.activities.Organizer.FileUtils.getDataColumn;
+
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.TextWatcher;
 import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.MenuItem;
@@ -44,6 +48,8 @@ import com.moutimid.sqlapp.activities.Organizer.Model.ImageData;
 import com.moutimid.sqlapp.activities.Organizer.helper.DatabaseHelper;
 
 import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -123,6 +129,28 @@ public class CreateActivity extends AppCompatActivity {
                 });
             }
         }
+        issued_date.setHint("DD-MM-YYYY");
+        issued_date.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() == 1) {
+                    if (!s.toString().equals("D")) {
+                        issued_date.setText(s + getString(R.string.d_mm_yyyy));
+                        issued_date.setSelection(issued_date.getText().length() - 8);
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         document_title_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -202,7 +230,7 @@ public class CreateActivity extends AppCompatActivity {
         applyStylesToTextInputLayoutHint(document_number, "Number on document");
         applyStylesToTextInputLayoutHint(country_document, "Country the document was issued");
         applyStylesToTextInputLayoutHint(issued_by, "Issued by");
-        applyStylesToTextInputLayoutHint(issued_date, "Issued date");
+//        applyStylesToTextInputLayoutHint(issued_date, "Issued date");
         applyStylesToTextInputLayoutHint(expire_date, "Expired Date");
         applyStylesToTextInputLayoutHint(note, "Note");
         upload.setOnClickListener(new View.OnClickListener() {
@@ -244,11 +272,9 @@ public class CreateActivity extends AppCompatActivity {
                 dbHelper.insertImageForEditedText(editedTextId, imageData.getImageName(), imageData.getImageSize(), String.valueOf(imageData.getImageUri()));
             }
 
-            // Insert files associated with edited text
             for (FileData fileData : selectedFiles) {
-                dbHelper.insertFileForEditedText(editedTextId, fileData.getFileName(), fileData.getFileSize());
+                dbHelper.insertFileForEditedText(editedTextId, fileData.getFileName(), fileData.getFileSize(), fileData.getFilepath()); // Pass file path here
             }
-
             Toast.makeText(this, "Save Successfully", Toast.LENGTH_SHORT).show();
             finish();
         } else {
@@ -272,11 +298,10 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void openFileManager(View view) {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("*/*");
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        startActivityForResult(Intent.createChooser(intent, "Select Files"), PICK_FILES_REQUEST);
-    }
+        Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
+        chooseFile.setType("*/*");
+        chooseFile = Intent.createChooser(chooseFile, "Choose a file");
+        startActivityForResult(chooseFile, PICK_FILES_REQUEST);  }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -314,18 +339,24 @@ public class CreateActivity extends AppCompatActivity {
                     int count = data.getClipData().getItemCount();
                     for (int i = 0; i < count; i++) {
                         Uri fileUri = data.getClipData().getItemAt(i).getUri();
-                        File originalFile = new File(FileUtils.getRealPath(this,fileUri));
-                        Log.d("Helper", originalFile+"  File Path: " + fileUri.getPath());
                         String fileName = getFileName(fileUri);
                         long fileSize = getFileSize(fileUri);
                         selectedFiles.add(new FileData(fileUri, fileName, fileSize));
                     }
                 } else if (data.getData() != null) {
                     Uri fileUri = data.getData();
-                    File originalFile = new File(FileUtils.getRealPath(this,fileUri));
                     String fileName = getFileName(fileUri);
                     long fileSize = getFileSize(fileUri);
-                    selectedFiles.add(new FileData(fileUri, fileName, fileSize));
+                    String src = fileUri.getPath();
+                    try {
+                        Log.d("path", src);
+
+                    } catch (Exception e) {
+                        Log.d("path", e.toString());
+
+                    }
+
+                    selectedFiles.add(new FileData(fileUri, fileName, fileSize, "filePath"));
                 }
                 fileAdapter.notifyDataSetChanged();
             }
@@ -398,5 +429,17 @@ public class CreateActivity extends AppCompatActivity {
         popupMenu.show();
     }
 
-
-}
+    public String getRealPathFromURI(Uri contentUri) {
+        Cursor cursor = null;
+        try {
+            String[] proj = {MediaStore.Images.Media.DATA};
+            cursor = getContentResolver().query(contentUri, proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }}
