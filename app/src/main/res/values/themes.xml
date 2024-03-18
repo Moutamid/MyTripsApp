@@ -1,10 +1,20 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.SQLApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/black</item>
         <item name="colorAccent">@color/black</item>
         <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+
+    </style>
+
+    <style name="BottomNavigation" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorAccent">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+
     </style>
     <style name="ErrorInHintTextInputDisable">
         <item name="android:textColorHint">#818181</item>

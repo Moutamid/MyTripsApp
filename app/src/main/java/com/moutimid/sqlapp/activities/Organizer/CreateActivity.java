@@ -4,15 +4,18 @@ package com.moutimid.sqlapp.activities.Organizer;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
@@ -40,6 +43,8 @@ import com.moutimid.sqlapp.activities.Organizer.Adapter.ImageAdapter;
 import com.moutimid.sqlapp.activities.Organizer.Model.FileData;
 import com.moutimid.sqlapp.activities.Organizer.Model.ImageData;
 import com.moutimid.sqlapp.activities.Organizer.helper.DatabaseHelper;
+//import com.shockwave.pdfium.PdfDocument;
+//import com.shockwave.pdfium.PdfiumCore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,21 +54,19 @@ public class CreateActivity extends AppCompatActivity {
             issued_by, issued_date, expire_date, note, format, format_expiry;
     TextView upload;
     ImageView close;
-    TextView save_btn, document_title_ok, number_on_document_ok, country_document_ok, issued_by_ok, date_ok;
+    TextView save_btn, document_title_ok, number_on_document_ok, country_document_ok, issued_by_ok, date_ok, month_ok;
     RelativeLayout upload_layout;
-    LinearLayout documentTypeLayout, document_title_lyt, number_on_document_lyt, country_document_lyt, date_lyt, issued_by_lyt;
+    LinearLayout documentTypeLayout, document_title_lyt, number_on_document_lyt, country_document_lyt, date_lyt, issued_by_lyt, month_lyt;
     private static final int PICK_IMAGES_REQUEST = 1;
-
     private List<ImageData> selectedImages;
     private RecyclerView recyclerView;
     private ImageAdapter adapter;
     private static final int PICK_FILES_REQUEST = 2;
-
     private List<FileData> selectedFiles;
     private RecyclerView file_recyclerView;
     private FileAdapter fileAdapter;
     private DatabaseHelper dbHelper;
-
+    ImageView data_image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +74,7 @@ public class CreateActivity extends AppCompatActivity {
         dbHelper = new DatabaseHelper(this);
 
         format = findViewById(R.id.format);
+        data_image = findViewById(R.id.data_image);
         format_expiry = findViewById(R.id.format_expiry);
         close = findViewById(R.id.close);
         save_btn = findViewById(R.id.save_btn);
@@ -82,6 +86,8 @@ public class CreateActivity extends AppCompatActivity {
 
         issued_by_lyt = findViewById(R.id.issued_by_lyt);
         date_lyt = findViewById(R.id.date_lyt);
+        month_lyt = findViewById(R.id.month_lyt);
+        month_ok = findViewById(R.id.month_ok);
         country_document_lyt = findViewById(R.id.country_document_lyt);
         number_on_document_ok = findViewById(R.id.number_on_document_ok);
 
@@ -154,29 +160,68 @@ public class CreateActivity extends AppCompatActivity {
                 date_lyt.setVisibility(View.GONE);
             }
         });
+        month_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                month_lyt.setVisibility(View.GONE);
+            }
+        });
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 if (document_title.getText().toString().isEmpty()) {
                     document_title_lyt.setVisibility(View.VISIBLE);
+                } else if (!TextUtils.isEmpty(issued_date.getText().toString())) {
+                    String input = issued_date.getText().toString().toString();
+                    String[] parts = input.split("-");
+                    if (parts.length >= 2) {
+                        int month = Integer.parseInt(parts[0]);
+                        int day = Integer.parseInt(parts[1]);
+                        if (month > 12) {
+                            issued_date.setSelection(1);
+
+                            month_lyt.setVisibility(View.VISIBLE);
+                            return;
+                        } else if (day > 31) {
+                            issued_date.setSelection(4);
+
+                            date_lyt.setVisibility(View.VISIBLE);
+                        }
+                    }
+                } else if (!TextUtils.isEmpty(expire_date.getText().toString())) {
+                    String input = expire_date.getText().toString().toString();
+                    String[] parts = input.split("-");
+                    if (parts.length >= 2) {
+                        int month = Integer.parseInt(parts[0]);
+                        int day = Integer.parseInt(parts[1]);
+                        if (month > 12) {
+                            expire_date.setFocusable(true);
+                            month_lyt.setVisibility(View.VISIBLE);
+                            return;
+                        } else if (day > 31) {
+                            expire_date.setFocusable(true);
+
+                            date_lyt.setVisibility(View.VISIBLE);
+                        }
+                    }
                 }
-               else if (document_number.getText().toString().isEmpty()) {
-                    number_on_document_lyt.setVisibility(View.VISIBLE);
-                }
-                else if (country_document.getText().toString().isEmpty()) {
-                    country_document_lyt.setVisibility(View.VISIBLE);
-                }
-              else  if (issued_by.getText().toString().isEmpty()) {
-                    issued_by_lyt.setVisibility(View.VISIBLE);
-                }
-                else  if (expire_date.getText().toString().isEmpty() || issued_date.getText().toString().isEmpty()) {
-                    date_lyt.setVisibility(View.VISIBLE);
-                }
-                else  if (expire_date.getText().toString().length()<10 || issued_date.getText().toString().length()<10) {
-                    Toast.makeText(CreateActivity.this, "Please write proper dates with format", Toast.LENGTH_SHORT).show();                }
-                else
-                {
+
+//               else if (document_number.getText().toString().isEmpty()) {
+//                    number_on_document_lyt.setVisibility(View.VISIBLE);
+//                }
+//                else if (country_document.getText().toString().isEmpty()) {
+//                    country_document_lyt.setVisibility(View.VISIBLE);
+//                }
+//              else  if (issued_by.getText().toString().isEmpty()) {
+//                    issued_by_lyt.setVisibility(View.VISIBLE);
+//                }
+//                else  if (expire_date.getText().toString().isEmpty() || issued_date.getText().toString().isEmpty()) {
+//                    date_lyt.setVisibility(View.VISIBLE);
+//                }
+//                else  if (expire_date.getText().toString().length()<10 || issued_date.getText().toString().length()<10) {
+//                    Toast.makeText(CreateActivity.this, "Please write proper dates with format", Toast.LENGTH_SHORT).show();                }
+                else {
                     saveData();
                 }
             }
@@ -234,10 +279,10 @@ public class CreateActivity extends AppCompatActivity {
         String expireDate = expire_date.getText().toString();
         String noteText = note.getText().toString();
 
-        // Check if required fields are empty
-        if (docTitle.isEmpty() || docNumber.isEmpty() || countryDoc.isEmpty() || issuedBy.isEmpty() || issuedDate.isEmpty() || expireDate.isEmpty()) {
-            return;
-        }
+//        // Check if required fields are empty
+//        if (docTitle.isEmpty() || docNumber.isEmpty() || countryDoc.isEmpty() || issuedBy.isEmpty() || issuedDate.isEmpty() || expireDate.isEmpty()) {
+//            return;
+//        }
 
         // Save edited text data to the database
         long editedTextId = dbHelper.insertOrUpdateEditedText(docType, docTitle, docNumber, countryDoc, issuedBy, issuedDate, expireDate, noteText);
@@ -324,6 +369,8 @@ public class CreateActivity extends AppCompatActivity {
                     String fileName = getFileName(fileUri);
                     long fileSize = getFileSize(fileUri);
                     String src = fileUri.getPath();
+//                    Bitmap bitmap = generateImageFromPdf(fileUri);
+//                    data_image.setImageBitmap(bitmap);
                     try {
                         Log.d("path", src);
 
@@ -470,15 +517,16 @@ public void date_format(EditText issued_date, EditText format)
             }
             if (s.length() == 3 && s.charAt(2) != '-') {
                 issued_date.setText(new StringBuilder(s).insert(2, "-").toString());
-                String firstPart =issued_date.getText().toString();
+                String firstPart = issued_date.getText().toString();
                 String secondPart = "D-YYYY";
                 SpannableString spannableString = new SpannableString(firstPart + secondPart);
                 spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
                 spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
                 format.setText(spannableString);
                 issued_date.setSelection(4);
-            } if (s.length() == 3) {
-                String firstPart =issued_date.getText().toString();
+            }
+            if (s.length() == 3) {
+                String firstPart = issued_date.getText().toString();
                 String secondPart = "D-YYYY";
                 SpannableString spannableString = new SpannableString(firstPart + secondPart);
                 spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
@@ -505,7 +553,7 @@ public void date_format(EditText issued_date, EditText format)
             if (s.length() == 6 && s.charAt(5) != '-') {
 
                 issued_date.setText(new StringBuilder(s).insert(5, "-").toString());
-                String firstPart =issued_date.getText().toString();
+                String firstPart = issued_date.getText().toString();
                 String secondPart = "YYY";
                 SpannableString spannableString = new SpannableString(firstPart + secondPart);
                 spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
@@ -554,9 +602,8 @@ public void date_format(EditText issued_date, EditText format)
                 format.setText(spannableString);
             }
 
+
         }
-
-
 
 
         @Override
@@ -565,5 +612,28 @@ public void date_format(EditText issued_date, EditText format)
         }
     });
 }
+
+//    public Bitmap generateImageFromPdf(Uri pdfUri) {
+//        int pageNumber = 0;
+////        PdfiumCore pdfiumCore = new PdfiumCore(this);
+//        try {
+//            //http://www.programcreek.com/java-api-examples/index.php?api=android.os.ParcelFileDescriptor
+//            ParcelFileDescriptor fd = getContentResolver().openFileDescriptor(pdfUri, "r");
+//            PdfDocument pdfDocument = pdfiumCore.newDocument(fd);
+//            pdfiumCore.openPage(pdfDocument, pageNumber);
+//            int width = pdfiumCore.getPageWidthPoint(pdfDocument, pageNumber);
+//            int height = pdfiumCore.getPageHeightPoint(pdfDocument, pageNumber);
+//            Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+//            pdfiumCore.renderPageBitmap(pdfDocument, bmp, pageNumber, 0, 0, width, height);
+////            saveImage(bmp);
+//            pdfiumCore.closeDocument(pdfDocument); // important!
+//            return bmp;
+//        } catch (Exception e) {
+//            //todo with exception
+//        }
+//        return null;
+//
+//    }
+
 
 }

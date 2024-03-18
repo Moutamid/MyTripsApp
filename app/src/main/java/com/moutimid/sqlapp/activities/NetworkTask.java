@@ -1,7 +1,6 @@
 package com.moutimid.sqlapp.activities;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -63,22 +62,35 @@ public class NetworkTask extends AsyncTask<List<String>, Void, Boolean> {
             message.setSubject(Stash.getString("name"));
 
             MimeBodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setContent("<p>" + Stash.getString("message") + "<br>" +
-                            "<b>" + storedDocumentTitle + "</b><br>" +
-                            "<b>Type:  </b>" + storedDocumentType + "<br>" +
-                            "<b>Number:  </b> " + storedDocumentNumber + "<br>" +
-                            "<b>Issue Date:  </b>" + storedIssuedDate + "<br>" +
-                            "<b>Expire Date:  </b>" + storedExpireDate + "<br>" +
-                            "<b>Issued by:  </b>" + storedIssuedBy + "<br>" +
-                            "<b>Country of issue:  </b>" + storedCountryDocument + "</p>" +
-                            "<b>Note:</b>  " + storedNote + "<br>",
-                    "text/html");
+            String messageBody = "<p>" + Stash.getString("message") + "<br>" +
+                    "<b>" + storedDocumentTitle + "</b><br>" +
+                    "<b>Type:  </b>" + storedDocumentType + "<br>";
+            if (storedDocumentNumber != null && !storedDocumentNumber.isEmpty()) {
+                messageBody += "<b>Number:  </b>" + storedDocumentNumber + "<br>";
+            }
+            if (storedIssuedDate != null && !storedIssuedDate.isEmpty()) {
+                messageBody += "<b>Issue Date:  </b>" + storedIssuedDate + "<br>";
+            }
+            if (storedExpireDate != null && !storedExpireDate.isEmpty()) {
+                messageBody += "<b>Expire Date:  </b>" + storedExpireDate + "<br>";
+            }
+            if (storedIssuedBy != null && !storedIssuedBy.isEmpty()) {
+                messageBody += "<b>Issued by:  </b>" + storedIssuedBy + "<br>";
+            }
+            if (storedCountryDocument != null && !storedCountryDocument.isEmpty()) {
+                messageBody += "<b>Country of issue:  </b>" + storedCountryDocument + "<br>";
+            }
+            if (storedNote != null && !storedNote.isEmpty()) {
+                messageBody += "<b>Note:</b>  " + storedNote + "<br>";
+            }
+            messageBody += "</p>";
+            messageBodyPart.setContent(messageBody, "text/html");
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
 
             for (List<String> imageUriList : imageUriLists) {
                 for (String imageUri : imageUriList) {
-                    Log.d("images ", imageUri+"  1");
+                    Log.d("images ", imageUri + "  1");
                     MimeBodyPart attachmentBodyPart = new MimeBodyPart();
                     try {
                         DataSource source = new FileDataSource(imageUri);

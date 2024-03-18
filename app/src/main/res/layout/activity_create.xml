@@ -562,7 +562,7 @@ android:visibility="gone"
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="-10dp"
             android:layout_marginEnd="40dp"
             android:background="#D1D1D1" />
@@ -635,7 +635,7 @@ android:visibility="gone"
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="-10dp"
             android:layout_marginEnd="40dp"
             android:background="#D1D1D1" />
@@ -646,15 +646,15 @@ android:visibility="gone"
                     </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/date_lyt"
+                android:id="@+id/month_lyt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:visibility="gone"
                 android:layout_marginTop="15sp"
                 android:background="@drawable/filled_card_bg"
                 android:orientation="vertical"
+                android:visibility="gone"
                 android:padding="2dp">
 
 
@@ -668,9 +668,54 @@ android:visibility="gone"
                     android:paddingStart="10dp"
                     android:paddingTop="6dp"
 
-                    android:text="The date field cannot be empty"
+                    android:text="Invalid month! Month should not exceed 12"
                     android:textColor="@color/black"
-                    android:textSize="14dp" />
+                    android:textSize="13dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#D1D1D1" />
+
+                <TextView
+                    android:id="@+id/month_ok"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/stroke_btn_bg"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="OK" />
+            </LinearLayout>
+     <LinearLayout
+                android:id="@+id/date_lyt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="15sp"
+                android:background="@drawable/filled_card_bg"
+                android:orientation="vertical"
+                android:padding="2dp"
+         android:visibility="gone">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="#F6F8F8"
+                    android:fontFamily="@font/poppins_light"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingTop="6dp"
+
+                    android:text="Invalid date! Date should not exceed 31"
+                    android:textColor="@color/black"
+                    android:textSize="13dp" />
 
                 <View
                     android:layout_width="match_parent"
@@ -726,6 +771,7 @@ android:visibility="gone"
 
     >
             <ImageView
+                android:id="@+id/data_image"
                 android:layout_width="76dp"
                 android:layout_height="76dp"
                 android:layout_gravity="center"

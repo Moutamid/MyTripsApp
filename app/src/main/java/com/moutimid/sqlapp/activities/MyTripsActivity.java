@@ -30,8 +30,6 @@ public class MyTripsActivity extends AppCompatActivity implements MyAdapter.OnSt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_trips);
-
-
         databaseHelper = new DatabaseHelper(MyTripsActivity.this);
         beacModels = databaseHelper.getAllBeacModels();
         updatePositions();
@@ -39,7 +37,6 @@ public class MyTripsActivity extends AppCompatActivity implements MyAdapter.OnSt
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MyAdapter(beacModels, MyTripsActivity.this, this);
         recyclerView.setAdapter(adapter);
-
         ItemTouchHelper.Callback callback = new ItemTouchHelper.Callback() {
             @Override
             public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
@@ -49,7 +46,6 @@ public class MyTripsActivity extends AppCompatActivity implements MyAdapter.OnSt
 
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                // Swap the items in the list
                 int fromPosition = viewHolder.getAdapterPosition();
                 int toPosition = target.getAdapterPosition();
                 beacModels.get(fromPosition).id_copy = toPosition;
@@ -60,14 +56,12 @@ public class MyTripsActivity extends AppCompatActivity implements MyAdapter.OnSt
                 adapter.notifyItemChanged(toPosition);
                 databaseHelper.updateBeacModel(beacModels.get(fromPosition)); // Implement this method in your DatabaseHelper class
                 databaseHelper.updateBeacModel(beacModels.get(toPosition)); // Implement this method in your DatabaseHelper class
-
-
                 return true;
             }
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                // No action needed
+
             }
 
             @Override

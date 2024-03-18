@@ -14,12 +14,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.moutimid.sqlapp.MainActivity;
 import com.moutimid.sqlapp.R;
 import com.moutimid.sqlapp.activities.DashboardActivity;
 import com.moutimid.sqlapp.activities.Organizer.Fragment.CalenderFragment;
 import com.moutimid.sqlapp.activities.Organizer.Fragment.DocumentFragment;
-import com.moutimid.sqlapp.activities.Organizer.Fragment.HomeFragment;
 
 public class MyDocsActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -38,7 +36,7 @@ public class MyDocsActivity extends AppCompatActivity {
                 int menuItemId = item.getItemId();
 
                 if (menuItemId == R.id.home) {
-                    replaceFragment(new HomeFragment());
+                    startActivity(new Intent(MyDocsActivity.this, DashboardActivity.class));
                     return true;
                 } else if (menuItemId == R.id.doc) {
                     replaceFragment(new DocumentFragment());
@@ -61,7 +59,6 @@ public class MyDocsActivity extends AppCompatActivity {
         PopupMenu popupMenu = new PopupMenu(this, view);
         popupMenu.getMenuInflater().inflate(R.menu.menu, popupMenu.getMenu());
 
-        // Optional: Set a listener to respond to menu item clicks
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {

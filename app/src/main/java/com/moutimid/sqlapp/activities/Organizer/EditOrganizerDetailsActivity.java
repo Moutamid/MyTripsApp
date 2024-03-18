@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,9 +44,9 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
             issued_by, issued_date, expire_date, note;
     TextView upload;
     ImageView close;
-    TextView save_btn, document_title_ok, number_on_document_ok, country_document_ok, issued_by_ok, date_ok;
+    TextView save_btn, document_title_ok, number_on_document_ok, country_document_ok, issued_by_ok, date_ok, month_ok;
     RelativeLayout upload_layout;
-    LinearLayout documentTypeLayout, document_title_lyt, number_on_document_lyt, country_document_lyt, date_lyt, issued_by_lyt;
+    LinearLayout documentTypeLayout, document_title_lyt, number_on_document_lyt, country_document_lyt, date_lyt, issued_by_lyt, month_lyt;
     private static final int PICK_IMAGES_REQUEST = 1;
     EditedText position;
     private List<ImageData> imagesForEditedText;
@@ -71,6 +72,8 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         country_document_ok = findViewById(R.id.country_document_ok);
         issued_by_ok = findViewById(R.id.issued_by_ok);
         date_ok = findViewById(R.id.date_ok);
+        month_lyt = findViewById(R.id.month_lyt);
+        month_ok = findViewById(R.id.month_ok);
 
         issued_by_lyt = findViewById(R.id.issued_by_lyt);
         date_lyt = findViewById(R.id.date_lyt);
@@ -154,17 +157,44 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
                 if (document_title.getText().toString().isEmpty()) {
                     document_title_lyt.setVisibility(View.VISIBLE);
                 }
-               else if (document_number.getText().toString().isEmpty()) {
-                    number_on_document_lyt.setVisibility(View.VISIBLE);
-                }
-                else if (country_document.getText().toString().isEmpty()) {
-                    country_document_lyt.setVisibility(View.VISIBLE);
-                }
-              else  if (issued_by.getText().toString().isEmpty()) {
-                    issued_by_lyt.setVisibility(View.VISIBLE);
-                }
-                else  if (expire_date.getText().toString().isEmpty() || issued_date.getText().toString().isEmpty()) {
-                    date_lyt.setVisibility(View.VISIBLE);
+//               else if (document_number.getText().toString().isEmpty()) {
+//                    number_on_document_lyt.setVisibility(View.VISIBLE);
+//                }
+//                else if (country_document.getText().toString().isEmpty()) {
+//                    country_document_lyt.setVisibility(View.VISIBLE);
+//                }
+//              else  if (issued_by.getText().toString().isEmpty()) {
+//                    issued_by_lyt.setVisibility(View.VISIBLE);
+//                }
+//                else  if (expire_date.getText().toString().isEmpty() || issued_date.getText().toString().isEmpty()) {
+//                    date_lyt.setVisibility(View.VISIBLE);
+//                }
+                else if (!TextUtils.isEmpty(issued_date.getText().toString())) {
+                    String input = issued_date.getText().toString().toString();
+                    String[] parts = input.split("-");
+                    if (parts.length >= 2) {
+                        int month = Integer.parseInt(parts[0]);
+                        int day = Integer.parseInt(parts[1]);
+                        if (month > 12) {
+                            month_lyt.setVisibility(View.VISIBLE);
+                            return;
+                        } else if (day > 31) {
+                            date_lyt.setVisibility(View.VISIBLE);
+                        }
+                    }
+                } else if (!TextUtils.isEmpty(expire_date.getText().toString())) {
+                    String input = expire_date.getText().toString().toString();
+                    String[] parts = input.split("-");
+                    if (parts.length >= 2) {
+                        int month = Integer.parseInt(parts[0]);
+                        int day = Integer.parseInt(parts[1]);
+                        if (month > 12) {
+                            month_lyt.setVisibility(View.VISIBLE);
+                            return;
+                        } else if (day > 31) {
+                            date_lyt.setVisibility(View.VISIBLE);
+                        }
+                    }
                 }
                 else
                 {

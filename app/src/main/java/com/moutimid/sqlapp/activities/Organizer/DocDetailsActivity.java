@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -47,12 +48,28 @@ public class DocDetailsActivity extends AppCompatActivity {
     private TextView country;
     private TextView note;
     int position;
+    TextView attachment;
+    RelativeLayout send, edit, trash;
+
+    LinearLayout number_layout, issue_layout, expiry_layout, issued_by_layout, country_layout, more_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_details);
         titleBar = findViewById(R.id.title_bar);
+        send = findViewById(R.id.send);
+        edit = findViewById(R.id.edit);
+        trash = findViewById(R.id.trash);
+        more_layout = findViewById(R.id.more_layout);
+
+        attachment = findViewById(R.id.attachment);
+        number_layout = findViewById(R.id.number_layout);
+        issue_layout = findViewById(R.id.issue_layout);
+        expiry_layout = findViewById(R.id.expiry_layout);
+        issued_by_layout = findViewById(R.id.issued_by_layout);
+        country_layout = findViewById(R.id.country_layout);
+
         icon = findViewById(R.id.icon);
         title = findViewById(R.id.title);
         menu = findViewById(R.id.menu);
@@ -95,7 +112,25 @@ public class DocDetailsActivity extends AppCompatActivity {
         List<ImageData> imageData = databaseHelper.getImagesForEditedText(editedTexts.get(position).getId());
         ViewImageAdapter imageAdapter = new ViewImageAdapter(DocDetailsActivity.this, imageData);
         recyclerViewimages.setAdapter(imageAdapter);
+        if (filesForEditedText.size() < 1 && imageData.size() < 1) {
+            attachment.setVisibility(View.GONE);
+        }
 //
+        if (countryDocument_str.length() < 1) {
+            country_layout.setVisibility(View.GONE);
+        }
+        if (documentNumber_str.length() < 1) {
+            country_layout.setVisibility(View.GONE);
+        }
+        if (expireDate_str.length() < 1) {
+            country_layout.setVisibility(View.GONE);
+        }
+        if (issuedDate_str.length() < 1) {
+            country_layout.setVisibility(View.GONE);
+        }
+        if (issuedBy_str.length() < 1) {
+            country_layout.setVisibility(View.GONE);
+        }
         type.setText(documentType_str);
         title.setText(documentTitle_str);
         country.setText(countryDocument_str);
@@ -112,6 +147,30 @@ public class DocDetailsActivity extends AppCompatActivity {
         Stash.put("issuedDate", issuedDate_str);
         Stash.put("note", note_str);
         Stash.put("documentType", documentType_str);
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CustomDialogFragment dialogFragment = new CustomDialogFragment();
+                dialogFragment.show(getSupportFragmentManager(), "CustomDialogFragment");
+                Stash.put("position", position);
+            }
+        });
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DocDetailsActivity.this, EditOrganizerDetailsActivity.class);
+                intent.putExtra("position", position);
+                startActivity(intent);
+            }
+        });
+        trash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                List<EditedText> editedTexts = readAllEditedText();
+                databaseHelper.deleteEditedText(editedTexts.get(position).getId());
+                finish();
+            }
+        });
     }
     public List<EditedText> readAllEditedText() {
         List<EditedText> editedTextList = new ArrayList<>();
@@ -162,59 +221,16 @@ public class DocDetailsActivity extends AppCompatActivity {
     }
 
     public void showPopupMenu(View v) {
-        PopupMenu popup = new PopupMenu(this, v);
-        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                // Handle menu item clicks
-                int itemId = item.getItemId();
-                if (itemId == R.id.menu_item1) {
-                    // Show the dialog
-                    CustomDialogFragment dialogFragment = new CustomDialogFragment();
-                    dialogFragment.show(getSupportFragmentManager(), "CustomDialogFragment");
-Stash.put("position", position);
+        if(more_layout.getVisibility()==View.VISIBLE)
+        {
+            more_layout.setVisibility(View.GONE);
 
-                    return true;
-                } else if (itemId == R.id.menu_item2) {
-                    Intent intent = new Intent(DocDetailsActivity.this, EditOrganizerDetailsActivity.class);
-                    intent.putExtra("position", position);
-                    startActivity(intent);
-                    return true;
-                } else if (itemId == R.id.menu_item3) {// Handle item 2 click
-                    List<EditedText> editedTexts = readAllEditedText();
-                    databaseHelper.deleteEditedText(editedTexts.get(position).getId());
-                    finish();
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        // Inflate the custom layout for menu items
-        MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.more, popup.getMenu());
-
-        // Loop through each item and set custom view
-        for (int i = 0; i < popup.getMenu().size(); i++) {
-            MenuItem item = popup.getMenu().getItem(i);
-            View view = LayoutInflater.from(this).inflate(R.layout.custom_menu_item, null);
-            TextView textView = view.findViewById(R.id.item_text);
-            ImageView imageView = view.findViewById(R.id.item_icon);
-
-            textView.setText(item.getTitle());
-            if (i == 0) {
-                imageView.setImageResource(R.drawable.trash);
-            }
-            if (i == 1) {
-                imageView.setImageResource(R.drawable.trash);
-            }
-            if (i == 2) {
-                imageView.setImageResource(R.drawable.trash);
-            }
-            item.setActionView(view);
         }
+        else
+        {
+            more_layout.setVisibility(View.VISIBLE);
 
-        popup.show();
+        }
     }
 
     public void menu(View view) {
@@ -238,7 +254,26 @@ Stash.put("position", position);
     @Override
     protected void onResume() {
         super.onResume();
+        titleBar = findViewById(R.id.title_bar);
 
+        attachment = findViewById(R.id.attachment);
+        number_layout = findViewById(R.id.number_layout);
+        issue_layout = findViewById(R.id.issue_layout);
+        expiry_layout = findViewById(R.id.expiry_layout);
+        issued_by_layout = findViewById(R.id.issued_by_layout);
+        country_layout = findViewById(R.id.country_layout);
+
+        icon = findViewById(R.id.icon);
+        title = findViewById(R.id.title);
+        menu = findViewById(R.id.menu);
+        more = findViewById(R.id.more);
+        type = findViewById(R.id.type);
+        number = findViewById(R.id.number);
+        issuesDate = findViewById(R.id.issues_date);
+        expireDate = findViewById(R.id.expire_date);
+        issuedBy = findViewById(R.id.issued_by);
+        country = findViewById(R.id.country);
+        note = findViewById(R.id.note);
         databaseHelper = new DatabaseHelper(DocDetailsActivity.this);
 
         position = getIntent().getIntExtra("position", 0);
@@ -270,7 +305,25 @@ Stash.put("position", position);
         List<ImageData> imageData = databaseHelper.getImagesForEditedText(editedTexts.get(position).getId());
         ViewImageAdapter imageAdapter = new ViewImageAdapter(DocDetailsActivity.this, imageData);
         recyclerViewimages.setAdapter(imageAdapter);
+        if (filesForEditedText.size() < 1 || imageData.size() < 1) {
+            attachment.setVisibility(View.GONE);
+        }
 //
+        if (countryDocument_str.length() < 1) {
+            country_layout.setVisibility(View.GONE);
+        }
+        if (documentNumber_str.length() < 1) {
+            number_layout.setVisibility(View.GONE);
+        }
+        if (expireDate_str.length() < 1) {
+            expiry_layout.setVisibility(View.GONE);
+        }
+        if (issuedDate_str.length() < 1) {
+            issue_layout.setVisibility(View.GONE);
+        }
+        if (issuedBy_str.length() < 1) {
+            issued_by_layout.setVisibility(View.GONE);
+        }
         type.setText(documentType_str);
         title.setText(documentTitle_str);
         country.setText(countryDocument_str);
