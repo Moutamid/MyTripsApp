@@ -5,12 +5,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.util.Log;
 
 import com.moutimid.sqlapp.activities.Organizer.Model.EditedText;
 import com.moutimid.sqlapp.activities.Organizer.Model.FileData;
 import com.moutimid.sqlapp.activities.Organizer.Model.ImageData;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -157,13 +161,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Retrieve files associated with edited text from the database
+    // Retrieve files associated with edited text from the database
+// Retrieve files associated with edited text from the database
     public List<FileData> getFilesForEditedText(long editedTextId) {
         List<FileData> files = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] projection = {DatabaseContract.FileEntry._ID,
+        String[] projection = {
+                DatabaseContract.FileEntry._ID,
                 DatabaseContract.FileEntry.COLUMN_NAME_FILE_NAME,
                 DatabaseContract.FileEntry.COLUMN_NAME_FILE_PATH,
-                DatabaseContract.FileEntry.COLUMN_NAME_FILE_SIZE};
+                DatabaseContract.FileEntry.COLUMN_NAME_FILE_SIZE,
+                DatabaseContract.FileEntry.COLUMN_NAME_FILE_DATA
+        };
         String selection = DatabaseContract.FileEntry.COLUMN_NAME_EDITED_TEXT_ID + " = ?";
         String[] selectionArgs = {String.valueOf(editedTextId)};
         Cursor cursor = db.query(
@@ -179,9 +188,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (cursor.moveToNext()) {
                 long fileId = cursor.getLong(cursor.getColumnIndex(DatabaseContract.FileEntry._ID));
                 String fileName = cursor.getString(cursor.getColumnIndex(DatabaseContract.FileEntry.COLUMN_NAME_FILE_NAME));
-                String filepath = cursor.getString(cursor.getColumnIndex(DatabaseContract.FileEntry.COLUMN_NAME_FILE_PATH));
+                String filePath = cursor.getString(cursor.getColumnIndex(DatabaseContract.FileEntry.COLUMN_NAME_FILE_PATH));
                 long fileSize = cursor.getLong(cursor.getColumnIndex(DatabaseContract.FileEntry.COLUMN_NAME_FILE_SIZE));
-                files.add(new FileData(fileId, fileName, fileSize, filepath));
+                // Read file data as byte array
+                byte[] fileData = cursor.getBlob(cursor.getColumnIndex(DatabaseContract.FileEntry.COLUMN_NAME_FILE_DATA));
+                Log.d("buty", fileData+ "bitmap");
+                // Convert byte array to Bitmap if needed
+                Bitmap bitmap = BitmapFactory.decodeByteArray(fileData, 0, fileData.length);
+            Log.d("buty", bitmap+ "bitmap");
+                files.add(new FileData(fileId, fileName, fileSize, Uri.parse(filePath), bitmap));
             }
             cursor.close();
         }
@@ -200,13 +215,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Insert file data for edited text
-    public long insertFileForEditedText(long editedTextId, String fileName, long fileSize, String filePath) {
+    public long insertFileForEditedText(long editedTextId, Bitmap bitmap, String fileName, long fileSize, String filePath) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DatabaseContract.FileEntry.COLUMN_NAME_FILE_NAME, fileName);
         values.put(DatabaseContract.FileEntry.COLUMN_NAME_FILE_SIZE, fileSize);
         values.put(DatabaseContract.FileEntry.COLUMN_NAME_FILE_PATH, filePath); // Add file path to database
         values.put(DatabaseContract.FileEntry.COLUMN_NAME_EDITED_TEXT_ID, editedTextId);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        values.put(DatabaseContract.FileEntry.COLUMN_NAME_FILE_DATA, byteArray); // Add image data to database
+        Log.d("daaaaaaa", "  "+values);
+
         return db.insert(DatabaseContract.FileEntry.TABLE_NAME, null, values);
     }
 

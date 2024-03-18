@@ -1,13 +1,13 @@
 package com.moutimid.sqlapp.activities.Organizer.Adapter;
+
 import android.content.Context;
 import android.content.Intent;
-import android.text.format.Formatter;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.moutimid.sqlapp.R;
 import com.moutimid.sqlapp.activities.Organizer.Model.FileData;
-import com.moutimid.sqlapp.activities.Organizer.PdfViewerActivity;
 
 import java.util.List;
 
@@ -38,19 +37,31 @@ Context context;
     @Override
     public void onBindViewHolder(@NonNull FileViewHolder holder, int position) {
         FileData fileData = fileList.get(position);
-        holder.imageView.setImageResource(R.drawable.file);
-        if(fileData.getFileName().contains("pdf"))
-        {
-            holder.imageView.setImageResource(R.drawable.pdf);
-        }
-        if(fileData.getFileName().contains("doc"))
-        {
-            holder.imageView.setImageResource(R.drawable.doc);
-        }
-        Log.d("path", fileData.getFilepath()+" //// "+ fileData.getFileUri());
+//        holder.imageView.setImageResource(R.drawable.file);
+//        if(fileData.getFileName().contains("pdf"))
+//        {
+//            holder.imageView.setImageResource(R.drawable.pdf);
+//        }
+//        if(fileData.getFileName().contains("doc"))
+//        {
+//            holder.imageView.setImageResource(R.drawable.doc);
+//        }
+//        Log.d("testtt", fileData.getFileUri() + " after save");
+//        Bitmap bitmap = generateImageFromPdf((fileData.getFileUri()));
+        holder.imageView.setImageBitmap(fileData.getBitmap());
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                String contentUri = "content://com.android.providers.media.documents/document/document%3A1000029289";
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setDataAndType(Uri.parse(contentUri), "application/pdf");
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                if (intent.resolveActivity(context.getPackageManager()) != null) {
+//                    context.startActivity(intent);
+//                } else {
+//                    Toast.makeText(context, "No PDF viewer app installed", Toast.LENGTH_SHORT).show();
+//                }
+
 //                Intent intent=new Intent(context, PdfViewerActivity.class);
 //                intent.putExtra("uri", fileData.getFileUri());
 //            context.startActivity(intent);
@@ -64,9 +75,10 @@ Context context;
     }
 
     public static class FileViewHolder extends RecyclerView.ViewHolder {
-//        TextView fileNameTextView, fileSizeTextView;
+        //        TextView fileNameTextView, fileSizeTextView;
 //        ImageView delete;
         ImageView imageView;
+
         public FileViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
@@ -75,4 +87,5 @@ Context context;
 //            delete = itemView.findViewById(R.id.delete);
         }
     }
+
 }

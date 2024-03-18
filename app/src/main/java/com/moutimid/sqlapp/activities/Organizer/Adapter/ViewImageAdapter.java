@@ -3,6 +3,7 @@ package com.moutimid.sqlapp.activities.Organizer.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.text.format.Formatter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,7 @@ public class ViewImageAdapter extends RecyclerView.Adapter<ViewImageAdapter.Imag
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
         ImageData imageData = imageList.get(position);
         holder.imageNameTextView.setText(imageData.getImageName());
-
+        Log.d("uri", imageData.getImageUri() +"    uri");
         holder.imageSizeTextView.setText(Formatter.formatFileSize(holder.imageView.getContext(), imageData.getImageSize()));
         Glide.with(holder.itemView.getContext())
                 .load(imageData.getImageUri())

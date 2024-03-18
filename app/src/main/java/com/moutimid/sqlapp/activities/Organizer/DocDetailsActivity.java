@@ -293,7 +293,6 @@ public class DocDetailsActivity extends AppCompatActivity {
             note.setVisibility(View.GONE);
         }
 
-//        Log.d("data", editedTexts.get(position).getImages().get(0).getImageName()+ "files");
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         List<FileData> filesForEditedText = databaseHelper.getFilesForEditedText(editedTexts.get(position).getId());
@@ -305,7 +304,7 @@ public class DocDetailsActivity extends AppCompatActivity {
         List<ImageData> imageData = databaseHelper.getImagesForEditedText(editedTexts.get(position).getId());
         ViewImageAdapter imageAdapter = new ViewImageAdapter(DocDetailsActivity.this, imageData);
         recyclerViewimages.setAdapter(imageAdapter);
-        if (filesForEditedText.size() < 1 || imageData.size() < 1) {
+        if (filesForEditedText.size() < 1 && imageData.size() < 1) {
             attachment.setVisibility(View.GONE);
         }
 //
@@ -340,6 +339,7 @@ public class DocDetailsActivity extends AppCompatActivity {
         Stash.put("issuedDate", issuedDate_str);
         Stash.put("note", note_str);
         Stash.put("documentType", documentType_str);
+        more_layout.setVisibility(View.GONE);
     }
 
     public void BackPress(View view) {

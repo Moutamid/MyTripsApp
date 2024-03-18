@@ -34,6 +34,7 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.FileViewHolder
         FileData fileData = fileList.get(position);
         holder.fileNameTextView.setText(fileData.getFileName());
         holder.fileSizeTextView.setText(Formatter.formatFileSize(holder.itemView.getContext(), fileData.getFileSize()));
+        holder.imageView.setImageBitmap(fileData.getBitmap());
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,12 +52,14 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.FileViewHolder
 
     public static class FileViewHolder extends RecyclerView.ViewHolder {
         TextView fileNameTextView, fileSizeTextView;
-        ImageView delete;
+        ImageView delete, imageView;
+
         public FileViewHolder(@NonNull View itemView) {
             super(itemView);
             fileNameTextView = itemView.findViewById(R.id.fileNameTextView);
             fileSizeTextView = itemView.findViewById(R.id.fileSizeTextView);
             delete = itemView.findViewById(R.id.delete);
+            imageView = itemView.findViewById(R.id.imageView);
         }
     }
 }

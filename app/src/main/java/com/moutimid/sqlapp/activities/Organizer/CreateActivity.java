@@ -43,8 +43,8 @@ import com.moutimid.sqlapp.activities.Organizer.Adapter.ImageAdapter;
 import com.moutimid.sqlapp.activities.Organizer.Model.FileData;
 import com.moutimid.sqlapp.activities.Organizer.Model.ImageData;
 import com.moutimid.sqlapp.activities.Organizer.helper.DatabaseHelper;
-//import com.shockwave.pdfium.PdfDocument;
-//import com.shockwave.pdfium.PdfiumCore;
+import com.shockwave.pdfium.PdfDocument;
+import com.shockwave.pdfium.PdfiumCore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -172,60 +172,14 @@ public class CreateActivity extends AppCompatActivity {
 
                 if (document_title.getText().toString().isEmpty()) {
                     document_title_lyt.setVisibility(View.VISIBLE);
-                } else if (!TextUtils.isEmpty(issued_date.getText().toString())) {
-                    String input = issued_date.getText().toString().toString();
-                    String[] parts = input.split("-");
-                    if (parts.length >= 2) {
-                        int month = Integer.parseInt(parts[0]);
-                        int day = Integer.parseInt(parts[1]);
-                        if (month > 12) {
-                            issued_date.setSelection(1);
-
-                            month_lyt.setVisibility(View.VISIBLE);
-                            return;
-                        } else if (day > 31) {
-                            issued_date.setSelection(4);
-
-                            date_lyt.setVisibility(View.VISIBLE);
-                        }
-                    }
-                } else if (!TextUtils.isEmpty(expire_date.getText().toString())) {
-                    String input = expire_date.getText().toString().toString();
-                    String[] parts = input.split("-");
-                    if (parts.length >= 2) {
-                        int month = Integer.parseInt(parts[0]);
-                        int day = Integer.parseInt(parts[1]);
-                        if (month > 12) {
-                            expire_date.setFocusable(true);
-                            month_lyt.setVisibility(View.VISIBLE);
-                            return;
-                        } else if (day > 31) {
-                            expire_date.setFocusable(true);
-
-                            date_lyt.setVisibility(View.VISIBLE);
-                        }
-                    }
-                }
-
-//               else if (document_number.getText().toString().isEmpty()) {
-//                    number_on_document_lyt.setVisibility(View.VISIBLE);
-//                }
-//                else if (country_document.getText().toString().isEmpty()) {
-//                    country_document_lyt.setVisibility(View.VISIBLE);
-//                }
-//              else  if (issued_by.getText().toString().isEmpty()) {
-//                    issued_by_lyt.setVisibility(View.VISIBLE);
-//                }
-//                else  if (expire_date.getText().toString().isEmpty() || issued_date.getText().toString().isEmpty()) {
-//                    date_lyt.setVisibility(View.VISIBLE);
-//                }
-//                else  if (expire_date.getText().toString().length()<10 || issued_date.getText().toString().length()<10) {
-//                    Toast.makeText(CreateActivity.this, "Please write proper dates with format", Toast.LENGTH_SHORT).show();                }
-                else {
-                    saveData();
+                } else if (!isValidDate(issued_date.getText().toString())) {
+                } else if (!isValidDate(expire_date.getText().toString())) {
+                } else {
+                    saveData(); // Call your saveData() function if all validations pass
                 }
             }
         });
+
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -294,7 +248,7 @@ public class CreateActivity extends AppCompatActivity {
             }
 
             for (FileData fileData : selectedFiles) {
-                dbHelper.insertFileForEditedText(editedTextId, fileData.getFileName(), fileData.getFileSize(), fileData.getFilepath()); // Pass file path here
+                dbHelper.insertFileForEditedText(editedTextId, fileData.getBitmap(), fileData.getFileName(), fileData.getFileSize(), String.valueOf(fileData.getFileUri())); // Pass file path here
             }
             Toast.makeText(this, "Save Successfully", Toast.LENGTH_SHORT).show();
             finish();
@@ -319,10 +273,10 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void openFileManager(View view) {
-        Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
-        chooseFile.setType("*/*");
-        chooseFile = Intent.createChooser(chooseFile, "Choose a file");
-        startActivityForResult(chooseFile, PICK_FILES_REQUEST);  }
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.setType("application/pdf");
+        startActivityForResult(intent, PICK_FILES_REQUEST);
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -355,34 +309,17 @@ public class CreateActivity extends AppCompatActivity {
         }
         else if (requestCode == PICK_FILES_REQUEST && resultCode == RESULT_OK) {
             upload_layout.setVisibility(View.GONE);
-            if (data != null) {
-                if (data.getClipData() != null) {
-                    int count = data.getClipData().getItemCount();
-                    for (int i = 0; i < count; i++) {
-                        Uri fileUri = data.getClipData().getItemAt(i).getUri();
-                        String fileName = getFileName(fileUri);
-                        long fileSize = getFileSize(fileUri);
-                        selectedFiles.add(new FileData(fileUri, fileName, fileSize));
-                    }
-                } else if (data.getData() != null) {
+         if (data.getData() != null) {
                     Uri fileUri = data.getData();
                     String fileName = getFileName(fileUri);
                     long fileSize = getFileSize(fileUri);
-                    String src = fileUri.getPath();
-//                    Bitmap bitmap = generateImageFromPdf(fileUri);
-//                    data_image.setImageBitmap(bitmap);
-                    try {
-                        Log.d("path", src);
+                    Bitmap bitmap = generateImageFromPdf(fileUri);
+             Log.d("uri", fileUri+ " before save");
 
-                    } catch (Exception e) {
-                        Log.d("path", e.toString());
-
-                    }
-
-                    selectedFiles.add(new FileData(fileUri, fileName, fileSize, "filePath"));
+             selectedFiles.add(new FileData( fileName, fileSize, fileUri, bitmap));
                 }
                 fileAdapter.notifyDataSetChanged();
-            }
+
         }
     }
     private String getImageName(Uri imageUri) {
@@ -613,27 +550,46 @@ public void date_format(EditText issued_date, EditText format)
     });
 }
 
-//    public Bitmap generateImageFromPdf(Uri pdfUri) {
-//        int pageNumber = 0;
-////        PdfiumCore pdfiumCore = new PdfiumCore(this);
-//        try {
-//            //http://www.programcreek.com/java-api-examples/index.php?api=android.os.ParcelFileDescriptor
-//            ParcelFileDescriptor fd = getContentResolver().openFileDescriptor(pdfUri, "r");
-//            PdfDocument pdfDocument = pdfiumCore.newDocument(fd);
-//            pdfiumCore.openPage(pdfDocument, pageNumber);
-//            int width = pdfiumCore.getPageWidthPoint(pdfDocument, pageNumber);
-//            int height = pdfiumCore.getPageHeightPoint(pdfDocument, pageNumber);
-//            Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-//            pdfiumCore.renderPageBitmap(pdfDocument, bmp, pageNumber, 0, 0, width, height);
-////            saveImage(bmp);
-//            pdfiumCore.closeDocument(pdfDocument); // important!
-//            return bmp;
-//        } catch (Exception e) {
-//            //todo with exception
-//        }
-//        return null;
-//
-//    }
+    public Bitmap generateImageFromPdf(Uri pdfUri) {
+        int pageNumber = 0;
+        PdfiumCore pdfiumCore = new PdfiumCore(this);
+        try {
+            //http://www.programcreek.com/java-api-examples/index.php?api=android.os.ParcelFileDescriptor
+            ParcelFileDescriptor fd = getContentResolver().openFileDescriptor(pdfUri, "r");
+            PdfDocument pdfDocument = pdfiumCore.newDocument(fd);
+            pdfiumCore.openPage(pdfDocument, pageNumber);
+            int width = pdfiumCore.getPageWidthPoint(pdfDocument, pageNumber);
+            int height = pdfiumCore.getPageHeightPoint(pdfDocument, pageNumber);
+            Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+            pdfiumCore.renderPageBitmap(pdfDocument, bmp, pageNumber, 0, 0, width, height);
+//            saveImage(bmp);
+            pdfiumCore.closeDocument(pdfDocument); // important!
+            return bmp;
+        } catch (Exception e) {
+            //todo with exception
+        }
+        return null;
+
+    }
+    private boolean isValidDate(String inputDate) {
+        if (!TextUtils.isEmpty(inputDate)) {
+            String[] parts = inputDate.split("-");
+            if (parts.length >= 2) {
+                int month = Integer.parseInt(parts[0]);
+                int day = Integer.parseInt(parts[1]);
+
+                if (month > 12) {
+                    month_lyt.setVisibility(View.VISIBLE);
+                    return false; // Month is invalid
+                } else if (day > 31) {
+                    date_lyt.setVisibility(View.VISIBLE);
+                    return false; // Day is invalid
+                } else
+                    return true;
+            }
+        }
+        return true; // Date is valid or empty
+    }
 
 
 }

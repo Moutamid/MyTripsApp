@@ -1,16 +1,25 @@
 package com.moutimid.sqlapp.activities.Organizer;
 
+
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -35,36 +44,40 @@ import com.moutimid.sqlapp.activities.Organizer.Model.EditedText;
 import com.moutimid.sqlapp.activities.Organizer.Model.FileData;
 import com.moutimid.sqlapp.activities.Organizer.Model.ImageData;
 import com.moutimid.sqlapp.activities.Organizer.helper.DatabaseHelper;
+import com.shockwave.pdfium.PdfDocument;
+import com.shockwave.pdfium.PdfiumCore;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EditOrganizerDetailsActivity extends AppCompatActivity {
     EditText documentTypeEditText, document_title, document_number, country_document,
-            issued_by, issued_date, expire_date, note;
+            issued_by, issued_date, expire_date, note, format, format_expiry;
     TextView upload;
     ImageView close;
     TextView save_btn, document_title_ok, number_on_document_ok, country_document_ok, issued_by_ok, date_ok, month_ok;
     RelativeLayout upload_layout;
     LinearLayout documentTypeLayout, document_title_lyt, number_on_document_lyt, country_document_lyt, date_lyt, issued_by_lyt, month_lyt;
     private static final int PICK_IMAGES_REQUEST = 1;
-    EditedText position;
-    private List<ImageData> imagesForEditedText;
+    private List<ImageData> selectedImages;
     private RecyclerView recyclerView;
     private ImageAdapter adapter;
     private static final int PICK_FILES_REQUEST = 2;
-
     private List<FileData> selectedFiles;
     private RecyclerView file_recyclerView;
     private FileAdapter fileAdapter;
     private DatabaseHelper dbHelper;
-
+    ImageView data_image;
+    EditedText position;
+int position1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
         dbHelper = new DatabaseHelper(this);
 
+        format = findViewById(R.id.format);
+        data_image = findViewById(R.id.data_image);
+        format_expiry = findViewById(R.id.format_expiry);
         close = findViewById(R.id.close);
         save_btn = findViewById(R.id.save_btn);
         upload = findViewById(R.id.upload);
@@ -72,11 +85,11 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         country_document_ok = findViewById(R.id.country_document_ok);
         issued_by_ok = findViewById(R.id.issued_by_ok);
         date_ok = findViewById(R.id.date_ok);
-        month_lyt = findViewById(R.id.month_lyt);
-        month_ok = findViewById(R.id.month_ok);
 
         issued_by_lyt = findViewById(R.id.issued_by_lyt);
         date_lyt = findViewById(R.id.date_lyt);
+        month_lyt = findViewById(R.id.month_lyt);
+        month_ok = findViewById(R.id.month_ok);
         country_document_lyt = findViewById(R.id.country_document_lyt);
         number_on_document_ok = findViewById(R.id.number_on_document_ok);
 
@@ -90,12 +103,15 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         expire_date = findViewById(R.id.expire_date);
         document_title_ok = findViewById(R.id.document_title_ok);
         note = findViewById(R.id.note);
-
         documentTypeLayout = findViewById(R.id.document_type_lyt);
         document_title_lyt = findViewById(R.id.document_title_lyt);
-
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+        file_recyclerView = findViewById(R.id.recyclerViewfiles);
+        file_recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
+         position1 = getIntent().getIntExtra("position", 0);
         position = dbHelper.getAllEditedTexts().get(getIntent().getIntExtra("position", 0));
-        imagesForEditedText = dbHelper.getImagesForEditedText(position.getId());
+        selectedImages = dbHelper.getImagesForEditedText(position.getId());
         selectedFiles = dbHelper.getFilesForEditedText(position.getId());
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -104,7 +120,7 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         file_recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         fileAdapter = new FileAdapter(selectedFiles);
         file_recyclerView.setAdapter(fileAdapter);
-        adapter = new ImageAdapter(imagesForEditedText);
+        adapter = new ImageAdapter(selectedImages);
         recyclerView.setAdapter(adapter);
         for (int i = 0; i < documentTypeLayout.getChildCount(); i++) {
             View view = documentTypeLayout.getChildAt(i);
@@ -120,6 +136,8 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
                 });
             }
         }
+        date_format(issued_date, format);
+        date_format(expire_date, format_expiry);
         document_title_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -150,56 +168,23 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
                 date_lyt.setVisibility(View.GONE);
             }
         });
+        month_ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                month_lyt.setVisibility(View.GONE);
+            }
+        });
+
         save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 if (document_title.getText().toString().isEmpty()) {
                     document_title_lyt.setVisibility(View.VISIBLE);
-                }
-//               else if (document_number.getText().toString().isEmpty()) {
-//                    number_on_document_lyt.setVisibility(View.VISIBLE);
-//                }
-//                else if (country_document.getText().toString().isEmpty()) {
-//                    country_document_lyt.setVisibility(View.VISIBLE);
-//                }
-//              else  if (issued_by.getText().toString().isEmpty()) {
-//                    issued_by_lyt.setVisibility(View.VISIBLE);
-//                }
-//                else  if (expire_date.getText().toString().isEmpty() || issued_date.getText().toString().isEmpty()) {
-//                    date_lyt.setVisibility(View.VISIBLE);
-//                }
-                else if (!TextUtils.isEmpty(issued_date.getText().toString())) {
-                    String input = issued_date.getText().toString().toString();
-                    String[] parts = input.split("-");
-                    if (parts.length >= 2) {
-                        int month = Integer.parseInt(parts[0]);
-                        int day = Integer.parseInt(parts[1]);
-                        if (month > 12) {
-                            month_lyt.setVisibility(View.VISIBLE);
-                            return;
-                        } else if (day > 31) {
-                            date_lyt.setVisibility(View.VISIBLE);
-                        }
-                    }
-                } else if (!TextUtils.isEmpty(expire_date.getText().toString())) {
-                    String input = expire_date.getText().toString().toString();
-                    String[] parts = input.split("-");
-                    if (parts.length >= 2) {
-                        int month = Integer.parseInt(parts[0]);
-                        int day = Integer.parseInt(parts[1]);
-                        if (month > 12) {
-                            month_lyt.setVisibility(View.VISIBLE);
-                            return;
-                        } else if (day > 31) {
-                            date_lyt.setVisibility(View.VISIBLE);
-                        }
-                    }
-                }
-                else
-                {
-                    saveData();
-
+                } else if (!isValidDate(issued_date.getText().toString())) {
+                } else if (!isValidDate(expire_date.getText().toString())) {
+                } else {
+                    saveData(); // Call your saveData() function if all validations pass
                 }
             }
         });
@@ -230,6 +215,7 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         issued_date.setText(position.getIssuedDate());
         expire_date.setText(position.getExpireDate());
         note.setText(position.getNote());
+
         applyStylesToTextInputLayoutHint(documentTypeEditText, "Document type");
         applyStylesToTextInputLayoutHint(document_title, "Document title (required)");
         applyStylesToTextInputLayoutHint(document_number, "Number on document");
@@ -242,6 +228,7 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 upload_layout.setVisibility(View.VISIBLE);
+
             }
         });
     }
@@ -251,6 +238,7 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         SpannableString spannableString = new SpannableString(hint);
         spannableString.setSpan(new StyleSpan(android.graphics.Typeface.ITALIC), 0, hint.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         textInputLayout.setHint(spannableString);
+
     }
     public void saveData() {
         String docType = documentTypeEditText.getText().toString();
@@ -262,10 +250,10 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         String expireDate = expire_date.getText().toString();
         String noteText = note.getText().toString();
 
-        // Check if required fields are empty
-        if (docTitle.isEmpty() || docNumber.isEmpty() || countryDoc.isEmpty() || issuedBy.isEmpty() || issuedDate.isEmpty() || expireDate.isEmpty()) {
-            return;
-        }
+//        // Check if required fields are empty
+//        if (docTitle.isEmpty() || docNumber.isEmpty() || countryDoc.isEmpty() || issuedBy.isEmpty() || issuedDate.isEmpty() || expireDate.isEmpty()) {
+//            return;
+//        }
 
         // Save edited text data to the database
         long editedTextId = dbHelper.insertOrUpdateEditedText(docType, docTitle, docNumber, countryDoc, issuedBy, issuedDate, expireDate, noteText);
@@ -274,16 +262,14 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
 
             dbHelper.deleteImagesForEditedText(editedTextId);
             dbHelper.deleteFilesForEditedText(editedTextId);
-
             // Insert images associated with edited text
-            for (ImageData imageData : imagesForEditedText) {
+            for (ImageData imageData : selectedImages) {
                 dbHelper.insertImageForEditedText(editedTextId, imageData.getImageName(), imageData.getImageSize(), String.valueOf(imageData.getImageUri()));
             }
 
             for (FileData fileData : selectedFiles) {
-                dbHelper.insertFileForEditedText(editedTextId, fileData.getFileName(), fileData.getFileSize(), fileData.getFilepath());
+                dbHelper.insertFileForEditedText(editedTextId, fileData.getBitmap(), fileData.getFileName(), fileData.getFileSize(), String.valueOf(fileData.getFileUri())); // Pass file path here
             }
-
             Toast.makeText(this, "Save Successfully", Toast.LENGTH_SHORT).show();
             finish();
         } else {
@@ -305,11 +291,11 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         startActivityForResult(Intent.createChooser(intent, "Select Images"), PICK_IMAGES_REQUEST);
     }
+
     public void openFileManager(View view) {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("*/*");
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        startActivityForResult(Intent.createChooser(intent, "Select Files"), PICK_FILES_REQUEST);
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.setType("application/pdf");
+        startActivityForResult(intent, PICK_FILES_REQUEST);
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -317,6 +303,7 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         if (requestCode == PICK_IMAGES_REQUEST && resultCode == RESULT_OK) {
             upload_layout.setVisibility(View.GONE);
             if (data != null) {
+                Uri selectedImageUri = data.getData();
                 if (data.getClipData() != null) {
                     // Multiple images selected
                     int count = data.getClipData().getItemCount();
@@ -324,38 +311,34 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
                         Uri imageUri = data.getClipData().getItemAt(i).getUri();
                         String imageName = getImageName(imageUri);
                         long imageSize = getImageSize(imageUri);
-                        imagesForEditedText.add(new ImageData(imageUri, imageName, imageSize));
+                        selectedImages.add(new ImageData(imageUri, imageName, imageSize));
+
                     }
                 } else if (data.getData() != null) {
                     // Single image selected
+
                     Uri imageUri = data.getData();
+
                     String imageName = getImageName(imageUri);
                     long imageSize = getImageSize(imageUri);
-                    imagesForEditedText.add(new ImageData(imageUri, imageName, imageSize));
+                    selectedImages.add(new ImageData(imageUri, imageName, imageSize));
+
                 }
                 adapter.notifyDataSetChanged();
             }
         } else if (requestCode == PICK_FILES_REQUEST && resultCode == RESULT_OK) {
-            if (data != null) {
-                if (data.getClipData() != null) {
-                    // Multiple files selected
-                    int count = data.getClipData().getItemCount();
-                    for (int i = 0; i < count; i++) {
-                        Uri fileUri = data.getClipData().getItemAt(i).getUri();
-                        String fileName = getFileName(fileUri);
-                        long fileSize = getFileSize(fileUri);
-                        selectedFiles.add(new FileData(fileUri, fileName, fileSize));
-                    }
-                } else if (data.getData() != null) {
-                    // Single file selected
-                    Uri fileUri = data.getData();
-                    String fileName = getFileName(fileUri);
-                    long fileSize = getFileSize(fileUri);
-                    String filePath = fileUri.getPath(); // Get the absolute file path
-                    selectedFiles.add(new FileData(fileUri, fileName, fileSize, filePath));
-                }
-                fileAdapter.notifyDataSetChanged();
+            upload_layout.setVisibility(View.GONE);
+            if (data.getData() != null) {
+                Uri fileUri = data.getData();
+                String fileName = getFileName(fileUri);
+                long fileSize = getFileSize(fileUri);
+                Bitmap bitmap = generateImageFromPdf(fileUri);
+                Log.d("uri", fileUri + " before save");
+
+                selectedFiles.add(new FileData(fileName, fileSize, fileUri, bitmap));
             }
+            fileAdapter.notifyDataSetChanged();
+
         }
     }
     private String getImageName(Uri imageUri) {
@@ -425,4 +408,210 @@ public class EditOrganizerDetailsActivity extends AppCompatActivity {
         popupMenu.show();
     }
 
+    public String getRealPathFromURI(Uri contentUri) {
+        Cursor cursor = null;
+        try {
+            String[] proj = {MediaStore.Images.Media.DATA};
+            cursor = getContentResolver().query(contentUri, proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    public void date_format(EditText issued_date, EditText format) {
+        issued_date.setFilters(new InputFilter[]{new InputFilter.LengthFilter(10)});
+        issued_date.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) {
+                    format.setVisibility(View.VISIBLE);
+                } else {
+                    format.setVisibility(View.GONE);
+
+                }
+            }
+        });
+        issued_date.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() == 0) {
+                    String firstPart = s.toString();
+                    String secondPart = "MM-DD-YYYY";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                }
+                if (s.length() == 1) {
+                    String firstPart = s.toString();
+                    String secondPart = "M-DD-YYYY";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                }
+                if (s.length() == 2) {
+                    String firstPart = s.toString();
+                    String secondPart = "-DD-YYYY";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                }
+                if (s.length() == 3 && s.charAt(2) != '-') {
+                    issued_date.setText(new StringBuilder(s).insert(2, "-").toString());
+                    String firstPart = issued_date.getText().toString();
+                    String secondPart = "D-YYYY";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                    issued_date.setSelection(4);
+                }
+                if (s.length() == 3) {
+                    String firstPart = issued_date.getText().toString();
+                    String secondPart = "D-YYYY";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                }
+                if (s.length() == 4) {
+                    String firstPart = s.toString();
+                    String secondPart = "D-YYYY";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                }
+
+                if (s.length() == 5) {
+                    String firstPart = s.toString();
+                    String secondPart = "-YYYY";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                }
+                if (s.length() == 6 && s.charAt(5) != '-') {
+
+                    issued_date.setText(new StringBuilder(s).insert(5, "-").toString());
+                    String firstPart = issued_date.getText().toString();
+                    String secondPart = "YYY";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                    issued_date.setSelection(7);
+                }
+                if (s.length() == 6) {
+                    String firstPart = issued_date.getText().toString();
+                    String secondPart = "YYY";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                }
+                if (s.length() == 7) {
+                    String firstPart = s.toString();
+                    String secondPart = "YYY";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                }
+                if (s.length() == 8) {
+                    String firstPart = s.toString();
+                    String secondPart = "YY";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                }
+                if (s.length() == 9) {
+                    String firstPart = s.toString();
+                    String secondPart = "Y";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#808080")), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                }
+                if (s.length() == 10) {
+                    String firstPart = s.toString();
+                    String secondPart = "Y";
+                    SpannableString spannableString = new SpannableString(firstPart + secondPart);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), 0, firstPart.length(), 0);
+                    spannableString.setSpan(new ForegroundColorSpan(Color.WHITE), firstPart.length(), firstPart.length() + secondPart.length(), 0);
+                    format.setText(spannableString);
+                }
+
+
+            }
+
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
+    public Bitmap generateImageFromPdf(Uri pdfUri) {
+        int pageNumber = 0;
+        PdfiumCore pdfiumCore = new PdfiumCore(this);
+        try {
+            //http://www.programcreek.com/java-api-examples/index.php?api=android.os.ParcelFileDescriptor
+            ParcelFileDescriptor fd = getContentResolver().openFileDescriptor(pdfUri, "r");
+            PdfDocument pdfDocument = pdfiumCore.newDocument(fd);
+            pdfiumCore.openPage(pdfDocument, pageNumber);
+            int width = pdfiumCore.getPageWidthPoint(pdfDocument, pageNumber);
+            int height = pdfiumCore.getPageHeightPoint(pdfDocument, pageNumber);
+            Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+            pdfiumCore.renderPageBitmap(pdfDocument, bmp, pageNumber, 0, 0, width, height);
+//            saveImage(bmp);
+            pdfiumCore.closeDocument(pdfDocument); // important!
+            return bmp;
+        } catch (Exception e) {
+            //todo with exception
+        }
+        return null;
+
+    }
+
+    private boolean isValidDate(String inputDate) {
+        if (!TextUtils.isEmpty(inputDate)) {
+            String[] parts = inputDate.split("-");
+            if (parts.length >= 2) {
+                int month = Integer.parseInt(parts[0]);
+                int day = Integer.parseInt(parts[1]);
+
+                if (month > 12) {
+
+                    month_lyt.setVisibility(View.VISIBLE);
+                    return false; // Month is invalid
+                } else if (day > 31) {
+                    date_lyt.setVisibility(View.VISIBLE);
+                    return false; // Day is invalid
+                } else
+                    return true;
+            }
+        }
+        return true; // Date is valid or empty
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+;
+    }
 }

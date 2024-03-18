@@ -356,11 +356,11 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Send"
-                    android:textSize="10dp" />
+                    android:textSize="12dp" />
 
                 <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:layout_alignParentEnd="true"
                     android:src="@drawable/send" />
 
@@ -387,11 +387,11 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Edit"
-                    android:textSize="10dp" />
+                    android:textSize="12dp" />
 
                 <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:layout_alignParentEnd="true"
                     android:src="@drawable/edit" />
 
@@ -417,11 +417,11 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
                     android:text="Delete"
-                    android:textSize="10dp" />
+                    android:textSize="12dp" />
 
                 <ImageView
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:layout_alignParentEnd="true"
                     android:src="@drawable/trash" />
 
